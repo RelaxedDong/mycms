@@ -1,0 +1,253 @@
+.chat-title {
+    margin-bottom: 10px;
+    font-size: 14px;
+    font-weight: 700;
+    border-bottom: 1px solid #eeeeee;
+    padding-bottom: 20px;
+}
+
+.chat-list {
+    margin-top: 0;
+    margin-bottom: 10px;
+    width: 100%;
+    overflow: hidden;
+    min-height: 400px;
+}
+
+.chat-right{
+    margin-top: 5px;
+    float: right;
+}
+
+.chat-list li {
+    width: 100%;
+    padding-bottom: 20px;
+    float: left;
+    border-bottom: 1px solid #eeeeee;
+}
+
+.chat-list li a img {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    float: left;
+    border: 1px solid #eeeeee
+}
+
+.chat-user-info {
+    margin-left: 10px;
+    float: left;
+}
+
+.chat-name {
+    font-size: 15px;
+    font-weight: inherit;
+    margin-top: 5px;
+    color: #2f2f2f
+}
+
+.chat-msg {
+    margin-top: 7px;
+}
+
+.chat-msg a {
+    font-size: 12px;
+    color: #999;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.chat-right a {
+    color: #0f26a0;
+    font-weight: lighter;
+    margin-left: 5px;
+}
+
+/*聊天窗口*/
+
+.chat-top {
+    font-size: 14px;
+    color: #969696;
+    border-bottom: 1px solid #eeeeee;
+    padding-bottom: 20px;
+    width: 100%;
+    float: left;
+}
+
+.return-chat {
+    width: 35%;
+    color: #eeeeee;
+    float: left
+}
+
+.chat-to-user {
+    text-align: center;
+    float: left;
+    width: 40%
+}
+
+.chat-to-user a {
+    font-weight: lighter;
+    color: #a06f5f
+}
+
+
+.chat-list-l {
+    padding-top: 20px;
+    float: left;
+    width: 100%;
+    height: 200px;
+    min-height: 400px;
+    overflow-y: auto;
+}
+
+.chat-list-l li {
+    float: left;
+    width: 100%;
+}
+
+.chat-item {
+    float: left;
+    width: 100%
+}
+
+.chat-time {text-align: center;color: #6f24a0;font-weight: lighter;font-size: 14px}
+
+.riimg{width: 10%;height: 48px;border-radius: 50%;float: right;margin-top: 10px}
+.m {padding: 15px;color: #333;font-weight: lighter;font-size: 14px;}
+
+/*指示器*/
+.ri {
+    border: 2px solid #fff;
+    min-height: 50px;
+    border-radius: 10px;
+    background-color: #eee;
+    position: relative;
+    font-size: 12px;
+    min-width: 10%;
+    max-width: 70%;
+    margin-top: 10px;
+    float: right;
+    margin-right: 20px
+    /*作为定位参考点*/
+}
+
+.ri:after {
+    content: "";
+    border-style: solid;
+    border-color: transparent #fff transparent #fff;
+    border-width: 20px 0px 20px 20px;
+    position: absolute;
+    right: -20px;
+    top: 25px;
+    margin-top: -20px;
+    /*健壮性*/
+    height: 0px;
+    width: 0px;
+    overflow: hidden;
+}
+
+.ri:before {
+    content: "";
+    border-style: solid;
+    border-color: transparent #eee transparent #eee;
+    border-width: 20px 0px 20px 20px;
+    position: absolute;
+    top: 25px;
+    margin-top: -20px;
+    right: -18px;
+    /*健壮性*/
+    height: 0px;
+    width: 0px;
+    overflow: hidden;
+    z-index: 20;
+}
+
+.chat-user-info-box a {
+    margin-left: 10px;
+}
+
+.chat-title-box {
+    font-size: 15px;
+    color: #a06f5f;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eeeeee;
+}
+
+.chat-list-box {
+    margin-top: 0;
+    margin-bottom: 10px;
+    width: 100%;
+    overflow: hidden;
+    min-height: 400px;
+}
+
+.chat-list-box li {
+    width: 100%;
+    float: left;
+    border-bottom: 1px solid #eeeeee;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+.chat-list-box li a img {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    float: left;
+    border: 1px solid #eeeeee;
+}
+
+.chat-user-info {
+    margin-left: 10px;
+    float: left;
+}
+
+
+
+
+.le {
+    border: 2px solid #fff;
+    min-height: 50px;
+    border-radius: 10px;
+    background-color: #eee;
+    position: relative;
+    font-size: 12px;
+    min-width: 10%;
+    max-width: 70%;
+    margin-top: 10px;
+    float: left;
+    margin-left: 20px
+    /*作为定位参考点*/
+}
+.leimg{width: 10%;height: 48px;border-radius: 50%;float: left;margin-top: 10px}
+.le:after {
+    content: "";
+    border-style: solid;
+    border-color: transparent #fff transparent #fff;
+    border-width: 20px 20px 20px 0px;
+    position: absolute;
+    left: -20px;
+    top: 25px;
+    margin-top: -20px;
+    /*健壮性*/
+    height: 0px;
+    width: 0px;
+    overflow: hidden;
+}
+
+.le:before {
+    content: "";
+    border-style: solid;
+    border-color: transparent #eee transparent #eee;
+    border-width: 20px 20px 20px 0px;
+    position: absolute;
+    top: 25px;
+    margin-top: -20px;
+    left: -18px;
+    /*健壮性*/
+    height: 0px;
+    width: 0px;
+    overflow: hidden;
+    z-index: 20;
+}

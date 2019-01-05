@@ -1,0 +1,123 @@
+﻿{% extends "front/base.html" %}
+{% from "common/_macro.html" import static %}
+
+{% block title %}
+    我的关注
+{% endblock %}
+
+{% block head %}
+    <link rel="stylesheet" href="{{ static("front/css/u.css") }}">
+    <link rel="stylesheet" href="{{ static("front/css/index.css") }}">
+    <script>
+    window.onload=function(){
+    follow();
+}
+    </script>
+{% endblock %}
+
+
+{% block body %}
+    <div class="main_contener">
+        <div class="col-md-8">
+            <div class="author-box" id="top">
+                <div class="author-inf">
+                    <img src="{{ user.avatar }}">
+                    <div style="padding-left: 55px;margin-left: 55px;">
+                        <span style="font-size:20px;font-weight: bold"><a href="{{ url_for("front.u",user_id=user.id) }}">{{ user.nickname }}</a></span>
+                    </div>
+                    <ul class="counts">
+                        <li style="border-right: 1px solid darkgrey">
+                            <p>&nbsp;{{ fensi|length}}</p>
+                            <p class="gray">粉丝></p>
+                        </li>
+                        <li style="border-right: 1px solid darkgrey">
+                            <p class="num">{{ user.posts|length }}</p>
+                            <p class="word">帖子数</p>
+                        </li>
+                        <li style="border-right: 1px solid darkgrey">
+                            <p class="num">{{ user.points }}</p>
+                            <p class="word">积分</p>
+                        </li>
+                        <li style="border-right: 1px solid darkgrey">
+                            <p class="num">{{ user.groups|length }}</p>
+                            <p class="word">加入小组</p>
+                        </li>
+                    </ul>
+                    <a class="btn btn-hollow">
+                        <input class="hide">聊天
+                    </a>
+                    {% if g.front_user and g.front_user.id in wodefensi %}
+                       <a class="btn btn-hollow fow" data-user-id="{{ user.id }}" style="font-weight: lighter;background: #e1bca4">取消关注</a>
+                        {% else %}
+                        <a class="btn btn-hollow fow" data-user-id="{{ user.id }}" style="font-weight: lighter">+&nbsp;关注</a>
+                    {% endif %}
+                </div>
+            </div>
+                <div class="tab">
+                    <button class="tablinks" onclick="openCity(event, 'guanzhu')" id="dead">
+                        我的粉丝&nbsp;&nbsp;{{ fensi|length }}
+
+                    </button>
+                    <button class="tablinks" onclick="openCity(event, 'fensi')">
+                      关注用户&nbsp;&nbsp;{{ peoples|length }}
+                    </button>
+                </div>
+        <div class="tabcontent" id="guanzhu">
+            <div class="listcontener">
+                <div class="user-list">
+                    {% for foo in fensi %}
+                       <li>
+                        <a href="{{ url_for("front.u",user_id = foo.author.id) }}">
+                                <img src="{{ foo.author.avatar }}" alt="" class="avatar">
+                        </a>
+                        <div class="info">
+                            <a href="{{ url_for("front.u",user_id = foo.author.id) }}" class="fo-name">{{ foo.author.nickname }}</a>
+                        <div class="meta">
+                            <span>关注&nbsp;{{ foo.author.focuses|length }}</span>
+                            <span>粉丝 50</span>
+                            <span style="border: none">文章&nbsp;{{ foo.author.posts|length }}</span>
+                        </div>
+                            <div class="meta">
+                            写了&nbsp;{{ foo.author.charactors }}&nbsp;字，累计积分&nbsp;{{ foo.author.points }}
+                        </div>
+                        </div>
+                    </li>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <div class="tabcontent" id="fensi">
+            <div class="listcontener">
+                <div class="user-list">
+                    {% for people  in peoples %}
+                       <li>
+                        <a href="{{ url_for("front.u",user_id=people.id) }}">
+                                <img src="{{ people.avatar }}" alt="" class="avatar">
+                        </a>
+                        <div class="info">
+                            <a href="{{ url_for("front.u",user_id=people.id) }}" class="fo-name">{{ people.nickname }}</a>
+                        <div class="meta">
+                            <span>关注&nbsp;{{ people.focuses|length }}</span>
+                            <span>粉丝&nbsp;50</span>
+                            <span style="border: none">文章&nbsp;{{ people.posts|length }}</span>
+                        </div>
+                            <div class="meta">
+                            写了{{ people.charactors }}字，获得了 200 个喜欢
+                        </div>
+                        </div>
+                    </li>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+            <script src="{{ static("front/js/follow.js") }}"></script>
+        </div>
+
+        <div class="col-md-4">
+            <div class="u-title">邮箱</div>
+            <div class="u-discription-email">{{ user.email }}</div>
+            <div class="u-title">个性签名</div>
+            <div class="u-discription">{{ user.signature }}</div>
+        </div>
+    </div>
+{% endblock %}

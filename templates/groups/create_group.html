@@ -1,0 +1,55 @@
+{% extends "front/base.html" %}
+{% from "common/_macro.html" import static %}
+
+{% block head %}
+    <link rel="stylesheet" href="{{ static("group/css/index.css") }}">
+    <link rel="stylesheet" href="{{ static("front/css/setting.css") }}">
+    <script src="{{ static("front/js/setting.js") }}"></script>
+    <script src="{{ static("group/js/add_group.js") }}"></script>
+{% endblock %}
+
+{% block body %}
+    <div class="main_contener">
+        <div class="col-md-8">
+            <table>
+                <thead>
+                    <th>选择网络图片或者本地图片做头像</th>
+                </thead>
+                <tbody>
+                <tr>
+                    <td class="td-span">组头像</td>
+                    <td class="ri-td">
+                        <input type="text" class="layui-input" name="group-img" placeholder="请输入图片url">
+                    </td>
+                </tr>
+                 <tr>
+                    <td class="td-span">默认组头像</td>
+                    <td class="ri-td">
+                        <a class="btn btn-hollow">
+                            <input class="hide" data-type="change_group" type="file" accept="image/gif,image/jpg,image/jpeg,image/bmp,image/png" id="avater">插入图片
+                        </a>
+                        <img src="https://donghaocms.oss-cn-beijing.aliyuncs.com/20180915183301timg.jpg" id="my_avatar" alt="">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td-span">组名</td>
+                    <td class="ri-td"><input type="text" class="layui-input" name="group-name"></td>
+                </tr>
+                <tr>
+                    <td class="td-span">简介</td>
+                    <td class="ri-td">
+                        <textarea  class="layui-textarea" id="group-desc" placeholder="请输入个人简介"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td-span">
+                        <button class="circular ui green button" id="group-create">保存</button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-4">
+        </div>
+    </div>
+{% endblock %}

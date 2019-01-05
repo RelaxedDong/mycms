@@ -1,0 +1,131 @@
+{% extends "front/base.html" %}
+{% from "common/_macro.html" import static %}
+
+{% block head %}
+    <link rel='stylesheet' href='{{ static("album/css/style.css") }}' media='screen'/>
+    <link rel="stylesheet" href="{{ static("album/css/album.css") }}">
+    <!--[if lt IE 9]>
+<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+    <script src="{{ static("album/js/blocksit.min.js") }}"></script>
+    <script>
+        $(document).ready(function () {
+            //blocksit define
+            $(window).load(function () {
+                $('#container').BlocksIt({
+                    numOfCol: 3,
+                    offsetX: 8,
+                    offsetY: 8,
+                    blockElement: '.grid'
+                });
+            });
+            //window resize
+            var currentWidth = 1100;
+            $(window).resize(function () {
+                var winWidth = $(window).width();
+                var conWidth;
+                if (winWidth < 660) {
+                    conWidth = 440;
+                    col = 2
+                } else if (winWidth < 880) {
+                    conWidth = 660;
+                    col = 3
+                } else if (winWidth < 1100) {
+                    conWidth = 880;
+                    col = 4;
+                } else {
+                    conWidth = 1100;
+                    col = 5;
+                }
+                if (conWidth != currentWidth) {
+                    currentWidth = conWidth;
+                    $('#container').width(conWidth);
+                    $('#container').BlocksIt({
+                        numOfCol: col,
+                        offsetX: 8,
+                        offsetY: 8
+                    });
+                }
+            });
+        });
+    </script>
+{% endblock %}
+
+{% block body %}
+    <div class="main_contener">
+        <div class="col-md-12">
+            <div class="album-header">
+                <ul>
+                    {% if elit == 1 %}
+                        <li class="li-active"><a style="color: #f5f6f6"
+                                                 href="{{ url_for("album.index",elit=1) }}">热门组图</a></li>
+                        <li><a href="{{ url_for("album.index",elit=2,tag=tag_name) }}">社区推荐</a></li>
+                        <li><a href="{{ url_for("album.index",elit= 3,tag=tag_name) }}">最新组图</a></li>
+                    {% elif elit == 2 %}
+                        <li><a href="{{ url_for("album.index",elit=1,tag=tag_name) }}">热门组图</a></li>
+                        <li class="li-active"><a style="color: #f5f6f6"
+                                                 href="{{ url_for("album.index",elit=2,tag=tag_name) }}">社区推荐</a></li>
+                        <li><a href="{{ url_for("album.index",elit=3,tag=tag_name) }}">最新组图</a></li>
+                    {% elif elit == 3 %}
+                        <li><a href="{{ url_for("album.index",elit=1,tag=tag_name) }}">热门组图</a></li>
+                        <li><a href="{{ url_for("album.index",elit=2,tag=tag_name) }}">社区推荐</a></li>
+                        <li class="li-active"><a style="color: #f5f6f6"
+                                                 href="{{ url_for("album.index",elit=3,tag=tag_name) }}">最新组图</a></li>
+                    {% endif %}
+                </ul>
+                {% if g.front_user %}
+                    <div class="create-album">
+                        <a href="{{ url_for("album.my_album",user_id=g.front_user.id) }}">我的相册</a>
+                    </div>
+                {% endif %}
+            </div>
+            <div class="col-md-2">
+                <div class="select-bar">
+                    <ul>
+                        {% if tag_name == 'all' %}
+                            <li><a style="background-color: #3eb1f0;"
+                                   href="{{ url_for("album.index",tag='all',elit=elit) }}">全部</a></li>
+                            {% for tagname in tagnames[0:16] %}
+                                <li><a href="{{ url_for("album.index",tag=tagname[0].strip(),elit=elit) }}">{{ tagname[0] }}</a></li>
+                            {% endfor %}
+                        {% else %}
+                            <li><a href="{{ url_for("album.index",tag='all',elit=elit) }}">全部</a></li>
+                            {% for tagname in tagnames[0:16] %}
+                                {% if tagname[0] == tag_name %}
+                                    <li><a style="background-color: #3eb1f0;"
+                                           href="{{ url_for("album.index",tag=tagname[0].strip(),elit=elit) }}">{{ tagname[0] }}</a>
+                                    </li>
+                                {% else %}
+                                    <li><a href="{{ url_for("album.index",tag=tagname[0].strip(),elit=elit) }}">{{ tagname[0] }}</a>
+                                    </li>
+                                {% endif %}
+                            {% endfor %}
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-10">
+                <section id="wrapper">
+                    <div id="container">
+                        {% for album in albums %}
+                            {% if album.power == 0 %}
+                            <div class="grid">
+                                <div class="imgholder">
+                                    <a href="{{ url_for("album.album_detail",album_id=album.id) }}"><img
+                                            src="{{ album.id|fengmian }}"/></a>
+                                </div>
+                                <strong>{{ album.name }}&nbsp;&nbsp;({{ album.images|length }})</strong>
+                                <p>{{ album.desc }}</p>
+                                阅读数：{{ album.see_count }}<br>
+                                时间：{{ album.create_time }}
+                                <div class="meta">by {{ album.author.nickname }}</div>
+                            </div>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </section>
+                <div class="pagiat">{{ paginate.links }}</div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

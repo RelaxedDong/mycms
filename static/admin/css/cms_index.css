@@ -1,0 +1,20 @@
+.count-bar li{
+    float: left;
+    width: 220px;
+    height: 120px;
+    border-radius: 5%;
+    /*margin-left: 50px;*/
+}
+.count-bar li i{font-size: 60px;padding: 10px;opacity:0.5;float: left}
+.count-bar li span{display: block;margin-top: 30px;margin-left: 10px}
+.post-count{background: #b183c1;opacity:0.8;}
+.comment-count{background:#5FB878;opacity:0.8;margin-left: 100px}
+.user-count{background: #009688;opacity:0.8;margin-left: 100px}
+.media-count{background: #c15155;opacity:0.8;margin-left: 100px}
+
+
+
+.table-group-2{width: 100%;margin-top: 20px;float: left;border: 2px solid #ccd4dc;}
+.bar-title-2{width: 100%;border-radius: 5%;background: #eee;border-bottom: 1px solid #ccd4dc;height: 40px;line-height: 40px;}
+.bar-title-2 span{padding-left: 20px;color: #c1a716}
+

@@ -1,0 +1,316 @@
+﻿
+.author-box {
+    position: relative;
+    overflow: hidden;
+}
+
+.author-inf {
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.author-inf img {
+    float: left;
+    width: 85px;
+    height: 85px;
+    border-radius: 50%;
+}
+
+.username {
+    color: #555;
+}
+
+.post_title {
+    color: darkgrey;
+    font-weight: bolder;
+}
+
+.counts li {
+    list-style: none;
+    float: left;
+    padding-right: 10px;
+}
+
+.num {
+    text-align: center;
+    padding-left: 16px;
+}
+.gray{color: grey;font-weight: lighter}
+.gray:hover{
+    cursor: pointer;}
+
+.word{
+    text-align: center;
+    padding-left: 20px;
+    color: gray;
+    font-weight: lighter;
+}
+.word:hover{cursor: pointer}
+
+body {
+    font-family: "Lato", sans-serif;
+}
+
+/* Style the tab */
+div.tab {
+    width: 100%;
+    border-bottom: 1px solid #eeeeee;
+    float: left;
+}
+
+/* Style the buttons inside the tab */
+/*div.tab button {*/
+/*background-color: inherit;*/
+/*float: left;*/
+/*border: none;*/
+/*outline: none;*/
+/*cursor: pointer;*/
+/*padding: 14px 16px;*/
+/*transition: 0.3s;*/
+/*font-size: 17px;*/
+/*}*/
+
+/* Change background color of buttons on hover */
+div.tab button:hover {
+    color: #27c24c;
+}
+
+/* Create an active/current tablink class */
+div.tab button.active {
+    color: #27c24c;
+    border-bottom: 5px solid #eeeeee;
+}
+
+/* Style the tab content */
+.tabcontent {
+    display: none;
+    float: left;
+    padding: 6px 6px;
+    width: 100%;
+}
+
+@media screen and (min-width: 280px) and (max-width: 400px) {
+    .text {
+        color: #676262;
+        float: left;
+        width: 60%;
+        margin-top: 10px;
+    }
+
+    .counts {
+        overflow: hidden;
+        float: left;
+        margin-top: 10px;
+    }
+
+    .tab button {
+        background-color: inherit;
+        float: left;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        padding: 5px 5px;
+        transition: 0.3s;
+        font-size: 10px;
+    }
+
+    .img-group1 {
+        float: right;
+        margin-top: 10px;
+    }
+
+    .img-group1 img {
+        width: 115px;
+        height: 100px;
+        float: left;
+        border-radius: 4px;
+        margin-left: 10%;
+    }
+}
+
+@media screen and (min-width: 401px) and (max-width: 700px) {
+
+    .img-group1 {
+        float: right;
+        margin-top: 10px;
+    }
+
+    /*.content{float: left}*/
+    .img-group1 img {
+width: 115px;
+        height: 100px;
+        float: left;
+        border-radius: 4px;
+        margin-top: 10px;
+        margin-left: 10%
+    }
+
+    .tab button {
+        background-color: inherit;
+        float: left;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        padding: 5px 5px;
+        transition: 0.3s;
+        font-size: 10px;
+    }
+
+    .counts {
+        overflow: hidden;
+        float: left;
+        margin-top: 10px;
+        margin-left: 30px;
+    }
+      .text {
+        color: #676262;
+        float: left;
+        width: 60%;
+        margin-top: 10px;
+    }
+}
+
+@media screen and (min-width: 701px) {
+    .img-group1 {
+        float: right;
+        margin-top: 10px;
+    }
+
+    /*.content{float: left}*/
+    .img-group1 img {
+        width: 125px;
+        height: 100px;
+        float: left;
+        border-radius: 4px;
+        margin-top: 10px;
+        margin-left: 10%
+    }
+
+    div.tab button {
+        background-color: inherit;
+        float: left;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        padding: 14px 16px;
+        transition: 0.3s;
+        font-size: 17px;
+    }
+
+    .counts {
+        overflow: hidden;
+        float: left;
+        margin-top: 10px;
+        margin-left: 30px;
+    }
+}
+
+/*#侧栏*/
+.u-title{float: left;margin-bottom: 10px;font-size: 14px;color: #969696;width: 100%;margin-top: 10px}
+.u-discription-email{float: left;padding-bottom: 10px;font-size: 15px;margin-top: 10px;line-height: 20px;border-bottom: 1px solid #eeeeee;width: 100%}
+.u-discription{float: left;margin-bottom: 10px;line-height: 20px;font-size: 14px;margin-top: 10px}
+.u-fensi img{width: 30px;height: 30px;float: left;border-radius: 50%}
+.u-fensi span{float: left;margin-top: 10px;font-size: 15px;margin-left: 10px}
+.u-fensi span:hover{cursor: pointer}
+.u-group ul li{float: left;width: 100%;margin-top: 10px}
+.u-group ul li a img{
+    width: 30px;height: 30px;float: left;border-radius: 5px
+}
+.u-name{float: left;margin-left: 10px;color: #2f2f2f;font-weight: lighter;font-size: 14px;margin-top: 5px}
+
+
+
+
+.hide{
+position: absolute;
+left: 0;
+display: block !important;
+width: 82px;
+top: 0;
+height: 30px;
+opacity: 0;
+}
+
+.btn-hollow {
+    border: 1px solid rgba(59,194,29,.7);
+    color: #42c02e !important;
+    position: relative;
+    font-size: 25px;
+    margin-left: 10px;
+}
+
+
+.btn-hollow:hover{background-color: #d7e1dc;opacity: 0.9;cursor: pointer}
+.btn-hollow input:hover{cursor: pointer}
+.btn-hollow {
+    padding: 4px 25px;
+    font-size:15px;
+    font-weight: 400;
+    line-height: 15px;
+    border-radius: 40px;
+    background: none;
+    margin-top: 20px;
+}
+
+
+/*#关注和粉丝*/
+.listcontener{
+    margin-top: 10px;
+    width: 100%;
+    float: left;
+}
+.user-list{
+   list-style: none;
+    clear: both;
+}
+.user-list li{
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #f0f0f0;
+    line-height: normal;
+}
+.avatar{width: 60px;height:60px;border-radius: 50%}
+.info{
+    vertical-align: middle;
+    display: inline-block;
+    max-width: 450px;
+}
+.fo-name{margin-left: 10px;font-weight: bold;font-size: 15px;margin-top: 0}
+.meta{
+    padding-top: 2px;
+    font-size: 12px;
+    color: #969696;
+    margin-left: 10px;
+}
+.meta span{
+    margin-right: 10px;
+padding-right: 10px;
+border-right: 1px solid #969696;
+}
+
+.my-albums{float: left}
+.my-albums li{margin-top: 10px}
+.my-albums li a{font-weight: lighter;font-size: 15px}
+.my-albums li a i{color: #8b82c2}
+
+
+/*微博关注*/
+.weibo-fow-box{
+    margin-top: 10px;
+    width: 100%;
+}
+
+.weibo-fow-box ul li{float: left;width: 100%;margin-top: 10px}
+.weibo-fow-box ul li a img{
+    width: 30%;float: left;border-radius: 5px
+}
+.info-box{
+    float: left;
+    width: 68%;
+    margin-left: 2%;
+}
+
+.screen_name,.description,.followers_count,.friends_count,.statuses_count{float: left;font-weight: lighter;color: #6f787f;margin-top: 5px;overflow: hidden}
+.screen_name a{color: #8b82c2}
+.screen_name,.description{width:100%}
+.friends_count{margin-left: 10px}

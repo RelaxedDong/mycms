@@ -1,0 +1,306 @@
+﻿{% extends "front/base.html" %}
+{% from "common/_macro.html" import static %}
+
+{% block title %}
+    我是主页
+{% endblock %}
+
+{% block head %}
+    <link rel="stylesheet" href="{{ static("front/css/u.css") }}">
+    <link rel="stylesheet" href="{{ static("front/css/index.css") }}">
+    <script src="{{ static("common/js/to_top.js") }}"></script>
+    <script src="{{ static("front/js/follow.js") }}"></script>
+    <script>
+        window.onload = function () {
+            follow();
+        }
+    </script>
+{% endblock %}
+
+{% block body %}
+    <div class="main_contener">
+        <div class="col-md-8">
+            <div class="author-box" id="top">
+                <div class="author-inf">
+                    <img src="{{ user.avatar }}">
+                    <div style="padding-left: 55px;margin-left: 55px;">
+                        <span style="font-size:20px;font-weight: bold">{{ user.nickname }}</span>
+                    </div>
+                    <ul class="counts">
+                        <li style="border-right: 1px solid darkgrey">
+                            <p>&nbsp;{{ focus|length }}</p>
+                            <p class="gray"><a href="{{ url_for("front.my_focus",user_id=user.id) }}">粉丝></a></p>
+                        </li>
+                        <li style="border-right: 1px solid darkgrey">
+                            <p class="num">{{ posts|length }}</p>
+                            <p class="word">帖子数</p>
+                        </li>
+                        <li style="border-right: 1px solid darkgrey">
+                            <p class="num">{{ user.points }}
+                                <f
+                                /p>
+                            <p class="word">积分</p>
+                        </li>
+                        <li style="border-right: 1px solid darkgrey">
+                            <p class="num">{{ count }}</p>
+                            <p class="word">收获点赞</p>
+                        </li>
+                    </ul>
+                    {% if g.front_user and g.front_user.id ==user.id %}
+                        <a class="btn btn-hollow" href="{{ url_for("front.chat",user_id=g.front_user.id) }}">
+                        <input class="hide">私信
+                    {% else %}
+                        <a class="btn btn-hollow" href="{{ url_for("front.chat_box",user_id=user.id) }}">
+                            <input class="hide">聊天
+                        </a>
+                    {% endif %}
+                    {% if g.front_user and g.front_user.id in myfrnsi_ids %}
+                        <a class="btn btn-hollow fow" data-user-id="{{ user.id }}"
+                           style="font-weight: lighter;background: #e1bca4">取消关注</a>
+                    {% else %}
+                        <a class="btn btn-hollow fow" data-user-id="{{ user.id }}" style="font-weight: lighter">+&nbsp;关注</a>
+                    {% endif %}
+                    </a>
+                </div>
+            </div>
+            <div class="tab">
+                <button class="tablinks" onclick="openCity(event, 'posts')" id="defaultOpen">
+                    <i class="file text icon"></i>&nbsp;文章
+                </button>
+                <button class="tablinks" onclick="openCity(event, 'dongtai')">
+                    <i class="star icon"></i>&nbsp;我的收藏
+                </button>
+                <button class="tablinks" onclick="openCity(event, 'newcommen')">
+                    <i class="comments  icon"></i>&nbsp;最新评论
+                </button>
+                <button class="tablinks" onclick="openCity(event, 'hot')">
+                    <i class="fire icon"></i>&nbsp;热门
+                </button>
+            </div>
+            <br>
+            <div id="posts" class="tabcontent">
+                <p style="position: fixed;bottom: 0;left: 0;left: 3%">
+                    <button class="mini ui right labeled green icon button go-top"><i class="angle double up icon"></i>去顶部
+                    </button>
+                    <button id="main-del-btn" class="ui mini  trash red button"><i class="trash icon"></i> 删帖</button>
+                </p>
+                {% for post in posts %}
+                    <div class="item-content">
+                        <ul>
+                            <li>
+                                {% if post.content|avatar_img!='' %}
+                                    <div class="img-group1">
+                                        <img src="{{ post.content|avatar_img }}">
+                                    </div>
+                                {% endif %}
+                                <button class="layui-btn layui-btn-danger layui-btn-xs del-btn-group"
+                                        style="float: right;display: none" data-id="{{ post.id }}"><i
+                                        class="trash icon"></i></button>
+                                <div class="content">
+                                         <span class="title">
+                                             <a href="{{ url_for("front.post_detail",post_id=post.id) }}">{{ post.title }}</a>
+                                         </span>
+                                    <div class="author-group">
+                                        <i class="unhide icon"></i>{{ post.read_count }}
+                                        <i class="talk Outline icon"></i>{{ post.comments|length }}
+                                        <i class="heart icon"></i>{{ post.stars|length }}
+                                        <i class="clock icon"></i>{{ post.create_time|handle_time }}
+                                    </div>
+                                    <div class="text">
+                                        {{ post.content|striptags|truncate(150) }}
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                {% endfor %}
+            </div>
+
+            <div id="dongtai" class="tabcontent">
+                {% for collect in my_collects %}
+                    <div class="item-content">
+                        <ul>
+                            <li>
+                                {% if collect.post.content|avatar_img!='' %}
+                                    <div class="img-group1">
+                                        <img src="{{ collect.post.content|avatar_img }}">
+                                    </div>
+                                {% endif %}
+                                <button class="layui-btn layui-btn-xs del-btn-group" style="float: right;display: none"
+                                        data-id="{{ collect.post.post_id }}"><i class="layui-icon layui-icon-close"></i>
+                                </button>
+                                <div class="content">
+                                         <span class="title">
+                                             <a href="{{ url_for("front.post_detail",post_id=collect.post.id) }}">{{ collect.post.title }}</a>
+                                         </span>
+                                    <div class="author-group">
+                                        <i class="unhide icon"></i>{{ collect.post.read_count }}
+                                        <i class="clock icon"></i>{{ collect.post.create_time }}
+                                    </div>
+                                    <div class="text">
+                                        {{ collect.post.content|striptags|truncate(150) }}
+                                    </div>
+
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                {% endfor %}
+            </div>
+
+            <div id="newcommen" class="tabcontent">
+                {% for post in comments %}
+                    <div class="item-content">
+                        <ul>
+                            <li>
+                                {% if post.content|avatar_img!='' %}
+                                    <div class="img-group1">
+                                        <img src="{{ post.content|avatar_img }}">
+                                    </div>
+                                {% endif %}
+                                <button class="layui-btn layui-btn-xs del-btn-group" style="float: right;display: none"
+                                        data-id="{{ post.post_id }}"><i class="layui-icon layui-icon-close"></i>
+                                </button>
+                                <div class="content">
+                                         <span class="title">
+                                             <a href="{{ url_for("front.post_detail",post_id=post.post_id) }}">{{ post.title }}</a>
+                                         </span>
+                                    <div class="author-group">
+                                        <i class="unhide icon"></i>{{ post.read_count }}
+                                        <i class="clock icon"></i>{{ post.create_time }}
+                                    </div>
+                                    <div class="text">
+                                        {{ post.content|striptags|truncate(150) }}
+                                    </div>
+
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                {% endfor %}
+            </div>
+            <div id="hot" class="tabcontent">
+                {% for post in posts %}
+                    {% if post.hightlight %}
+                        <div class="item-content">
+                            <ul>
+                                <li>
+                                    {% if post.content|avatar_img!='' %}
+                                        <div class="img-group1">
+                                            <img src="{{ post.content|avatar_img }}">
+                                        </div>
+                                    {% endif %}
+                                    <button class="layui-btn layui-btn-xs del-btn-group"
+                                            style="float: right;display: none" data-id="{{ post.id }}"><i
+                                            class="layui-icon layui-icon-close"></i></button>
+
+                                    <div class="content">
+                                         <span class="title">
+                                             <a href="{{ url_for("front.post_detail",post_id=post.id) }}">{{ post.title }}</a>
+                                         <button type="button" class="btn btn-danger  btn-xs" style="background: red">hot</button>
+                                         </span>
+                                        <div class="author-group">
+                                            <i class="unhide icon"></i>{{ post.read_count }}
+                                            <i class="talk Outline icon"></i>{{ post.comments|length }}
+                                            <i class="heart icon"></i>{{ post.stars|length }}
+                                            <i class="clock icon"></i>{{ post.create_time }}
+                                        </div>
+                                        <div class="text">
+                                            {{ post.content|striptags|truncate(150) }}
+                                        </div>
+
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+            <script src="{{ static("front/js/u.js") }}"></script>
+        </div>
+        <div class="col-md-4">
+            <div class="u-title">邮箱</div>
+            <div class="u-discription-email">{{ user.email }}</div>
+            <div class="u-title">个性签名</div>
+            <div class="u-discription">{{ user.signature }}</div>
+            <div class="u-title"><a
+                    href="{{ url_for("front.my_focus",user_id=user.id) }}">粉丝&nbsp;&nbsp;{{ focus|length }}>></a></div>
+            <div class="u-fensi">
+                {% for foc in focus %}
+                    {% if loop.index0<10 %}
+                        <a href="{{ url_for("front.u",user_id=foc.author.id) }}"><img src="{{ foc.author.avatar }}"
+                                                                                      alt=""></a>
+                    {% endif %}
+                {% endfor %}
+                {% if focus|length >8 %}
+                    <span>>></span>
+                {% endif %}
+            </div>
+            <div class="u-title">
+                <a href="{{ url_for("front.my_focus",user_id=user.id) }}">关注&nbsp;&nbsp;{{ peoples|length }}>></a>
+            </div>
+            <div class="u-fensi">
+                {% for people in peoples %}
+                    {% if loop.index0<10 %}
+                        <a href="{{ url_for("front.u",user_id = people.id) }}"><img src="{{ people.avatar }}"
+                                                                                    alt=""></a>
+                    {% endif %}
+                {% endfor %}
+                {% if peoples|length > 8 %}
+                    <span><a href="{{ url_for("front.my_focus",user_id=user.id) }}">>></a></span>
+                {% endif %}
+            </div>
+
+            {% if user.groups|length > 0 %}
+                <div class="u-title">加入的小组&nbsp;&nbsp;{{ user.groups|length }}</div>
+                <div class="u-group">
+                    {% for group in user.groups %}
+                        <ul>
+                            <li>
+                                <a href="{{ url_for("group.group_detail",group_id=group.id) }}"> <img
+                                        src="{{ group.avatar }}" alt=""></a>
+                                <div class="u-name"><a
+                                        href="{{ url_for("group.group_detail",group_id=group.id) }}">{{ group.name }}</a>
+                                </div>
+                            </li>
+                        </ul>
+                    {% endfor %}
+                </div>
+            {% endif %}
+	{% if albums  %}
+            <div class="u-title">我的相册集</div>
+            <ul class="my-albums">
+                {% for album in albums %}
+                    <li><a href="{{ url_for("album.album_detail",album_id=album.id) }}"><i
+                            class="image icon"></i>{{ album.name }}</a></li>
+                {% endfor %}
+            </ul>
+	{% endif %}
+	    {% if users!=None %}
+            <div class="u-title">微博关注</div>
+            <div class="weibo-fow-box">
+                <ul>
+                    {% for user in users %}
+                    <li>
+                        <a href="https://weibo.com/{{ user['idstr'] }}/follow?from=page_100505&wvr=6&mod=headfollow#place"><img src="{{ user['avatar_hd'] }}"
+                             alt=""></a>
+                        <div class="info-box">
+                            <div class="screen_name"><a href="https://weibo.com/{{ user['idstr'] }}/follow?from=page_100505&wvr=6&mod=headfollow#place">{{ user['screen_name']|truncate(17) }}</a></div>
+                            <div class="description">{{ user['description']|truncate(17) }}</div>
+                            <div class="followers_count">关注数：{{ user['followers_count'] }}</div>
+                            <div class="friends_count">粉丝数：{{ user['friends_count'] }}</div>
+                            <div class="statuses_count">微博数：{{ user['statuses_count'] }}</div>
+                        </div>
+                    </li>
+                    {% endfor %}
+                </ul>
+		<a href="{{url}}" class="ui grey basic mini  button see_all"
+                   style="margin-top: 20px">查看全部
+                    <i class="layui-icon mini layui-icon-right"></i>
+                </a>
+            </div>
+	{% endif %}
+        </div>
+
+    </div>
+{% endblock %}

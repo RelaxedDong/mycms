@@ -1,0 +1,31 @@
+﻿{% from "common/_macro.html" import static %}
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    {% include "common/_heads.html" %}
+    <title>后台管理</title><script src="http://cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="{{ static("common/css/login.css") }}">
+    <script src="{{ static("common/js/login.js") }}"></script>
+
+<body>
+<div class="login_box">
+      <div class="login_l_img"><img src="{{ static("common/images/login-img.png")}}" /></div>
+      <div class="login">
+          <div class="login_logo"><a href="#"><img src="{{ static("common/images/login_logo.png")  }}" /></a></div>
+          <div class="login_name">
+               <p>后台管理系统</p>
+          </div>
+              <input name="email" type="text" placeholder="邮箱">
+
+              <input name="password" type="password" placeholder="密码"/>
+              <input value="登录" style="width:100%;" type="submit" id="submit-btn">
+      </div>
+      <div class="copyright">Nanyang institute of Technology 中国 河南 南阳市长江路80号</div>
+</div>
+<div style="text-align:center;">
+
+</div>
+</body>
+</html>

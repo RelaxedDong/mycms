@@ -1,0 +1,16 @@
+    .main_contener_404 {
+        width: 100%;
+        margin: 0 auto;
+        min-height: 400px;
+    }
+    .main_contener_404 img{
+        width: 100%;
+        height: 600px;
+    }
+    .return-index{
+        margin: 0 auto;
+        text-align: center;
+        margin-top: 30px;
+        font-size: 15px;
+        font-weight: lighter;
+    }

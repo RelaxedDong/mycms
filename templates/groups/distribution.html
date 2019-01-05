@@ -1,0 +1,17 @@
+{% extends "front/base.html" %}
+{% from "common/_macro.html" import static %}
+
+{% block head %}
+    <link rel="stylesheet" href="{{ static("group/css/index.css") }}">
+        <script src="{{host}}/{{jsfile_name}}.js"></script>
+    <script src="{{host}}/{{script_list_pie}}.js"></script>
+{% endblock %}
+
+{% block body %}
+    <div class="main_contener">
+        <div class="col-md-12">
+            <a style="color: #70e157;margin-bottom: 20px" href="{{ url_for("group.group_detail",group_id=group.id) }}"><i class="reply icon"></i>&nbsp;返回小组</a>
+            {{ myechart|safe }}
+        </div>
+    </div>
+{% endblock %}

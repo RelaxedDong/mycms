@@ -1,0 +1,75 @@
+{% extends "admin/cms_base.html" %}
+{% from "common/_macro.html" import static %}
+{% block head %}
+    <script src="{{ static("admin/js/cms_users.js") }}"></script>
+{% endblock %}
+
+{% block content %}
+            <div class="main_content">
+                <!--具体内容盒子               -->
+                <blockquote class="layui-elem-quote news_search">
+                    <div class="layui-inline">
+                        <form action="{{ url_for("cms.users") }}" method="get">
+                            <div class="layui-input-inline">
+                            <input value="" autocomplete="off" placeholder="请输入关键字" class="layui-input search_input" type="text" name="input">
+                        </div>
+                        <button type="submit" class="layui-btn search_btn">查询</button>
+                        </form>
+                    </div>
+                </blockquote>
+                <div class="posts-box">
+                    <table class="layui-table">
+                        <colgroup>
+                            <col width="150">
+                            <col width="200">
+                            <col>
+                        </colgroup>
+                        <thead>
+                        <tr>
+                            <th>头像</th>
+                            <th>昵称</th>
+                            <th>邮箱</th>
+                            <th>积分</th>
+                            <th>帖子数</th>
+                            <th>评论数</th>
+                            <th>加入小组</th>
+                            <th>相册数</th>
+                            <th>照片数</th>
+                            <th>加入时间</th>
+                            <th>冻结</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for user in users %}
+                            <tr data-id="{{ user.id }}">
+                                <td>
+                                    <a href="{{ url_for("front.u",user_id=user.id) }}"><img src="{{ user.avatar }}" alt="" style="height: 40px;height: 40px"></a>
+                                </td>
+                                <td><a href="{{ url_for("front.u",user_id=user.id) }}">{{ user.nickname }}</a></td>
+                                <td>{{ user.email }}</td>
+                                <td>{{ user.points }}</td>
+                                <td>{{ user.posts|length }}</td>
+                                <td>{{ user.comments|length }}</td>
+                                <td>{{ user.groups|length }}</td>
+                                <td>{{ user.albums|length }}</td>
+                                <td>
+                                    {{ user.albums|imgs_len }}
+                                </td>
+                                <td>{{ user.join_time }}</td>
+                           <td>
+                               {% if user.is_active == 0%}
+                                   <button class="mini ui blue button freeze-btn" data-type="freeze-del">已冻结</button>
+                                   {% else %}
+                                   <button class="mini ui green button freeze-btn" data-type="freeze">使用中</button>
+                               {% endif %}
+                            </td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                <!--具体内容盒子结束-->
+            </div>
+{% endblock %}
+
+

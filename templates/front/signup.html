@@ -1,0 +1,68 @@
+{% from "common/_macro.html" import static %}
+<html>
+<head>
+    <title>注册</title>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <link rel="stylesheet" type="text/css" href="{{ static("front/login/css/index.css") }}">
+    <script src="http://cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+    <link href="http://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <script src="http://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="{{ static("common/sweetalert/sweetalert.css") }}">
+    <script src="{{ static("common/sweetalert/sweetalert.min.js") }}"></script>
+    <script src="{{ static("common/sweetalert/zlalert.js") }}"></script>
+    <script src="{{ static("common/js/zlajax.js") }}"></script>
+    <script type="text/javascript" src="{{ static("front/login/js/common.js") }}"></script>
+	<script type="text/javascript" src="{{ static("front/login/js/login.js") }}"></script>
+    <script src="{{ static("front/js/signup.js")}}"></script>
+</head>
+<body style="background: snow">
+<div class="main_contener">
+    <div class="col-md-4">
+    </div>
+     <div class="col-md-4">
+{#         <span id="return_to_span">{{ return_to }}</span>#}
+         <div class="siup_in_title">
+             <a href="{{ url_for("front.index") }}"><img src="{{ static("front/images/blogin.png") }}" alt=""></a>
+         </div>
+        <div class="modal-content" style="border: none;">
+            <div class="col-left"></div>
+            <div class="col-right">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="loginModalLabel" style="font-size: 18px;">注册</h4>
+                </div>
+                <div class="modal-body">
+                    <section class="box-login v5-input-txt" id="box-login">
+                        <ul>
+                            <li class="form-group">邮箱：
+                                <div class="input-group">
+                                    <input type="text" class="form-control" name="email" placeholder="邮箱号码">
+                                        <span class="input-group-btn">
+                                            <button class="btn btn-default" id="send-capcha" style="padding: 10px 0px">发送验证码</button>
+                                        </span>
+                                 </div>
+                            </li>
+                            <li class="form-group">邮箱验证码：<input class="form-control"  name="email-captcha"
+                                                          placeholder="请输入邮箱验证码" type="text"></li>
+
+
+                            <li class="form-group">密码：<input class="form-control"  name="password1"
+                                                          placeholder="请输入密码" type="password"></li>
+                            <li class="form-group">确认密码：<input class="form-control"  name="password2"
+                                                          placeholder="请输入确认密码" type="password"></li>
+                        </ul>
+                        <p class="good-tips marginB10">已有账号？<a
+                                 href="{{ url_for("front.login") }}" >立即登陆</a></p>
+                        <div class="login-box marginB10">
+                            <button  type="button" class="btn btn-micv5 btn-block globalLogin" id="signup-now">注册</button>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+    </div>
+</div>
+</body>
+</html>
+

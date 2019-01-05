@@ -1,0 +1,85 @@
+{% extends "admin/cms_base.html" %}
+{% from "common/_macro.html" import static %}
+{% block head %}
+    <script src="{{ static("admin/js/cms_comments.js") }}"></script>
+    <script src="{{ static("admin/js/cms_images.js") }}"></script>
+    <link rel="stylesheet" href="{{ static("admin/css/cms_imgs.css") }}">
+{% endblock %}
+
+{% block content %}
+
+            <div class="main_content">
+                <!--具体内容盒子               -->
+                <blockquote class="layui-elem-quote news_search">
+                        <div class="layui-inline">
+                            <form action="{{ url_for("cms.images") }}" method="get">
+                            <div class="layui-input-inline">
+                                <input value="" placeholder="请输入关键字" autocomplete="off" class="layui-input search_input" type="text" name="img_search">
+                            </div>
+                            <button class="layui-btn" type="submit">查询</button>
+                        </form>
+                        </div>
+                        <div class="layui-inline">
+                            <a class="layui-btn layui-btn-normal newsAdd_btn"
+                            href="{{ url_for("cms.images",elit=1) }}">最新发布</a>
+                        </div>
+                        <div class="layui-inline">
+                            <a class="layui-btn recommend" style="background-color:#5FB878" href="{{ url_for("cms.images",elit=2) }}">查看最多</a>
+                        </div>
+                        <div class="layui-inline">
+                            <a class="layui-btn audit_btn" href="{{ url_for("cms.images",elit=3) }}">评论最多</a>
+                        </div>
+                        <button class="layui-btn layui-btn-danger" id="large_img_del">删除</button>
+                    </blockquote>
+                    <div class="imgs-box">
+                        <ul>
+                            {% for album in albums %}
+                             <li>
+                                 <a href="{{ url_for("album.album_detail",album_id=album.id) }}"><img src="{{ album.id|fengmian }}" alt=""></a><br>
+                                 {% if album.tags %}
+                                     <span>
+                                     {% for tag in album.tags %}
+                                        {{ tag.tagname }}&nbsp;&nbsp;&nbsp;
+                                    {% endfor %}
+                                </span>
+                                 {% endif %}
+
+                                <div class="img-name">
+                                        相册名：<a href="{{ url_for("album.my_album",user_id=album.author.id) }}">
+                                    {% if album.name|length > 7 %}
+                                    {{ (album.name)[:5]+'...' }}
+                                        {% else %}
+                                        {{ album.name }}
+                                    {% endif %}
+                                </a>
+                                    <br>
+                                    昵称：<a href="" style="color: #57c264">
+
+                                    {% if album.author.nickname|length > 7 %}
+                                    {{ (album.author.nickname)[:5]+'...' }}
+                                        {% else %}
+                                        {{ album.author.nickname }}
+                                    {% endif %}
+                                </a>
+                                    <div class="checkbox check">
+                                        <p class="img-time">{{ (album.create_time|string)[:10] }}发布</p>
+                                           <label>
+                                            <input type="checkbox" data-album-id="{{ album.id }}">
+                                        </label>
+                                    </div>
+                                </div>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+           <div style="float: right;margin-top: 20px"> {{ pagination.links }}</div>
+                <!--具体内容盒子结束-->
+            </div>
+{% endblock %}
+
+
+
+
+
+
+

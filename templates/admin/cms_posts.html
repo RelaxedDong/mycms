@@ -1,0 +1,157 @@
+{% extends "admin/cms_base.html" %}
+{% from "common/_macro.html" import static %}
+{% block head %}
+    <script src="{{ static("admin/js/cms_posts.js") }}"></script>
+            <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <link rel="stylesheet" href="{{ static("album/viewer/css/viewer.css") }}">
+    <link rel="stylesheet" href="{{ static("album/viewer/css/main.css") }}">
+{% endblock %}
+
+{% block content %}
+            <div class="main_content" id="demo">
+                <!--具体内容盒子               -->
+                <blockquote class="layui-elem-quote news_search">
+                    <button class="layui-btn layui-btn-danger" id="group-del">批量删除</button>
+                    <div style="float: right">
+                        <div class="layui-inline">
+                        <div class="layui-input-inline">
+                            <input value="" placeholder="请输入关键字" class="layui-input search_input" type="text" name="post_name"
+                            >
+                        </div>
+                        <a class="ui brown button search_btn"  v-on:click="Search"><i class="search icon"></i></a>
+                    </div>
+                    <div class="layui-inline">
+                        <a class="ui primary button audit_btn" href="{{ url_for("cms.posts",elit=4) }}">最新发布</a>
+                    </div>
+                    <div class="layui-inline">
+                        <a class="ui olive button newsAdd_btn" href="{{ url_for("cms.posts",elit=1) }}">查看最多</a>
+                    </div>
+                    <div class="layui-inline">
+                        <a class="ui teal button recommend" style="background-color:#5FB878" href="{{ url_for("cms.posts",elit=2) }}">评论最多</a>
+                    </div>
+                    <div class="layui-inline">
+                        <a class="ui pink button audit_btn" href="{{ url_for("cms.posts",elit=3) }}">点赞最多</a>
+                    </div>
+                    </div>
+                </blockquote>
+                <div class="posts-box"  id="jinjia">
+                    <table class="layui-table">
+                        <colgroup>
+                            <col width="150">
+                            <col width="200">
+                            <col>
+                        </colgroup>
+                        <thead>
+                        <tr>
+                            <th><button id="checkAll" class="ui basic button"><i class="check square icon"></i>
+                            全选
+                            </button>
+                            </th>
+                            <th>标题</th>
+                            <th>内容</th>
+                            <th>用户名</th>
+                            <th>邮箱</th>
+                            <th>评论数</th>
+                            <th>查看数</th>
+                            <th>发表时间</th>
+                            <th>加精</th>
+                            <th>操作</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for post in posts %}
+                            <tr data-post-id="{{ post.id }}">
+                            <td><input type="checkbox" data-post-id="{{ post.id }}"></td>
+                            <td>
+                                <a href="{{ url_for("front.post_detail",post_id=post.id) }}" target="_blank">{{ post.title|truncate(20) }}</a>
+                            </td>
+                            <td>
+                                <a href="{{ url_for("front.post_detail",post_id=post.id) }}" title="{{ post.content|striptags }}">{{ post.content|striptags|truncate(40) }}</a>
+                            </td>
+                            <td>{{ post.author.nickname }}</td>
+                            <td>{{ post.author.email }}</td>
+                            <td>{{ post.comments|length }}</td>
+                            <td>{{ post.read_count }}</td>
+                            <td>{{ post.create_time }}</td>
+                            <td>
+                                {% if post.hightlight %}
+                                <button class="layui-btn layui-btn-warm hight-light-btn" data-type="de_hilight">
+                                <i class="layui-icon layui-icon-down"></i>取消
+                                </button>
+                                    {% else %}
+                                    <button class="layui-btn hight-light-btn"
+                                    data-type="hilight">
+                                    <i class="layui-icon layui-icon-up"></i>加精
+                                    </button>
+                                {% endif %}
+                            </td>
+                            <td>
+                                <button class="layui-btn layui-btn-danger layui-btn-xs del-btn" data-id="{{ post.id }}">
+                                    <i class="layui-icon layui-icon-delete"></i>删除
+                                </button>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                {{ pagination.links }}
+                </div>
+
+                <div class="posts-box" id="vue">
+                    <table class="layui-table">
+                        <colgroup>
+                            <col width="150">
+                            <col width="200">
+                            <col>
+                        </colgroup>
+                        <thead>
+                        <tr>
+                            <th>标题</th>
+                            <th>内容</th>
+                            <th>用户名</th>
+                            <th>邮箱</th>
+                            <th>评论数</th>
+                            <th>查看数</th>
+                            <th>发表时间</th>
+                            <th>加精</th>
+                            <th>操作</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                            <tr v-for="post in posts">
+                            <td>
+                                <a href="#" target="_blank" v-html="post.title"></a>
+                            </td>
+                            <td>
+                                <a href="#" title="#" v-html="post.content"></a>
+                            </td>
+                            <td>[[post.nickname]]</td>
+                            <td>[[post.email]]</td>
+                            <td>[[post.comment_count]]</td>
+                            <td>[[post.read_count]]</td>
+                            <td>[[post.create_time]]</td>
+                            <td>
+                                <button class="layui-btn layui-btn-warm hight-light-btn"
+                                        type="de_hilight" v-if="post.hight_light!=''" v-on:click="hightlight"  :post_id="post.post_id">
+                                <i class="layui-icon layui-icon-down"></i>取消
+
+                                </button>
+                                     <button class="layui-btn hight-light-btn"
+                                    type="hilight" v-if="post.hight_light===''" v-on:click="hightlight"  :post_id="post.post_id">
+                                    <i class="layui-icon layui-icon-up"></i>加精
+                                    </button>
+                            </td>
+                            <td>
+                                <button class="layui-btn layui-btn-danger layui-btn-xs del-btn" :post_id="post.post_id" v-on:click="delpost">
+                                    <i class="layui-icon layui-icon-delete"></i>删除
+                                </button>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!--具体内容盒子结束-->
+            </div>
+{% endblock %}
+
+

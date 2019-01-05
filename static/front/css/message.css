@@ -1,0 +1,46 @@
+.message-list{
+    width: 100%;
+    margin-top: 20px;
+}
+.no-img{font-size: 20px;font-weight: bold}
+.message-list img{
+    width:200px;
+    height: 160px;
+}
+
+.drop-btn{float: right;margin-left: 20px;}
+.message-type{float: left}
+.message-list li i{float: left;color: #f06e57;font-weight: bolder}
+.infomations-title{text-align: center;font-weight: bold;font-size: 20px}
+.user-name{float: left;color: #6ae1e0;margin-left: 10px;}
+.msg{float: left;margin-left: 5px;color: #030606}
+.msg-time{float: right;color: #9b9fb1;}
+.infomations-check{padding-top: 50px;border-bottom: 1px solid #eeeeee;padding-bottom: 10px;}
+.infomations-check span{font-size: 15px;color: #9b9fb1}
+.infomations-check span:hover{cursor: pointer;color: #55d089}
+
+
+
+@media screen and (min-width: 701px){
+ .message-list li{
+
+    height: 60px;
+    font-size: 15px;
+}
+}
+@media screen and (min-width: 400px) and (max-width: 700px) {
+   .message-list li{
+
+    height: 90px;
+    line-height: 30px;
+    font-size: 12px;
+}
+}
+@media screen and (min-width: 280px) and (max-width: 400px) {
+   .message-list li{
+
+    height: 90px;
+    line-height: 30px;
+    font-size: 12px;
+}
+}

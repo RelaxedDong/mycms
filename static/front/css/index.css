@@ -1,0 +1,229 @@
+﻿
+.navbar-default{
+border-top: 0;
+    background-color: white;
+    padding-top: 0;
+
+}
+.navbar-brand img{
+    width: 150px;
+    height:20px;
+}
+.navbar-brand{
+    padding-left: 20px;
+}
+.profile_img{
+    height: 20px;
+    border-radius: 50%;
+}
+.navbar-right li a{
+    margin-top: 5px;
+}
+
+.main_contener_detail{
+    width: 60%;
+    margin: 0 auto;
+    min-height: 600px;
+}
+.carousel-caption{font-size: 15px;font-weight: bolder}
+
+.main_contener::after{
+    content:"";
+    clear:both;/*清除浮动*/
+    display:block;/*确保该元素是一个块级元素*/
+}
+.index-banner{
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+
+/*@media (min-width: 200px) and (max-width: 400px){*/
+    /*.info{*/
+        /*width: 300px;*/
+    /*}*/
+/*}*/
+.infomation{
+    height: 324px;
+}
+.thumbnail img {
+    width: 100%;
+    padding-top: 10px;
+}
+
+.item-content{width: 100%;
+    float: left;
+
+}
+.item-content{border-bottom: 1px solid #ccd4dc;padding-bottom: 20px}
+.item-content ul{padding-left: 0;padding-top: 20px}
+.item-content ul li{list-style: none;}
+.img-group{float: right;margin-top: 10px;}
+/*.content{float: left}*/
+.img-group img{width: 125px;height: 100px;float: left;border-radius: 4px;margin-top: 10px;margin-left: 10%}
+/*.content{float: left;width: 100%}*/
+.title a{font-size: 18px;font-weight: 600;
+    color: #333;text-decoration: none;}
+.author-group{color: #898989;;margin-top: 10px}
+.author-group a{text-decoration: none;color: #3c8dbc;}
+.author-group a:hover{color: #9b9fb1}
+.author-group img{width: 30px;height: 30px;border-radius:10%;border: 1px solid #ddd}
+.text{color: #676262;float: left;width: 70%;margin-top: 10px}
+.textfill{color: #676262;float: left;width: 100%;margin-top: 10px}
+
+.navbar-nav > li > a:hover{
+    margin-top: 10px;
+}
+.ad{
+    margin-top: 20px;
+    position: relative;
+}
+.ad img{margin-top: 10px}
+.ad-gg{position: absolute;right: 0px;color: white;bottom: 0;background-color: black;opacity: 0.5}
+
+#language{
+ margin-top: 10px;
+}
+/*#页脚*/
+#footer_group{
+    padding: 10px 0;
+    margin-top: 100px;
+    width: 100%;
+    border-top: 1px dashed #dcdcdc;
+    color: #999;
+    font-size: 12px;
+    text-align: center;
+}
+#标签盒子
+.sub-group{margin-top: 100px}
+.tags-group{
+    width: 100%;
+    min-height: 40px;
+    margin-top: 20px;
+}
+.layui-input-inline{width: 100%}
+.layui-input-inline input{float: left}
+.layui-input-block{
+    width: 18%;
+    margin-left: 0;
+    border:1px solid #d0e5f2;
+    margin-top: 10px;
+    float: left;
+}
+.layui-input-block input{height: 30px}
+.btn-group{float: right}
+
+.mycheck{float: left;margin-top: 20px;margin-left: 20px}
+.mycheck label{font-size: 20px}
+.checkbox{float: left;margin-top: 10px}
+
+    	.nav-logo{
+    		float: left;
+		    height: 40px;
+		    margin-top: 5px;
+		    overflow: hidden;
+    	}
+    	.nav-logo a{
+    		margin: 0;
+    		padding: 0;
+    	}
+
+
+
+/*checkbox*/
+
+input[type="checkbox"] + label::before {
+    content: "\a0";  /*不换行空格*/
+    display: inline-block;
+    vertical-align: .2em;
+    width: .8em;
+    height: .8em;
+    margin-right: .2em;
+    border-radius: .2em;
+    background-color: silver;
+    text-indent: .15em;
+    line-height: .65;  /*行高不加单位，子元素将继承数字乘以自身字体尺寸而非父元素行高*/
+}
+.hd{
+color: #666;
+font-size: 14px;margin-top: 20px;padding: 20px;
+height: 30px;
+line-height: 30px;
+border-bottom: 0;
+border-bottom: none;
+}
+input[type="checkbox"]:checked + label::before {
+    content: "\2713";
+    background-color: yellowgreen;
+}
+input[type="checkbox"] {
+    position: absolute;
+    clip: rect(0, 0, 0, 0);
+}
+/*#发布和添加标签按钮*/
+
+.count{float: left;width: 80%;color: #b3c3c0;}
+.count i{margin-left:10px}
+
+
+#左侧选项栏位
+.bord-set{overflow: hidden;}
+.bord-set li{width: 100%;height: 50px;border-radius:5px;color: white;}
+.padding-top{margin-top: 18px}
+.board-name{color: white;}
+.board-name span{font-size: 18px;margin-left: 20px;display: block;padding-top: 13px}
+
+.most-dz{background-color: #7ad28b}
+.most-rm{background-color: #e17f5a}
+.most-ck{background-color: #e1c4a5}
+.most-sc{background-color: #b6e1b6}
+.most-pl{background-color: #9a9eee}
+
+#排行榜
+.focus-ul{
+    overflow: hidden;
+}
+focus-ul{float: left;overflow: hidden}
+.focus-ul li a{float: left;margin-top: 10px;}
+.focus-ul li{float: left;height: 50px;width: 100%}
+.focus-ul li a:hover{color: #b3c3c0}
+.focus-user-name:hover{color: #b3c3c0}
+.focus-ul li a img{width: 40px;height: 40px;border-radius: 50%;float: left}
+
+.focus-user-info{float: left;margin-left: 10px}
+.focus-user-name{margin-right: 60px;font-size: 15px;color: #333;font-weight: lighter}
+.detail{color: #9b9fb1}
+
+.change-author{margin-top: 20px;padding-bottom: 10px;}
+.change-author span{color: #b2b2b2;font-size: 15px;float: left}
+.change-btn{float: right}
+.change-btn:hover{cursor: pointer;color: #b2b2b2}
+/*.my-qq img{float: left;width:60%;height: 100px}*/
+/*.QQ-group-scan img{width:40%;height: 100px;float: left}*/
+/*.QQ-group{margin-top: 10px}*/
+
+[v-cloak] {
+  display: none;
+}
+.bar-name{width: 100%;height: 60px;padding:0;color: white;font-size: 30px;font-weight: lighter;
+line-height: 60px;text-align: center}
+.h{background-color: #f06e57}
+.s{background-color: #d1e10e}
+.see{background-color: #A5DC86}
+.co{background-color: #c0d8c0}
+.colle{background-color: #6ee152}
+
+.follow-add{float: right;margin-top: 20px;font-weight: bold;color: #1ee124;font-weight: lighter}
+.follow-add:hover{cursor: pointer}
+
+.follow-added{float: right;margin-top: 20px;font-weight: bold;font-weight: lighter;color: #ee7f5c}
+.follow-added:hover{cursor: pointer}
+
+.see_all{width: 100%;}
+
+.change-btn-hot{float: right;font-size: 15px;color: #1ee124;margin-top: 20px}
+.change-btn-hot:hover{cursor: pointer;color: #b2b2b2}
+
+
+
+

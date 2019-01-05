@@ -1,0 +1,162 @@
+header, section, footer, hgroup{
+	display:block;
+}
+.select-bar{
+	float: left;
+	width: 100%;
+	margin-top: 20px;
+}
+
+/* Header */
+#header{
+	width:100%;
+	background:#000;
+	background:rgba(0, 0, 0, 0.8);
+	padding:5px 0;
+	letter-spacing:1px;
+	margin-bottom:20px;
+	position:fixed;
+	top:0;
+	left:0;
+	z-index:99;
+}
+#header h1{
+	padding:0 20px;
+	margin:5px 0;
+	text-shadow:2px 1px 1px #333, 2px 2px 1px #888;
+	color:#EAEAEA;
+	float:left;
+	font-size:27px;
+}
+#backlinks{
+	float:right;
+	padding:0 20px;
+	line-height:22px;
+	font-weight:bold;
+	font-size:13px;
+}
+#backlinks a{
+	text-align:right;
+	display:block;
+}
+
+/* clearfix */
+.clearfix {
+	clear:both;
+}
+
+/* wrapper css */
+#wrapper{
+	width:100%;
+}
+#wrapper hgroup{
+	text-align:center;
+}
+#wrapper h2{
+	margin:5px 0;
+	color:#FF6D99;
+	text-shadow:1px 1px 2px #A50031;
+	font-size:33px;
+	font-family:Arial Narrow, Arial, sans-serif;
+}
+#wrapper h3{
+	font-style:italic;
+	font-weight:normal;
+	font-size:18px;
+	text-shadow:1px 1px 0 #fff;
+	color:#888;
+	margin:5px 0;
+}
+
+#container{
+	position:relative;
+	width: 100%;
+	margin:0 auto;
+	padding-bottom: 10px;
+	float: left;
+
+}
+.grid{
+	width:188px;
+	min-height:100px;
+	padding: 15px;
+	background:#fff;
+	margin:8px;
+	font-size:12px;
+	float:left;
+	box-shadow: 0 1px 3px rgba(34,25,25,0.4);
+	-moz-box-shadow: 0 1px 3px rgba(34,25,25,0.4);
+	-webkit-box-shadow: 0 1px 3px rgba(34,25,25,0.4);
+	
+	-webkit-transition: top 1s ease, left 1s ease;
+	-moz-transition: top 1s ease, left 1s ease;
+	-o-transition: top 1s ease, left 1s ease;
+	-ms-transition: top 1s ease, left 1s ease;
+}
+
+.grid strong {
+	border-bottom:1px solid #ccc;
+	margin:10px 0;
+	display:block;
+	padding:0 0 5px;
+	font-size:17px;
+}
+.grid .meta{
+	text-align:right;
+	color:#777;
+	font-style:italic;
+}
+.grid .imgholder img{
+	max-width:100%;
+	background:#ccc;
+	display:block;
+}
+.pagiat{
+	text-align: center;
+	float: left;
+}
+
+@media screen and (max-width : 1240px) {
+	body{
+		overflow:auto;
+	}
+}
+@media screen and (max-width : 900px) {
+	#backlinks{
+		float:none;
+		clear:both;
+	}
+	#backlinks a{
+		display:inline-block;
+		padding-right:20px;
+	}
+}
+
+
+
+.select-bar{
+	float: left;
+	width: 100%;
+	margin-top: 10px;
+}
+.select-bar ul{
+	overflow: hidden;
+	float: left;
+}
+.select-bar li{
+	float: left;
+	width: 100%;
+}
+.select-bar li a:hover{
+	color: #15c215;
+}
+.select-bar li a{
+float: left;
+width: 100%;
+line-height: 29px;
+color: #666;
+padding: 0 0 0 10px;
+font-size: 14px;
+background-color: #f8f8f8;
+}
+

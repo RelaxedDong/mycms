@@ -1,0 +1,199 @@
+{% extends "front/base.html" %}
+{% from "common/_macro.html" import static %}
+
+{% block head %}
+    <link rel="stylesheet" href="{{ static("album/css/album_detail.css") }}">
+    <link rel="stylesheet" href="{{ static("album/viewer/css/viewer.css") }}">
+    <link rel="stylesheet" href="{{ static("album/viewer/css/main.css") }}">
+        <link rel="stylesheet" href="{{ static("front/css/post_detail.css") }}">
+    <script src="{{ static("common/js/report.js") }}"></script>
+    <script src="{{ static("album/js/star_comment.js") }}"></script>
+    <script src="{{ static("front/js/follow.js") }}"></script>
+        <script>
+    window.onload=function(){
+    follow();
+}
+    </script>
+{% endblock %}
+
+{% block body %}
+    <div class="main_contener">
+        <div class="col-md-8">
+            <div class="header-info">
+                <div class="header-info-img">
+                    <img src="{{ album.author.avatar }}" alt="">
+                </div>
+                <div class="header-info-user">
+                    <div class="album-author-name"><a href="{{ url_for("album.img_list",album_id=album.id) }}">{{ album.name }}</a>
+                        <b class="pick-count">[{{ album.images|length }}张]</b>
+                    </div>
+                    <div class="picks-attention">
+                        <span><i class="unhide icon"></i>{{ album.see_count }}</span>
+                        <span><i class="comment icon"></i>{{ album.album_comments|length }}</span>
+                        <span><i class="smile icon"></i>{{ album.album_stars|length }}</span>
+                    </div>
+                    <div class="picset-author">
+                        <b style="vertical-align: -2px;;float: left;font-size: 15px">©</b>
+                        <a href="{{ url_for("album.my_album",user_id=user.id) }}" class="u-name">{{ user.nickname }}</a>
+                        <div class="pic-btns">
+                            {% if g.front_user and g.front_user.id in wodefensi %}
+                            <button class="de-focus fow" data-user-id="{{ user.id }}">取消关注</button>
+                                {% else %}
+                              <button class="pic-btns-1 fow" data-user-id="{{ user.id }}">+关注他</button>
+                            {% endif %}
+                            <button class="pic-btns-2" id="star-btn" data-album-id="{{ album.id }}">赞他(<span id="stars-count">{{ album.album_stars|length }}</span>)</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="album-desc">
+                发布于：{{ album.create_time }}<br>
+                版权所有：<b class="auth">© 版权所有，禁止转载</b><br>
+
+                <p class="jubao repo" data-toggle="modal" data-target=".bs-example-modal-lg">举报</p>
+                <div class="modal fade bs-example-modal-lg" id="mymodel" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+                  <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span></button>
+                                            <h4 class="modal-title" id="myModalLabel">&nbsp;&nbsp;举报&nbsp;&nbsp;
+                                                <&nbsp;相册：{{ album.name }}&nbsp;></h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="header-b">
+                                                <span class='up-text'>举报理由：</span>
+                                                <textarea class="form-control" rows="3" id="port_desc"></textarea>
+                                            </div>
+
+                                        </div>
+                                        <div class="modal-footer" id="myfot">
+                                            <button type="button" class="btn btn-default clo"
+                                                    data-dismiss="modal">Close</button>
+                                            <button type="button" class="btn btn-danger port_now"
+                                            data-user-id="{{ g.front_user.id }}" data-type="相册"
+                                            data-bereport-id="{{ album.author.id }}">立即举报</button>
+                                        </div>
+                                    </div>
+                  </div>
+                </div>
+
+
+
+
+                <div class="pic-info">
+                    {{ album.desc }}
+                </div>
+            </div>
+            <div class="pic-imges">
+                <ul class="docs-pictures">
+                    {% for imge in album.images %}
+                        <li><img src="{{ imge.url }}" alt=""></li>
+                    {% endfor %}
+
+                </ul>
+            </div>
+
+            <div class="album-author-foorter">
+                <div class="h3-title">关于用户</div>
+                <div class="link-box">
+                    <ul>
+                        <li>
+                            <div class="face">
+                                <img src="{{ user.avatar }}" alt="">
+                            </div>
+                        </li>
+                        <li class="le">
+                            <div class="host-title"><a href="{{ url_for("album.my_album",user_id=user.id) }}">{{ user.nickname }}</a></div>
+                            <div class="J-host-Countinfo">
+                                <a>
+                                    <b class="num">{{ count }}</b><br>
+                                    <b class="num-t">照片数</b>
+                                </a><a style="margin-left: 20px">
+                                <b class="num">{{ user.albums|length }}</b><br>
+                                <b class="num-t">相册集</b>
+                            </a><a style="margin-left: 20px">
+                                <b class="num">{{ wodefensi|length }}</b><br>
+                                <b class="num-t">粉丝数</b>
+                            </a>
+                            </div>
+                        </li>
+                    </ul>
+                <div class="h3-title">其它相册</div>
+                    <div class="other">
+                        {% for album in user.albums %}
+                               {% if album.power !=1 %}
+                                   <a href="{{ url_for("album.img_list",album_id=album.id) }}"><img
+                                        src="{{ album.id|fengmian }}"
+                                        alt=""></a>
+                               {% endif %}
+                    {% endfor %}
+                    </div>
+                </div>
+            </div>
+            <div class="comment-area">
+                <div class="com-title">对该组图的评论（<span class="co-count">{{ album.album_comments|length }}</span>）</div>
+                <textarea placeholder="请输入评论" class="layui-textarea" id="comment-content"></textarea>
+                <button class="comment-now-btn" id="comment-btn" data-album-id="{{ album.id }}">发表</button>
+           {% for comment in comments %}
+                    <div class="comment-item">
+                    <div class="comment-avatar">
+                        <img src="{{ comment.author.avatar }}"
+                             alt="">
+                    </div>
+                    <div class="comment-group">
+                        {% if comment.origin_comment_id %}
+                            <div class="co-time">
+                                         <a href="">{{ comment.author.username }}</a><span
+                                    style="margin-left: 10px">{{ comment.create_time|handle_time }}</span>
+                             </div>
+                            <p class="comment-content">
+                                            {{ comment.content|safe }}
+                                </p>
+                            <div class="quote">
+                                引用：<a href="" style="color: #54b0df;">@{{ comment.origin_comment.author.username }}</a>的评论<br>
+                                      {{ comment.origin_comment.content|safe }}
+                            </div>
+                        {% else %}
+                            <div class="co-time">
+                                         <a href="">{{ comment.author.username }}</a><span
+                                    style="margin-left: 10px">{{ comment.create_time|handle_time }}</span>
+                                    </div>
+                            <p class="comment-content">
+                                        {{ comment.content|safe }}
+                                    </p>
+                        {% endif %}
+
+                        <p class="duoji-comment">
+                            {% if comment.author.id == g.front_user.id %}
+                            <a class="delete-btn" data-comment-id="{{ comment.id }}"><i class="layui-icon layui-icon-delete"></i><font color="red">删除</font></a>
+                            {% endif %}
+                            <a class="huifu"><i style="color: #eed06c"
+                                                class="layui-icon layui-icon-reply-fill"></i>回复</a>
+                        </p>
+                        <div class="aco" style="display: none;">
+                             <textarea placeholder="请输入内容" class="layui-textarea"></textarea>
+                             <button style="float: right" class="layui-btn layui-btn-sm acomment"
+                                     data-comment-id="{{ comment.id }}" data-album-id="{{ album.id }}">发布</button>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+
+
+            </div>
+        </div>
+        <div class="col-md-4">
+    {% for ad in ads %}
+                <div class="ad">
+                    <a href="{{ ad.link_url }}"> <img src="{{ ad.img_url }}" alt=""></a>
+                <div class="ad-gg">广告</div>
+                        </div>
+            {% endfor %}
+        </div>
+    </div>
+  <script src="https://fengyuanchen.github.io/js/common.js"></script>
+  <script src="{{ static("album/viewer/js/viewer.js") }}"></script>
+  <script src="{{ static("album/viewer/js/main.js") }}"></script>
+{% endblock %}

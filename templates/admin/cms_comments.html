@@ -1,0 +1,64 @@
+{% extends "admin/cms_base.html" %}
+{% from "common/_macro.html" import static %}
+{% block head %}
+    <script src="{{ static("admin/js/cms_comments.js") }}"></script>
+{% endblock %}
+
+{% block content %}
+            <div class="main_content">
+                <!--具体内容盒子               -->
+                <blockquote class="layui-elem-quote news_search">
+                    <div class="layui-inline">
+                        <form action="{{ url_for("cms.comments") }}" method="get">
+                            <div class="layui-input-inline">
+                                <input value="" placeholder="请输入关键字" autocomplete="off" class="layui-input search_input" type="text" name="comment_search">
+                            </div>
+                            <button class="layui-btn" type="submit">查询</button>
+                        </form>
+                    </div>
+
+                    <div class="layui-inline">
+                        <a class="layui-btn audit_btn" href="{{ url_for("cms.comments",elit=1) }}">最新评论</a>
+                    </div>
+                </blockquote>
+                <div class="posts-box">
+                    <table class="layui-table">
+                        <colgroup>
+                            <col width="150">
+                            <col width="200">
+                            <col>
+                        </colgroup>
+                        <thead>
+                        <tr>
+                            <th>帖子标题</th>
+                            <th>作者</th>
+                            <th>评论内容</th>
+                            <th>评论人</th>
+                            <th>邮箱</th>
+                            <th>时间</th>
+                            <th>操作</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                            {% for comment in comments %}
+                                <tr data-id="{{ comment.id }}">
+                                    <td><a href="{{ url_for("front.post_detail",post_id=comment.post.id) }}">{{ comment.post.title|truncate(20) }}</a></td>
+                                    <td><a href="{{ url_for("front.u",user_id=comment.post.author.id) }}">{{ comment.post.author.nickname }}</a></td>
+                                    <td><a href="{{ url_for("front.post_detail",post_id=comment.post.id) }}"></a>{{ comment.content }}</td>
+                                    <td><a href="{{ url_for("front.u",user_id=comment.author.id) }}">{{ comment.author.nickname }}</a></td>
+                                    <td>{{ comment.author.email }}</td>
+                                    <td>{{ comment.create_time }}</td>
+                                    <td>
+                                        <button class="layui-btn layui-btn-warm layui-btn-sm del-btn">删除</button>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                {{ pagination.links }}
+                </div>
+                <!--具体内容盒子结束-->
+            </div>
+{% endblock %}
+
+

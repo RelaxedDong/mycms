@@ -1,0 +1,81 @@
+﻿{% from "common/_macro.html" import static %}
+{% extends "front/base.html" %}
+
+{% block head %}
+    <link rel="stylesheet" href="{{ static("front/css/chat.css") }}">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="{{ static("front/js/send-msg.js") }}"></script>
+{% endblock %}
+
+{% block body %}
+    <div class="main_contener">
+    <div class="col-md-4">
+          <div class="chat-title-box"><i class="mail icon"></i>消息列表</div>
+            <ul class="chat-list-box">
+               {% for message in messages %}
+                      <li>
+                    <div class="chat-right">
+                        <a href=""> {{ message.create_time[0:-7]}}
+                        </a>
+                    </div>
+                    <a href="{{ url_for("front.u",user_id=message.reciver_id) }}"><img src="{{ (message.reciver_id|user_name).avatar }}"
+                                    alt=""></a>
+                    <div class="chat-user-info-box">
+                        <div class="chat-name">
+                               {% if (message.reciver_id|user_name).nickname|length >6 %}
+                             <a href="#">{{ (message.reciver_id|user_name).nickname[:5]+'...'}}</a>
+                                {% else %}
+                                     <a href="#">{{ (message.reciver_id|user_name).nickname}}</a>
+                            {% endif %}
+                        </div>
+                        <div class="chat-msg">
+                            <a href="{{ url_for("front.chat_box",user_id=message.reciver_id) }}">
+                            {{ message.reciver_id|first_msg }}
+                            </a>
+                        </div>
+                    </div>
+                </li>
+                {% endfor %}
+            </ul>
+    </div>
+        <!--轮播图结束-->
+        <div class="col-md-8">
+            <div class="chat-top">
+                <div class="return-chat"><a href="{{ url_for("front.chat",user_id = g.front_user.id) }}"><i class="reply icon"></i>
+                    返回聊天列表</a></div>
+                <div class="chat-to-user">
+                    <a href="{{ url_for("front.u",user_id=user.id) }}">{{ user.nickname }}</a>
+                    <span style="display: none;" id="reciver_id">{{ user.id }}</span>
+                </div>
+                <span style="float: right;cursor: pointer;color: #e16b60" id="clear-msg"
+                data-reciver-id="{{ user.id }}">清空聊天记录</span>
+            </div>
+            <div class="chat-list-l" id="demo-l">
+                       <li v-for="message in messages" v-cloak>
+                            <div class="chat-time">[[message.create_time.substring(0,19)]]</div>
+                            <div class="chat-item" v-if="message.reciver_id == reciver_id_1">
+                                <img class="riimg" src="{{ g.front_user.avatar }}" alt="">
+                                <div class="ri">
+                                    <div class="m">
+                                       [[message.msg]]
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="chat-item" v-else>
+                                <a href="{{ url_for("front.u",user_id=user.id) }}"><img class="leimg" src="{{ user.avatar }}" alt=""></a>
+                        <div class="le">
+                            <div class="m">
+                               [[message.msg]]
+                            </div>
+                        </div>
+                            </div>
+                        </li>
+            </div>
+            <textarea class="form-control" rows="3" placeholder="请输入内容" id="user-msg"></textarea>
+            <button class="circular ui green button" id="send-msg" style="float: right;margin-top: 10px"
+            data-sender-id="{{ g.front_user.id }}"
+            data-reciver-id="{{ user.id }}">发送</button>
+        </div>
+    </div>
+{% endblock %}
+

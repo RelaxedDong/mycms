@@ -1,0 +1,167 @@
+﻿{% extends "front/base.html" %}
+{% from "common/_macro.html" import static %}
+
+{% block head %}
+    <link rel="stylesheet" href="{{ static("album/css/album.css") }}">
+    <script src="{{ static("album/js/up_img.js") }}"></script>
+    <link rel="stylesheet" href="{{ static("album/viewer/css/viewer.css") }}">
+    <link rel="stylesheet" href="{{ static("album/viewer/css/main.css") }}">
+    <style>
+        .bg {
+            -moz-background-size: 100% 100%;
+            background-size: 100% 100%;
+            background-attachment: fixed;
+        }
+    .img-count-box{
+        float: left;
+    }
+    </style>
+{% endblock %}
+
+{% block body %}
+    <div class="main_contener bg">
+        <div class="col-md-12">
+            <a style="color: #70e157;margin-bottom: 30px"
+               href="{{ url_for("album.my_album",user_id=thisalbum.author.id) }}"><i class="reply icon"></i>&nbsp;去他的相册集</a><br>
+            <div class="album-header">
+                <img src="{{ thisalbum.id|fengmian }}" alt="">
+                <div class="album-info">
+                    <div class="album-name">
+                        <a href="">{{ thisalbum.name }}</a>
+                        <span>照片数：<i id="img-count">{{ images|length }}</i></span>
+                            {% if thisalbum.power == 0 %}
+                               <span style="color:grey" class="au">/&nbsp;公开</span>
+                                {% else %}
+                                    <span style="color:grey" class="au"><i class="lock icon"></i>权限</span>
+                                {% endif %}
+                    </div>
+                    {% if g.front_user.id == thisalbum.author.id %}
+                        <div class="btns">
+                            <a data-toggle="modal" data-target=".bs-example-modal-lg" id="upload-my-img">上传图片</a>
+                            <a class="le" id="delete-btn">管理图片</a>
+                            <a class="le" id="setting">设置</a>
+                            <div id="who-can-see" style="display: none">
+                                <select name="" id="ch">
+                                    <option value="self">仅自己可见</option>
+                                    <option value="all">全部人可见</option>
+                                </select>
+                                <button class="follow-now-btn" id="save-power" data-album-id="{{ thisalbum.id }}">保存
+                                </button>
+                            </div>
+
+                            <a class="le" data-toggle="modal" data-target="#addtag">添加标签</a>
+                            <div class="modal fade" id="addtag" tabindex="-1" role="dialog"
+                                 aria-labelledby="myModalLabel">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span></button>
+                                            <h4 class="modal-title" id="myModalLabel">为&nbsp;<<{{ thisalbum.name }}>>&nbsp;&nbsp;添加标签</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="header-b">
+                                                <span class='up-text'>热门标签</span>
+                                                <div class="choose_album">
+                                                    <select id="hot-tag">
+                                                        {% for tagname in tagnames %}
+                                                           <option value="{{ tagname }}">{{ tagname }}</option>
+                                                        {% endfor %}
+                                                    </select>
+                                                </div>
+                                        <span style="float: right">
+                                            <a class="btn btn-hollow" id="hottag-add">立即添加
+                                            </a>
+                                        </span>
+                                            </div>
+                                            <div class="input-owm">
+                                                <input type="text" placeholder="没有喜欢的？输入一个..." class="layui-input" name="tagname">
+                                                <button class="layui-btn layui-btn-warm add_input">立即添加</button>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer" id="myfot">
+                                            <button type="button" class="btn btn-danger" id="clear-btn">清空</button>
+                                            <button type="button" class="btn btn-primary" id="add-tag-now" data-album-id="{{ thisalbum.id }}">保存</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% else %}
+                        <div class="album-desc" style="margin-top: 10px;float: left">
+                            {{ thisalbum.desc }}
+                        </div>
+                    {% endif %}
+                </div>
+                <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog"
+                     aria-labelledby="myLargeModalLabel">
+                    <div class="modal-dialog modal-lg" role="document">
+                        <div class="modal-content" style="height: 400px">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                        aria-hidden="true">&times;</span>
+                                </button>
+                                <h4 class="modal-title" id="myModalLabel">上传图片</h4>
+                            </div>
+                            <div class="header-b">
+                                <span class='up-text'>上传到</span>
+                                <div class="choose_album">
+                                    <select id="select-album">
+                                            <option value="{{ thisalbum.id }}">{{ thisalbum.name }}</option>
+                                    </select>
+                                </div>
+                                <span style="float: right" id="upfile">
+                    <a class="btn btn-hollow">
+                           <input type="file" name="file0" id="file0" multiple="multiple" class="hide"
+                                  accept="image/gif,image/jpg,image/jpeg,image/bmp,image/png"/>上传图片
+                    </a>
+                </span>
+                            </div>
+                            <div id="d1">
+                            </div>
+                            <div class="modal-footer">
+                                <div class="progress">
+                                  <div class="progress-bar progress-bar-success" id="prog_in" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;">
+                                    <span id="pro">0%</span>
+                                  </div>
+                                </div>
+                                <div class="img-count-box">
+                                    <span>已上传（</span>
+                                    <span id="current-count">0</span>
+                                    <span>/</span>
+                                    <span id="all-count">0</span>
+                                    <span>)</span>
+                                </div>
+                                <button type="button" class="btn btn-default ios" data-dismiss="modal">取消</button>
+                                <button type="button" class="btn btn-primary ios" id="upload-now">立即添加</button>
+                                <div style="float: right;display: none" id="loading">
+                                    <button class="ui primary loading button"></button>
+                                    <span style="color: #c2655e;margin-top: 10px">图片上传中,请稍后.......</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                  <div class="tags-ri">
+                                {% for tag in thisalbum.tags %}
+                                    <a class="ui red tag label">{{ tag.tagname }}</a>
+                                {% endfor %}
+                            </div>
+            </div>
+
+            <div class="img-list">
+                <ul class="docs-pictures">
+                    {% for image in images %}
+                        <li style="margin-left: 20px">
+                            <a><img src="{{ image.url }}" alt=""></a>
+                            <span class="img-time">{{ image.create_time }}<span style="display: none;" class="del-im" data-img-id="{{ image.id }}">删除</span></span>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script src="https://fengyuanchen.github.io/js/common.js"></script>
+    <script src="{{ static("album/viewer/js/viewer.js") }}"></script>
+    <script src="{{ static("album/viewer/js/main.js") }}"></script>
+{% endblock %}

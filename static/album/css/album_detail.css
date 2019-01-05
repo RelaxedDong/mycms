@@ -1,0 +1,126 @@
+.header-info{
+    width: 100%;
+    margin-top: 20px;
+    border-bottom: 1px solid #f3f3f3;
+    float: left;
+    padding-bottom: 20px;
+}
+.header-info-img{
+    float: left;
+    overflow: hidden;
+}
+.header-info-img img{
+    width: 90px;
+    height: 90px;
+}
+.header-info-user{
+    float: left;
+    margin-left: 10px;
+    width: 450px;
+    color: #999;
+}
+.album-author-name{font: 24px/1.2 微软雅黑,Arial,宋体;color: #333;width: 100%}
+.pick-count{font-weight: normal;font-size: 12px;font-style: normal;color: #999999}
+.picks-attention{margin-top: 10px;width: 100%;color: #d8bcf6}
+.picks-attention span{margin-left: 5px}
+.picset-author{margin-top: 10px;width: 100%}
+.u-name{color: #777af6;float: left;font-size: 15px}
+.u-name:hover{border-bottom: 1px solid #2e75bc}
+.pic-btns{margin-left: 10px;float: left}
+.pic-btns-1{background-color:#3eb1f0;color:white;font-weight: lighter;padding: 3px 8px;border: 0;margin-left: 5px}
+.pic-btns-2{color: #333;background-color: #e1e1e1;font-weight: lighter;padding: 2px 5px;border: 0;margin-left: 5px}
+.pic-btns-2:hover{background-color: #b2c9f6}
+.pic-btns-1:hover{background-color: #91b4c2}
+
+.de-focus{background-color: #c25b52;color:white;font-weight: lighter;padding: 3px 8px;border: 0;margin-left: 5px}
+.de-focus:hover{background-color: #c27d74}
+
+.album-desc{
+    margin-top: 30px;
+    font-weight: lighter;
+line-height: 24px;
+color: #333;
+text-align: left;
+word-wrap: break-word;
+word-spacing: normal;
+}
+.auth{
+color: #c0bec2;font-weight: lighter;
+}
+.pic-info{margin-top: 40px}
+.pic-imges{margin-top: 40px}
+.pic-imges ul{overflow: hidden}
+.pic-imges ul li{margin-top: 40px}
+
+.album-author-foorter{margin-top: 50px;width: 100%}
+.h3-title{margin-bottom: 20px;font-size: 14px;font-weight: normal;color: #666;margin-top: 20px}
+.link-box{width: 100%}
+.link-box ul{overflow: hidden;width: 100%}
+.link-box ul li{
+    float: left;
+}
+.le{
+    margin-left: 10px;
+}
+.other{
+    margin-top: 20px;
+}
+.other a img{
+width: 150px;
+height: 150px;
+margin-top: 20px;
+    margin-left: 10px;
+    box-shadow: 10px 10px 5px #9b9fb1;
+}
+.face{
+width: 100px;
+height: 100px;
+}
+.face img{    width: 100px;
+height: 100px}
+.host-title{color: #666;font-size: 30px;font-weight: lighter;float: left}
+.J-host-Countinfo{ color: #666666;font-weight: lighter;padding-top: 50px;}
+.J-host-Countinfo a{
+border-right: 1px solid #ebebeb;
+padding-right: 7px;
+height: 50px;
+text-align: center;
+float: left;
+}
+.num{color: #666666;font-weight: lighter;font-size: 25px}
+.num-t{font-size:10px;color: #666666;font-weight: lighter}
+
+/*#评论*/
+.comment-area{
+margin-top: 50px;
+margin-bottom: 15px;
+width: 100%;
+}
+.com-title{font-size: 14px;
+font-weight: normal;
+color: #666;
+letter-spacing: 0;}
+.layui-textarea{
+    margin-top: 20px;
+}
+.comment-now-btn{background-color:#3eb1f0;color:white;font-weight: lighter;padding: 3px 8px;border: 0;margin-left: 5px;float: right;margin-top: 10px}
+.comment-now-btn:hover{background-color: #b2c9f6}
+
+
+
+
+.comment-item{margin-bottom: 1em;width: 100%;float: left}
+.comment-avatar img{float: left;width: 40px;height:40px;margin-top: 10px;
+ }
+
+.co-time{color: #bbb;font-size: 15px;height: 25px;line-height: 25px;margin-left: 10px}
+.co-time a{color: #4558b6}
+.comment-content{padding-top: 10px;font-size: 14px;margin-left: 10px}
+
+.comment-group{float: left;width: 90%;margin-top: 10px}
+.author-box{float: left}
+.duoji-comment{
+    float: right;
+    margin-top: 10px;
+}
+.duoji-comment a{margin-left: 5px}

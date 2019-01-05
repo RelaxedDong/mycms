@@ -1,0 +1,183 @@
+﻿{% extends "front/base.html" %}
+{% from "common/_macro.html" import static %}
+
+
+{% block title %}
+    Dohoom站点
+{% endblock %}
+
+{% block head %}
+    <script src="{{ static("front/js/index.js") }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <link rel="stylesheet" type="text/css" href="{{ static("common/jQCloud-master/jqcloud/jqcloud.css") }}"/>
+    <script type="text/javascript" src="{{ static("common/jQCloud-master/jqcloud/jqcloud-1.0.4.js") }}"></script>
+    <script src="{{ static("front/js/tags.js") }}"></script>
+    <script src="{{ static("front/js/hot_users.js") }}"></script>
+    <script src="{{ static("common/layui/lay/modules/layer.js") }}"></script>
+    <script src="{{ static("front/js/follow.js") }}"></script>
+ 
+
+{% endblock %}
+
+{% block body %}
+    <span style="display: none;" id="return-to-span">{{ return_to }}</span>
+    <div class="main_contener">
+        <div class="col-md-8">
+            <div id="carousel-example-generic" class="carousel slide index-banner" data-ride="carousel">
+                <!-- Indicators -->
+            <ol class="carousel-indicators">
+                {% for banner in banners %}
+                {% if loop.index0 == 0 %}
+                <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                    {% else %}
+                    <li data-target="#carousel-example-generic" data-slide-to="{{ loop.index }}"></li>
+                {% endif %}
+                {% endfor %}
+            </ol>
+
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner" role="listbox">
+                    {% for banner in banners %}
+					{% if loop.first %}
+                       			 	<div class="item active">
+                    			{% else %}
+                       			 	<div class="item">
+                    			{% endif %}
+                                <img src="{{ banner.img_url }}" class="ig">
+                                <div class="carousel-caption" style="padding-bottom: 20px;">
+                                    {{ banner.content }}
+                                </div>
+                            </div>
+              
+                    {% endfor %}
+                </div>
+
+                <!-- Controls -->
+                <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+            <!--banner结束-->
+        </div>
+        <div class="col-md-4 infomation">
+            <ul class="bord-set">
+                <li class="most-dz"><a href="{{ url_for("front.most_star") }}" class="board-name"><span><i
+                        class="layui-icon layui-icon-praise"></i>&nbsp;点赞最多</span>&nbsp;</a></li>
+                <li class="padding-top most-rm"><a href="{{ url_for("front.hot") }}" class="board-name"><span><i
+                        class="layui-icon layui-icon-fire"></i>&nbsp;热门精选</span>&nbsp;</a>
+                </li>
+                <li class="padding-top most-ck"><a href="{{ url_for("front.most_see") }}" class="board-name"><span><i
+                        class="eye icon"></i>&nbsp;查看最多</span>&nbsp;</a>
+                </li>
+                <li class="padding-top most-pl"><a href="{{ url_for("front.most_comment") }}"
+                                                   class="board-name"><span><i class="talk outline icon"></i>&nbsp;评论最多</span>&nbsp;</a>
+                </li>
+                <li class="padding-top most-sc"><a href="{{ url_for("front.most_collect") }}"
+                                                   class="board-name"><span><i class="layui-icon layui-icon-star"></i>&nbsp;收藏最多</span>&nbsp;</a>
+                </li>
+            </ul>
+        </div>
+        <div class="col-md-8">
+            <div id="demo" v-cloak>
+                <div class="item-content" v-for="post in main">
+                    <ul>
+                        <li>
+                            <div class="img-group">
+                                <img v-bind:src="post.cover" v-if="post.cover.length">
+                            </div>
+                            <div class="content">
+                                <span class="title"><a :href="'/post_detail/'+post.id+'?lang='+language">[[post.title]]</a>
+                                    <button class="layui-btn layui-btn-xs layui-btn-warm"
+                                            v-if="post.hight_light">精</button>
+                                </span>
+                                <div class="author-group">
+                                    <div v-if="post.avatar">
+                                        <img v-bind:src="post.avatar" alt="">
+                                        <a :href="'/u/' + post.user_id ">
+                                        [[post.username]]
+                                    </a>
+                                    <i class="clock icon"></i>
+                                    [[post.create_time]]
+                                    </div>
+                                    <div v-else>
+                                        <img src="{{ static("front/images/timg.jpg") }}" alt=" ">
+                                        <a :href="'/u/' + post.user_id ">
+                                        [[post.username]]
+                                    </a>
+                                    <i class="clock icon"></i>
+                                    [[post.create_time]]
+                                    </div>
+
+
+                                </div>
+                                    <div v-if="post.cover.length">
+                                        <div class="text">
+                                            [[post.content]]
+                                        </div>
+                                    </div>
+                                    <div v-else>
+                                        <div class="textfill">
+                                            [[post.content]]
+                                        </div>
+                                    </div>
+
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <button v-on:click.prevent="loadMorebtn" class="layui-btn layui-btn-primary" id="loadmore"
+                        style="width: 100%" type="button">加载更多
+                </button>
+                <button class="ui loading button" style="width: 100%;display: none" id="loading">加载</button>
+            </div>
+        </div>
+        <div class="col-md-4">
+         <div id="author" v-cloak>
+                <div class="change-author">
+                    <span>推荐作者</span>
+                    <div class="change-btn" v-on:click="changeauthors">
+                        <i class="layui-icon layui-icon-refresh"></i>&nbsp;换一批
+                    </div>
+                </div>
+
+                <ul class="focus-ul">
+                    <li v-for="user in authors">
+                        <a :href="'/u/' + user.user_id ">
+                            <img v-bind:src="user.avatar" alt="">
+                            <div class="focus-user-info">
+                                <span class="focus-user-name">[[user.nickname]]</span>
+                                <p class="detail">写了[[user.charactors]]字</p>
+                            </div>
+                        </a>
+                        {% if g.front_user %}
+                            <span style="display: none;" id="now_user" data-user-id="{{ g.front_user.id }}"></span>
+                        {% endif %}
+                        <div class="follow-add fow" v-if="user.is_focus_id!==1" v-bind:data-user-id="user.user_id"><i class="layui-icon layui-icon-add-1"></i>关注</div>
+                        <div class="follow-added fow"  v-else v-bind:data-user-id="user.user_id"><i class="layui-icon layui-icon-ok-circle"></i>取消关注</div>
+                    </li>
+                </ul>
+                <a href="{{ url_for("front.authors") }}" class="ui grey basic mini  button see_all"
+                   style="margin-top: 20px">查看全部
+                    <i class="layui-icon mini layui-icon-right"></i>
+                </a>
+            </div>
+            <div class="change-btn-hot" id="other-hot">
+                <i class="layui-icon layui-icon-refresh"></i>&nbsp;换一批热门
+            </div>
+            <div id="example" style="width: 100%; height: 350px"></div>
+            {% for ad in ads %}
+                {% if ad.is_using == 1 %}
+                <div class="ad">
+                <a href="{{ ad.link_url }}" target="_blank"> <img src="{{ ad.img_url }}" alt=""></a>
+                <div class="ad-gg">广告</div>
+                        </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,43 @@
+﻿{% extends "admin/cms_base.html" %}
+
+{% block head %}{% endblock %}
+
+
+{% block content %}
+       <!--具体内容盒子               -->
+                <table class="layui-table">
+                    <colgroup>
+                        <col width="150">
+                        <col width="200">
+                        <col>
+                    </colgroup>
+                    <thead>
+                    <tr>
+                        <th>{{ g.cms_user.username }}</th>
+                        <th>管理员</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>邮箱</td>
+                        <td>{{ g.cms_user.email }}</td>
+                    </tr>
+                    <tr>
+                        <td>加入时间</td>
+                        <td>{{ g.cms_user.join_time }}</td>
+                    </tr>
+                    <tr>
+                        <td>权限</td>
+                        <td>至高无上管理员....</td>
+                    </tr>
+                    <tr>
+                        <td>权限介绍</td>
+                        <td>对前台用户及资源的管理...</td>
+                    </tr>
+                
+                    </tbody>
+                </table>
+                <!--具体内容盒子结束-->
+{% endblock %}
+
+

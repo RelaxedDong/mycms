@@ -1,0 +1,128 @@
+﻿{% extends "admin/cms_base.html" %}
+{% from "common/_macro.html" import static %}
+{% block head %}
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="{{ static("admin/js/cms_ad.js") }}"></script>
+    <style>
+    .item img{
+        width: 100%;
+    }
+			.file-box{
+				display: inline-block;
+				position: relative;
+				height: 30px;
+                line-height: 30px;
+                border-radius: 5%;
+				overflow: hidden;
+				color:#fff;
+				background-color: #5dc2f1;
+			}
+            .file-btn:hover{cursor: pointer;}
+			.file-btn{
+                border-radius: 5%;
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				top: 0;
+    			left: 0;
+    			outline: none;
+    			background-color: transparent;
+    			filter:alpha(opacity=0);
+				-moz-opacity:0;
+				opacity: 0;
+			}
+    .cms-banner{
+        border-radius: 10px;
+        overflow: hidden;
+        height: 250px;
+        width: 100%
+    }
+    </style>
+{% endblock %}
+
+{% block content %}
+    <!--具体内容盒子               -->
+    <div class="col-md-12">
+                    <blockquote class="layui-elem-quote news_search">
+                    <div class="layui-inline">
+                        <a class="layui-btn layui-btn-normal newsAdd_btn" id="add-ad-btn" data-toggle="modal" data-target="#banner-dialog">添加广告</a>
+                    </div>
+                </blockquote>
+
+{#    模态对话框#}
+
+<!-- Modal -->
+<div class="modal fade" id="banner-dialog" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">轮播图</h4>
+      </div>
+      <div class="modal-body">
+          <form action="" class="form-horizontal">
+              <div class="form-group">
+                  <label class="col-sm-2 control-label">图片：</label>
+                  <div class="col-sm-7">
+                      <input type="text" class="form-control" name="image_url" placeholder="轮播图图片">
+                  </div>
+                  <div  class="col-sm-2 file-box" id="add-bbb2">
+                      <input type="file" class="col-sm-2 file-btn" id="file">添加图片
+                  </div>
+                  <button class="ui primary loading button" id="loder2" style="display: none">上传中</button>
+              </div>
+              <div class="form-group">
+                  <label class="col-sm-2 control-label">跳转：</label>
+                  <div class="col-sm-10">
+                      <input type="text" class="form-control" name="link_url" placeholder="跳转链接">
+                  </div>
+              </div>
+          </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+        <button type="button" class="btn btn-primary" id="save-ad-btn">保存</button>
+      </div>
+    </div>
+  </div>
+</div>
+{#    模态对话框结束#}
+
+        <table class="layui-table">
+            <thead>
+                <tr>
+                    <th>图片</th>
+                    <th>跳转连接</th>
+                    <th>更新时间</th>
+                    <th>状态</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                    {% for ad in ads %}
+                    <tr>
+                        <td><img src="{{ ad.img_url }}" alt="图片异常" class="banner-img-box"></td>
+                        <td><a href="{{ ad.link_url }}">{{ ad.link_url }}</a></td>
+                        <td>{{ ad.create_time }}</td>
+                        <td>
+                            {% if ad.is_using == 1 %}
+                            <a class="ui green circular label ad-edeit" data-type="using" data-ad-id="{{ ad.id }}">使用中</a>
+                                {% else %}
+                                <a class="ui red circular label ad-edeit" data-ad-id="{{ ad.id }}" data-type="block">禁用</a>
+                            {% endif %}
+                        </td>
+                        <td>
+                        <button type="button" class="btn btn-danger btn-xs ad-del" data-ad-id="{{ ad.id }}">删除</button>
+                        </td>
+                    </tr>
+                    {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+
+    <!--banner结束-->
+    <!--具体内容盒子结束-->
+{% endblock %}
+
+

@@ -1,0 +1,27 @@
+{% from "common/_macro.html" import static %}
+
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{ static("common/css/404.css") }}">
+    <link rel="stylesheet" href="{{ static("front/css/index.css") }}">
+</head>
+<body>
+    <div class="main_contener_404">
+        <img src="{{ static("common/images/404.gif") }}" alt="">
+        <div class="return-index">
+            <a href="{{ url_for("front.index") }}">回到首页</a>
+        </div>
+    </div>
+
+    <footer id="footer_group">
+            © 2017－2018 donghao.club, all rights reserved
+            备案号：<a>渝ICP备18003783号</a><br>
+            站长邮箱：<a>1417766861@qq.com</a><br>
+            地址：Nanyang institute of Technology 中国 河南 南阳市长江路80号
+    </footer>
+</body>
+</html>

@@ -1,0 +1,272 @@
+.album-header{
+	width: 100%;
+	padding-bottom: 20px;
+	float: left;
+	border-bottom: 1px solid #eeeeee;
+    margin-top: 20px;
+}
+.album-header ul{
+	overflow: hidden;
+	float: left;
+}
+.album-header ul li{
+	font-family: 微软雅黑,Arial,宋体;
+	float: left;
+	font-size: 16px;
+	padding: 4px 11px;
+	margin-right: 5px;
+	border-radius: 5px;
+	margin-top: 10px;
+}
+
+.del-im{
+    color: black;
+    font-weight: bold;
+    font-size: 15px;
+    margin-left: 10px;
+}
+.del-im:hover{cursor: pointer}
+.col-md-2{
+    padding: 0;
+}
+.li-active{
+    background-color: #666;
+}
+
+.album-header ul li a{color: #7d89c2}
+
+.create-album{float: right}
+.create-album a{color: #6f24a0;font-weight: lighter;font-size: 14px}
+
+
+.row{
+    width: 100%;
+	margin-top: 20px;
+	float: left;
+}
+.column{
+    float: left;
+    width: 29%;
+    height: 270px;
+    position: relative;
+    display: inline;
+    padding: 0 8px;
+	border: 1px solid #eeeeee;
+    background: #fff url(http://r.ph.126.net/photo/image/album/bg_album_list.png?v=20111219) repeat-x 0 bottom;
+    margin-left: 20px;
+    margin-top: 20px;
+}
+.album_list{
+    float: left;
+    width: 30%;
+    height: 250px;
+    position: relative;
+    display: inline;
+    padding: 0 8px;
+    margin-left: 10px;
+}
+.column img{
+    width: 150px;
+    height: 150px;
+    margin-top: 10px;
+    transition: width 3s;
+}
+.album_list img{
+    width: 250px;
+    height: 120px;
+    margin-top: 10px;
+    transition: width 3s;
+}
+.album_name{
+    padding-top: 20px;
+    color: black;
+}
+.album_time{
+    color: #999999;
+    font-size: 15px;
+    padding-top:10px;
+    margin-bottom: 10px;
+}
+.album_time span{
+    float: right;
+    font-size: 12px;
+}
+.album_list img:hover,.column img:hover{
+    cursor: pointer;
+    border: 1px solid skyblue;
+}
+.form-horizontal{
+	width: 80%;
+	margin: 0 auto;
+}
+
+.control-label{
+	font-size: 12px;
+	color: #6f24a0;
+}
+/*相册图片列表*/
+.album-header img{width: 80px;height: 80px;float: left;border: 2px solid antiquewhite;padding: 5px}
+
+.album-info{
+    float: left;
+    margin-left: 10px;
+    width: 80%;
+}
+.album-name{
+    float: left;
+    width: 100%;
+}
+.album-name a{
+    font-weight: bold;
+    font-size: 25px;
+}
+.album-name span{
+    padding-left: 5px;
+}
+.btns {
+    margin-top: 20px;
+    float: left;
+}
+.btns select{margin-left: 10px}
+.btns a{
+    float: left;
+    display: block;
+    font-size: 15px;
+    font-weight: lighter;
+}
+.le{margin-left: 10px}
+
+/*照片列表*/
+.img-list{
+    margin-top: 10px;
+}
+.img-list ul{
+    width: 100%;
+    float: left;
+    margin-top: 10px;
+    overflow: hidden;
+}
+.img-list ul li{
+    float: left;
+    width:200px;
+    height:200px;
+    margin-top: 20px;
+    background-color: 	#EDEDED;
+}
+
+.img-list ul li a img{
+    width: 100%;
+    float: left;
+    height: 180px;
+    position: relative;
+}
+.img-list ul li a img:hover{border: 3px solid white}
+.img-time{text-align: center;display: block;width: 100%;color: #f5f6f6;float: left;color: black}
+
+
+
+
+/*照片列表模态框*/
+.header-b{
+    width:100%;
+    background-color: #f5f4f5;
+    padding: 9px 15px 9px;
+    height: 50px;
+}
+.up-text{float: left;}
+.choose_album{float: left;margin-left: 10px}
+#d1{
+    margin-top: 10px;
+    width: 100%;
+    min-height: 200px;
+}
+#d1 img{
+    width: 100px;
+    height: 80px;
+    margin-left: 10px;
+    position: relative;
+}
+.input-owm{float: left;margin-top: 50px;width: 100%;padding-bottom: 50px}
+.input-owm input{float: left;width: 80%}
+.input-owm button{
+    float: left;
+    margin-left: 20px;
+}
+.hide{
+position: absolute;
+left: 0;
+display: block !important;
+width: 82px;
+    top: 0;
+    height: 30px;
+opacity: 0;
+}
+.btn-hollow {
+    border: 1px solid rgba(59,194,29,.7);
+    color: #42c02e !important;
+    position: relative;
+}
+.modal-footer a{float: left;margin-left: 10px;}
+.btn-hollow {
+    font-size: 20px;
+}
+.tags-ri{
+    float: right;
+    margin-right: 20px;
+}
+.btn-hollow:hover{background-color: #eeeeee;opacity: 0.9;cursor: pointer}
+.btn-hollow input:hover{cursor: pointer}
+.btn-hollow {
+    padding: 4px 12px;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: normal;
+    border-radius: 40px;
+    background: none;
+}
+
+/*#我的图集列表*/
+.m-info{
+    width: 100%;
+}
+.m-info img{width: 100px;height: 100px;float: left}
+.m-name{float: left;margin-left: 10px;font-weight: lighter;font-size: 15px}
+
+.addre{font-size: 12px;float: left;margin-top: 10px}
+.follow-now-btn{background-color:#3eb1f0;color:white;font-weight: lighter;padding: 3px 8px;border: 0;margin-left: 5px}
+.follow-now-btn:hover{background-color: #b2c9f6}
+
+.pic-btns{margin-top: 20px;float: left}
+.pic-btns-1{background-color:#3eb1f0;color:white;font-weight: lighter;padding: 3px 8px;border: 0;margin-left: 5px}
+.pic-btns-2{color: #333;background-color: #e1e1e1;font-weight: lighter;padding: 2px 5px;border: 0;margin-left: 5px}
+.pic-btns-2:hover{background-color: #b2c9f6}
+.pic-btns-1:hover{background-color: #91b4c2}
+
+.de-focus{background-color: #c25b52;color:white;font-weight: lighter;padding: 3px 8px;border: 0;margin-left: 5px}
+.de-focus:hover{background-color: #c27d74}
+
+
+
+.m-title{
+float: left;
+font-size: 14px;
+color: #969696;
+width: 100%;
+margin-top: 10px;
+}
+
+.m-discription{
+float: left;
+margin-bottom: 10px;
+line-height: 20px;
+font-size: 14px;
+margin-top: 10px;
+}
+.m-albums{
+    width: 100%;
+    float: left;
+}
+.m-albums li{
+    margin-top: 10px;
+}
+.m-albums a i{color: #8b82c2}

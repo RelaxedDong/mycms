@@ -1,0 +1,41 @@
+.getpwd{
+    font-weight: lighter;
+    color: #57c264;
+    font-size: 20px;
+    padding-bottom: 20px;
+}
+.weibo_user_info{
+    width: 100%;
+    float: left;
+}
+.weibo_user_info img{
+    float: left;
+    width: 85px;
+    height: 85px;
+    border-radius: 50%;
+}
+.header-info-user {
+    float: left;
+    margin-left: 10px;
+    width: 450px;
+    color: #999;
+}
+.album-author-name {
+    font: 24px/1.2 微软雅黑,Arial,宋体;
+    color: #333;
+    width: 100%;
+}
+.weibo_desc{
+    color: #2e75bc;
+    font-weight: lighter;
+    font-size: 12px;
+    margin-top: 10px;
+}
+.weibo_bind_form{
+    margin-top: 20px;
+    float: left;
+    width: 80%;
+}
+#exampleInpute{
+    margin-top: 10px;
+}

@@ -1,0 +1,106 @@
+.poster{
+    width: 100%;
+    background-color: #eee;
+    height: 50px;
+    text-align: center;
+    color: #555;
+    font-weight: normal;
+    font-size: 30px;
+}
+.search{padding-bottom: 20px;width: 100%;margin: 39px auto}
+.search input{width: 60%;float: left;margin:0 auto;height: 30px;border-radius: 0}
+.search button{float: left;height: 30px;width:50px;border-radius: 0;background-color: #eee;line-height: 20px}
+
+.tuijian{margin-top: 20px;padding-bottom: 20px;color:#209e85;}
+
+.p-title img{width: 50%;height: 50px}
+/*.p-title{*/
+    /*text-align: center;*/
+    /*font-weight: bold;*/
+    /*font-size: 20px;*/
+/*}*/
+.group-box{
+    width: 100%;
+    height: 200px;
+}
+.group-f-box{
+    margin-top: 10px;
+    float: left;
+    width: 100%;
+    border-bottom: 1px solid #eeeeee;
+    padding-bottom: 20px;
+}
+
+
+@media screen and (min-width: 701px){
+   .group-f-box img{
+    width: 25%;
+    height: 110px;
+    float: left;
+    border-radius: 5%;
+}
+}
+@media screen and (min-width: 400px) and (max-width: 700px) {
+   .group-f-box img{
+    width: 25%;
+    height: 110px;
+    float: left;
+    border-radius: 5%;
+}
+}
+@media screen and (min-width: 280px) and (max-width: 400px) {
+  .group-f-box img{
+    width: 30%;
+    height: 110px;
+    float: left;
+    border-radius: 5%;
+}
+}
+
+
+
+
+
+.group-name-box{
+    float: left;
+    width: 70%;
+    height: 100px;
+}
+.name{float: left;font-weight: bolder;font-size: 20px;margin-left: 2%;margin-top:10px}
+.group-msg{float: left;margin-left: 2%;font-size: 15px;font-weight: lighter;color: #363a47;margin-top: 10px;width: 100%}
+.group-jies{margin-top: 10px;width: 90%;float: left;font-weight: normal;line-height: 1;color: #999;}
+/*#侧栏*/
+.welll{
+    float: left;
+    border-radius: 5%;
+    padding: 10px;
+    width: 100%;
+    margin-bottom: 0;
+    border: 1px solid #eeeeee;
+}
+/*#修改简介*/
+.cge-desc{
+    padding-bottom: 40px;
+    float: left;
+    width: 100%;
+    margin-top: 10px;
+}
+.cge-desc button{float: right;margin-top: 10px;}
+.cg{color: #005580}
+.welll a{padding-top: 20px;}
+.paih{margin-top: 20px}
+.paih-title{margin-top: 10px;float: left;width: 100%;}
+.paih-title span{font-weight: bolder;font-size: 13px;color: #666}
+
+.pa-left{margin-left: 15px;}
+.pa-left-2{margin-right: 20px;float: right;}
+.paih ul{overflow: hidden;float: left}
+.paih ul{margin-top: 10px}
+.paih ul{width: 100%}
+.paih ul li{float: left;margin-top: 10px;width: 100%}
+.paih ul li img{width: 13%;height: 30px;float: left;margin-left: 40px}
+
+.paim{float: left}
+.users{float: right;margin-right: 20px}
+.group-name{width: 40%;float: left;margin-left: 10px;margin-top: 10px}
+.group-name a{color: #5153e1}

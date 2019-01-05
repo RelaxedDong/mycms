@@ -1,0 +1,54 @@
+﻿{% extends "front/base.html" %}
+{% from "common/_macro.html" import static %}
+
+{% block head %}
+{% endblock %}
+
+{% block body %}
+    <span style="display: none;" id="return-to-span">{{ return_to }}</span>
+    <div class="main_contener">
+        <div class="col-md-8">
+             <div class="bar-name s">
+                点赞最多
+            </div>
+            <div id="demo">
+                {% for post in posts %}
+                <div class="item-content">
+                    <ul>
+                        <li>
+                        {% if post.content|avatar_img!='' %}
+                            <div class="img-group">
+                                <img src="{{ post.content|avatar_img }}">
+                            </div>
+                        {% endif %}
+                            <div class="content">
+                                <span class="title"><a href="{{ url_for("front.post_detail",post_id=post.id)}}">{{ post.title }}</a></span>
+                                <div class="author-group">
+                                    <img src="{{ post.author.avatar }}"
+                                         alt="">
+                                    <a href="">
+                                        {{ post.author.nickname }}
+                                    </a>
+                                    <i class="clock icon"></i>
+                                    {{ post.create_time }}
+                                    点赞数量：{{ post.stars|length }}
+                                </div>
+                                <div class="text">
+                                    {#                                        {{ post.content|striptags|truncate(160) }}#}
+                                    {{ post.content|striptags|truncate(160) }}
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                {% endfor %}
+            {{ pagination.links }}
+            </div>
+
+        </div>
+
+        <div class="col-md-4">
+
+        </div>
+    </div>
+{% endblock %}

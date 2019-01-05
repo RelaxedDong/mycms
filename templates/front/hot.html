@@ -1,0 +1,58 @@
+﻿{% extends "front/base.html" %}
+{% from "common/_macro.html" import static %}
+
+{% block head %}
+{% endblock %}
+
+{% block body %}
+    <div class="main_contener">
+        <div class="col-md-8">
+        <div class="bar-name h">
+                热门推荐
+            </div>
+            <div id="demo">
+           {% for hilight in hilights %}
+                    {% if hilight.post %}
+                                        <div class="item-content">
+                    <ul>
+                        <li>
+                        {% if hilight.post.content|avatar_img!='' %}
+                            <div class="img-group">
+                                <img src="{{ hilight.post.content|avatar_img }}">
+                            </div>
+                        {% endif %}
+                            
+                            <div class="content">
+                                <span class="title"><a href="{{ url_for("front.post_detail",post_id=hilight.post.id)}}">{{ hilight.post.title }}</a>
+                                <button type="button" class="btn btn-danger btn-xs">hot</button>
+                                </span>
+                                <div class="author-group">
+                                    <img src="{{ hilight.post.author.avatar }}"
+                                         alt="">
+                                    <a href="">
+                                        {{ hilight.post.author.username }}
+                                    </a>
+                                    <i class="clock icon"></i>
+                                    {{ hilight.post.create_time }}
+                                    查看数量：{{ hilight.post.read_count }}
+                                </div>
+                                <div class="text">
+                                    {#                                        {{ post.content|striptags|truncate(160) }}#}
+                                    {{ hilight.post.content|striptags|truncate(160) }}
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                    {% endif %}
+                {% endfor %}
+            </div>
+
+        </div>
+
+        <div class="col-md-4">
+
+        </div>
+    </div>
+{% endblock %}

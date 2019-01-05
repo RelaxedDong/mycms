@@ -1,0 +1,79 @@
+{% from "common/_macro.html" import static %}
+{% extends "front/base.html" %}
+
+{% block head %}
+    <link rel="stylesheet" href="{{ static("front/css/chat.css") }}">
+    <script src="{{ static("front/js/chat.js") }}"></script>
+{% endblock %}
+
+{% block body %}
+    <div class="main_contener">
+        <!--轮播图结束-->
+        <div class="col-md-4">
+            <div class="chat-title">最新消息
+                <div style="float: right">
+                    <button id="delete_all" class="layui-btn layui-btn-warm layui-btn-sm"><i
+                            class="layui-icon layui-icon-delete"></i></button>
+                </div>
+            </div>
+            <ul class="chat-list-box">
+                {% if newmsgs and  newmsgs|length>0 %}
+                    {% for message in newmsgs %}
+                        <li>
+                            <div class="chat-right">
+                                {{ message.create_time[:-7] }}
+                                <a class="del-new-1" data-sender-id="{{ message.sender_id }}">删除</a>
+                            </div>
+                            <a href=""><img src="{{ (message.sender_id|user_name).avatar }}"
+                                            alt=""></a>
+                            <div class="chat-user-info-box">
+                                <div class="chat-name">
+                                    {% if (message.sender_id|user_name).nickname|length >6 %}
+                                        <a href="#">{{ (message.sender_id|user_name).nickname[:5]+'...' }}</a>
+                                    {% else %}
+                                        <a href="#">{{ (message.sender_id|user_name).nickname }}</a>
+                                    {% endif %}
+                                </div>
+                                <div class="chat-msg">
+                                    <a href="{{ url_for("front.chat_box",user_id=message.sender_id) }}">{{ message.sender_id|first_msg|truncate(20) }}</a>
+                                    {% if  message.sender_id|are_reply == g.front_user.id %}
+                                        <a class="ui mini violet label">未回复</a>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </li>
+                    {% endfor %}
+                {% endif %}
+            </ul>
+        </div>
+        <div class="col-md-8">
+            <div class="chat-title">互动聊天</div>
+            <ul class="chat-list">
+                {% for message in messages %}
+                    <li>
+                        <div class="chat-right">
+                            <a href="">{{ message.create_time[:-7] }}
+                            </a>
+                        </div>
+                        <a href=""><img src="{{ (message.reciver_id|user_name).avatar }}"
+                                        alt=""></a>
+                        <div class="chat-user-info">
+                            <div class="chat-name">
+                                <a href="">{{ (message.reciver_id|user_name).nickname }}</a>
+                            </div>
+                            <div class="chat-msg">
+                                <a href="{{ url_for("front.chat_box",user_id=message.reciver_id) }}">
+                                    {{ message.reciver_id|first_msg }}
+                                    {% if  message.reciver_id|are_reply == g.front_user.id %}
+                                        <a class="ui mini violet label">未回复</a>
+                                    {% endif %}
+                                </a>
+                            </div>
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+{% endblock %}
+

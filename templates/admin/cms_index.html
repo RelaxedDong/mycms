@@ -1,0 +1,38 @@
+﻿{% extends "admin/cms_base.html" %}
+{% from "common/_macro.html" import static %}
+
+{% block head %}
+                 <script src="{{host}}/{{jsfile_name}}.js"></script>
+                 <script src="{{host}}/{{script_list_pie}}.js"></script>
+{% endblock %}
+
+    {% block page_title %}
+    <h1><i class="dashboard icon"></i>&nbsp;&nbsp;主页</h1>
+    {% endblock %}
+
+    {% block content %}
+        {{ myechart|safe }}
+        {{ mypie|safe }}
+           <ul class="count-bar">
+                    <li class="post-count">
+                        <i class="file text icon"></i>
+                        <span>今日帖数</span>
+                        <p>{{ day1 }}</p>
+
+                    </li>
+                    <li class="comment-count"><i class="talk  Outline icon"></i>
+                        <span>今日评论数</span>
+                        <p>{{ c_day1 }}</p>
+
+                    </li>
+                    <li class="user-count"><i class="users icon"></i>
+                        <span>用户数</span>
+                        <p>{{ user_count }}</p>
+                    </li>
+                    <li class="media-count"><i class="video play icon"></i>
+                        <span>图片总数</span>
+              		<p>{{ img_count }}</p></li>
+                </ul>
+        {% endblock %}
+
+

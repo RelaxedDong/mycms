@@ -1,0 +1,58 @@
+{% extends "front/base.html" %}
+{% from "common/_macro.html" import static %}
+
+{% block head %}
+    <link rel="stylesheet" href="{{ static("group/css/index.css") }}">
+    <link rel="stylesheet" href="{{ static("group/css/group_manage.css") }}">
+    <script src="{{ static("group/js/group_manage.js") }}"></script>
+{% endblock %}
+
+{% block body %}
+    <div class="main_contener">
+        <div class="col-md-8">
+            <span class="mod-title">小组成员管理 </span>
+            <div class="mod">
+                <h2>组长. . .</h2>
+                <ul>
+                    <li>
+                        <img src="{{ g.front_user.avatar }}" alt=""><br>
+                            {{ g.front_user.nickname }}
+                    </li>
+                </ul>
+            </div>
+            <div class="mod">
+                <h2>管理员. . .</h2>
+                <span style="color: red;" id="del-manager">移除管理员</span>
+                <span id="add-manager">添加管理员</span>
+                <ul id="mmm">
+                    {% for manager in managers %}
+                        <li>
+                        <a class="ui red circular label manag" style="display: none;" data-user-id="{{ manager.author.id }}"
+                         data-id="{{ group.id }}">x</a>
+                        <img src="{{ manager.author.avatar }}" alt=""><br>
+                            <a href="{{ url_for("front.u",user_id=manager.author.id) }}">{{ manager.author.nickname }}</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+             <div class="mod">
+                <h2>成员. . .</h2>
+                <span id="de-user" data-id="{{ group.id }}" data-createuser_id="{{ group.create_user }}">移除成员</span>
+                <ul>
+                {% for user in group.users %}
+                    <li>
+                    <a class="ui green circular label addmanager" style="display: none;"
+                       data-user-avatar="{{ user.avatar }}" data-user-nickname="{{ user.nickname }}"
+                       data-id="{{ group.id }}" data-user-id="{{ user.id }}">v</a>
+                        <img src="{{ user.avatar }}" alt=""><br>
+                        <a href="{{ url_for("front.u",user_id=user.id) }}">{{ user.nickname }}</a>
+                    </li>
+                     {% endfor %}
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-4">
+
+        </div>
+    </div>
+{% endblock %}

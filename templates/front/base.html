@@ -1,0 +1,122 @@
+﻿{% from "common/_macro.html" import static %}
+<!DOCTYPE>
+<html lang="en">
+<head>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name="baidu-site-verification" content="hn68pFbaQX" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>{% block title %}{% endblock %}</title>
+    {% include "common/_front_heads.html" %}
+    <link rel="stylesheet" href="{{ static("front/css/index.css") }}">
+	<link rel="stylesheet" type="text/css" href="{{ static("front/login/css/index.css") }}">
+    <link rel="stylesheet" href="{{ static("front/css/media.css") }}">
+    {% block head %}{% endblock %}
+</head>
+{% if g.front_user %}
+<body class="bg" style="background-color: {{ g.front_user.color }}">
+    <span id="mycolo" style="display: none;">{{ g.front_user.color }}</span>
+    <nav class="navbar navbar-default bg" style="background-color: {{ g.front_user.color }}">
+    {% else %}
+<body class="bg">
+<nav class="navbar navbar-default bg" style="border-top: 0px;">
+{% endif %}
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="{{ url_for("front.index") }}">
+      		<img src="{{ static("front/images/x.png") }}" alt="Logo">
+      </a>
+    </div>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class=""><a href="{{ url_for("front.index") }}"><i style="color: #9ce150"  class="layui-icon layui-icon-find-fill"></i>&nbsp;发现</a></li>
+          <li class=""><a href="{{ url_for("group.index") }}"><i style="color: #e0e149" class="layui-icon layui-icon-group"></i>&nbsp;小组</a></li>
+        <li class=""><a href="{{ url_for("album.index") }}"><i style="color: #8a9ffb" class="layui-icon layui-icon-picture"></i>&nbsp;相册</a></li>
+          {% if g.front_user %}
+                  <li class=""><a href="{{ url_for("front.chat",user_id = g.front_user.id) }}"><i style="color: #e188a8;font-size: 15px" class="mail icon"></i>&nbsp;私信</a></li>
+          {% endif %}
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">关于 <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">关于</a></li>
+            <li><a href="{{url_for("front.sopprt")}}">支持</a></li>
+          </ul>
+        </li>
+      </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="{{ url_for("front.search") }}">
+                    <span style="color: #eebce5" class="glyphicon glyphicon-search"></span>&nbsp;&nbsp;搜索
+                </a></li>
+                <li><a href="{{ url_for("front.apost") }}">
+                    <span style="color: #8d89ee" class="glyphicon glyphicon-edit"></span>&nbsp;&nbsp;发帖
+                </a></li>
+                {% if g.front_user %}
+                    <li><a id="element_id">
+                    <i class="dashboard icon"></i>&nbsp;&nbsp;主题
+                </a></li>
+                           <li><a href="{{ url_for("front.information") }}#">
+                    <span class="glyphicon glyphicon-bell" style="color: #e16b60"></span>&nbsp;&nbsp;消息
+                </a></li>
+                    <span style="display: none;" data-login-user="1" id="login-span"></span>
+                    <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                       aria-expanded="false">
+                        <img src="{{ g.front_user.avatar }}" alt=""
+                             class="profile_img">
+                        <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="{{ url_for("front.apost") }}">&nbsp;&nbsp;发布</a></li>
+                        <li><a href="{{ url_for("front.u",user_id=g.front_user.id) }}">&nbsp;&nbsp;我的主页</a></li>
+                        <li><a href="{{ url_for("front.setting_base") }}">&nbsp;&nbsp;设置</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="{{ url_for("front.logout") }}">&nbsp;&nbsp;退出</a></li>
+                    </ul>
+                </li>
+                    {% else %}
+                                    <li><a href="{{ url_for("front.login") }}"><span>登录</span></a></li>
+                                    <li><a href="{{ url_for("front.signup") }}"><span>注册</span></a></li>
+                    {% endif %}
+            <li>
+              <select  id="language" class="form-control"  style="float:right;margin-bottom: 10px;margin-top: 15px;">
+                  <option value="中文">中文</option>
+                  <option value="英文">英文</option>
+                </select>
+            </li>
+            </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+<script>var color = $("#element_id").cxColor();</script>
+{% block body %}
+
+{% endblock %}
+    <footer id="footer_group">
+            © 2017－2018 donghao.club, all rights reserved
+            备案号：<a>渝ICP备18003783号</a><br>
+            站长邮箱：<a>1417766861@qq.com</a><br>
+            地址：Nanyang institute of Technology 中国 河南 南阳市长江路80号
+    </footer>
+</body>
+</html>

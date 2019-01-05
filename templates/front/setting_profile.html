@@ -1,0 +1,74 @@
+{% extends "front/base.html" %}
+{% from "common/_macro.html" import static %}
+
+{% block head %}
+    <link rel="stylesheet" href="{{ static("front/css/setting.css") }}">
+    <script src="{{ static("front/js/setting.js") }}"></script>
+    <script src="{{ static("front/js/setting_profile.js") }}"></script>
+{% endblock %}
+
+{% block body %}
+    <div class="main_contener">
+        <div class="col-md-4">
+            <div class="tab">
+                <a class="tablinks set-base" href="{{ url_for("front.setting_base") }}"><i
+                        class="layui-icon layui-icon-username"></i><span>个人资料</span></a>
+                <a class="tablinks set-pro" href="{{ url_for("front.setting_profile") }}"><i
+                        class="layui-icon layui-icon-username"></i><span>隐私设置</span></a>
+                <a class="tablinks set-cou" href="{{ url_for("front.setting_count") }}"><i
+                        class="layui-icon layui-icon-username"></i><span>账号设置</span></a>
+            </div>
+
+        </div>
+        <div class="col-md-8">
+            <table>
+                <thead>
+                <tr></tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td class="td-span">性别</td>
+                    <td class="ri-td">
+                        {% if g.front_user.gender=='男' %}
+                            <input type="radio"  name="sex" checked value="男" style="margin-bottom: 10px;"><span class="nan">男</span>
+                            <input type="radio" name="sex" value="女" style="margin-bottom: 10px;"><span>女</span>
+                            <input type="radio" name="sex" value="秘密" style="margin-bottom: 10px;"><span>秘密</span>
+                        {% elif g.front_user.gender=='女' %}
+                            <input type="radio"  name="sex"  value="男" style="margin-bottom: 10px;" class="nan"><span class="nan">男</span>
+                            <input type="radio"  checked name="sex" value="女" style="margin-bottom: 10px;"><span>女</span>
+                            <input type="radio" name="sex" value="秘密" style="margin-bottom: 10px;"><span>秘密</span>
+                        {% elif g.front_user.gender=='秘密'  %}
+                            <input type="radio"  name="sex"  value="男" style="margin-bottom: 10px;"><span>男</span>
+                            <input type="radio" name="sex" value="女" style="margin-bottom: 10px;"><span>女</span>
+                            <input type="radio" name="sex" checked  value="秘密" style="margin-bottom: 10px;" ><span>秘密</span>
+                        {% endif %}
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td-span">QQ</td>
+                    <td class="ri-td"><input type="text" class="layui-input" name="qq" value="{{ g.front_user.qq }}"></td>
+                </tr>
+                <tr>
+                    <td class="td-span">真实姓名</td>
+                    <td class="ri-td"><input type="text" class="layui-input" name="real-name" value="{{ g.front_user.realname }}"></td>
+                </tr>
+                <tr>
+                    <td class="td-span">个人网站</td>
+                    <td class="ri-td"><input type="text" class="layui-input" name="my-web" value="{{ g.front_user.my_web }}"></td>
+                </tr>
+                <tr>
+                    <td class="td-span">个人简介</td>
+                    <td class="ri-td">
+                        <textarea id="desc" class="layui-textarea" placeholder="请输入个人简介">{{ g.front_user.signature }}</textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td-span">
+                        <button class="circular ui green button" id="save-pro-btn">保存</button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}

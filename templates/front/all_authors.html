@@ -1,0 +1,61 @@
+{% extends "front/base.html" %}
+{% from "common/_macro.html" import static %}
+
+{% block head %}
+    <link rel="stylesheet" href="{{ static("front/css/authors.css") }}">
+    <script src="{{ static("common/js/to_top.js") }}"></script>
+    <script src="{{ static("front/js/all_users.js") }}"></script>
+    <script src="{{ static("front/js/follow.js") }}"></script>
+{% endblock %}
+
+{% block body %}
+    <div class="main_contener">
+        <div class="col-md-12">
+            <img src="{{ static("front/images/tuijian.png") }}" alt="">
+            {% for user in users %}
+                <div class="col-md-4">
+                    <div class="authors-group">
+                        <div class="fo">
+                            <a href="{{ url_for("front.u",user_id=user.id) }}"> <img src="{{ user.avatar }}" alt=""></a>
+                            <div class="authors-info">
+                            <div class="name">{{ user.nickname }}</div>
+                                {% if g.front_user and user.id in is_focus_id %}
+                                    <button data-user-id="{{ user.id }}" class="positive mini ui layui-bg-red button fow">已关注</button>
+                                {% else %}
+                                     <button data-user-id="{{ user.id }}" class="positive mini ui button fow">关注</button>
+                                {% endif %}
+                        </div>
+                        </div>
+                        <div class="jianjie">
+                            <label> 简介：</label>
+                            <div class="detail">{{ user.signature|striptags|truncate(20) }}</div>
+                        </div>
+                        <div class="zuixin">
+                            {% if user.posts|length!=0 %}
+                               <label> 最新：</label>
+                            {% endif %}
+                            <ul>
+                                {% if user.posts|length!=0 %}
+                                    {% for post in user.id|filter_posts %}
+                                        <li>
+                                            <a href="{{ url_for("front.post_detail",post_id=post.id) }}">{{ post.title|striptags|truncate(15) }}</a>
+                                        </li>
+                                    {% endfor %}
+                                {% endif %}
+                        </ul>
+                        </div>
+
+                    </div>
+                </div>
+            {% endfor %}
+            <button style="float: right;margin-right: 20px;margin-top: 20px" class="ui right labeled green icon button go-top"><i class="angle double up icon"></i>去顶部</button>
+        </div>
+        <div class="col-md-8">
+
+        </div>
+
+        <div class="col-md-4">
+
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,109 @@
+{% extends "front/base.html" %}
+{% from "common/_macro.html" import static %}
+
+{% block head %}
+    <link rel="stylesheet" href="{{ static("group/css/index.css") }}">
+    <script src="{{ static("group/js/add_group.js") }}"></script>
+    <script src="{{ static("front/js/post_detail.js") }}"></script>
+    <link rel="stylesheet" href="{{ static("front/css/post_detail.css") }}">
+    <link rel="stylesheet" href="{{ static("group/css/group_detail.css") }}">
+    <script src="{{ static("group/js/topic_comment.js") }}"></script>
+{% endblock %}
+
+{% block body %}
+    <div class="main_contener">
+        <div class="col-md-8">
+            <div class="topic-title">
+                {{ topic.title }}
+            </div>
+            <div class="topic-author-box">
+                <img src="{{ topic.author.avatar }}" alt="">
+                <div class="topic-author-name">
+                    <a href="{{ url_for("front.u",user_id=topic.author.id) }}">{{ topic.author.nickname }}</a>
+                </div>
+                <div class="topic-author-time">
+                    {{ topic.create_time }}
+                </div>
+                <div class="return-to-group">
+                    <a href="{{ url_for("group.group_detail",group_id=topic.group.id) }}"><i
+                            class="reply icon"></i>&nbsp;&nbsp;返回小组</a>
+                </div>
+            </div>
+            <div class="topic-text">
+                {{ topic.content|safe }}
+            </div>
+            {% if g.front_user and g.front_user.id == topic.author.id or g.front_user.id in managers_id%}
+                <span><button class="ui orange button mini" id="topic-del" data-group-id="{{ topic.group.id }}" data-id="{{ topic.id }}" style="float: right"><i class="layui-icon layui-icon-delete"></i></button></span>
+            {% endif %}
+            <div class="topic-comment-group">
+                <textarea placeholder="请输入内容" id="topic-comment"
+                          class="layui-textarea"></textarea>
+                {% if g.front_user in topic.group.users %}
+                    <button class="layui-btn layui-btn-sm btn-right"
+                            data-topic-id="{{ topic.id }}"
+                            id="topic-comment-btn">提交评论
+                    </button>
+                    {% else %}
+                    <button class="layui-btn layui-btn-sm btn-right">不是小组成员，无法评论！
+                </button>
+                {% endif %}
+
+            </div>
+
+            {% for comment in comments %}
+                <div class="comment-item">
+                    <div class="comment-avatar">
+                        <img src="{{ comment.author.avatar }}"
+                             alt="">
+                    </div>
+                    <div class="comment-group">
+                        {% if comment.origin_comment_id %}
+                            <div class="co-time">
+                                <a href="">{{ comment.author.nickname }}</a><span
+                                    style="margin-left: 10px">{{ comment.create_time|handle_time }}</span>
+                            </div>
+                            <p class="comment-content">
+                                {{ comment.content|safe }}
+                            </p>
+                            <div class="quote">
+                                引用：<a href="" style="color: #54b0df;">@{{ comment.origin_comment.author.nickname }}</a>的评论<br>
+                                {{ comment.origin_comment.content|safe }}
+                            </div>
+                        {% else %}
+                            <div class="co-time">
+                                <a href="">{{ comment.author.nickname }}</a><span
+                                    style="margin-left: 10px">{{ comment.create_time|handle_time }}</span>
+                            </div>
+                            <p class="comment-content">
+                                {{ comment.content|safe }}
+                            </p>
+                        {% endif %}
+
+                        <p class="duoji-comment">
+                            {% if comment.author.id == g.front_user.id %}
+                                <a class="topic-comment-delete" data-comment-id="{{ comment.id }}"><i
+                                        class="layui-icon layui-icon-delete"></i><font color="red">删除</font></a>
+                            {% endif %}
+{% if g.front_user in topic.group.users %}
+       <a class="topic-huifu"><i style="color: #eed06c"
+                                                class="layui-icon layui-icon-reply-fill"></i>回复</a>
+                        {% endif %}
+
+                        </p>
+                        <div class="aco" style="display: none;">
+                            <textarea placeholder="请输入内容" class="layui-textarea"></textarea>
+                            <button style="float: right" class="layui-btn layui-btn-sm topic-acomment"
+                                    data-comment-id="{{ comment.id }}"
+                                    data-topic-id = "{{ comment.topic.id }}"
+                            >发布
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+        <div class="col-md-4">
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,57 @@
+{% from "common/_macro.html" import static %}
+{% extends "front/base.html" %}
+
+{% block head %}
+    <link rel="stylesheet" href="{{ static("front/css/message.css") }}">
+    <script src="{{ static("front/js/information.js") }}"></script>
+{% endblock %}
+
+{% block body %}
+    <div class="main_contener">
+        <!--轮播图结束-->
+        <div class="col-md-12">
+                <div class="infomations-title">我的提醒</div>
+            <div class="infomations-check">
+                <span>全部提醒</span>
+{#                <span style="margin-left: 5px">未读提醒&nbsp;&nbsp;|</span>#}
+{#                <button class="layui-btn layui-btn-primary layui-btn-xs" style="float: right">全部标记为已读</button>#}
+            </div>
+            <ul class="message-list">
+            {% if messages|length ==0 %}
+                        <img src="{{ static("front/images/empty.png") }}" alt=""
+                        style="margin:100px 330px 30px 330px">
+                        <p class="no-img" style="text-align: center">还木有新消息哦~</p>
+            {% endif %}
+            {% for message in messages %}
+                    <li>
+                        <div class="message-type">[{{ message.type }}]</div>
+                        <a href="">
+                            <i class="layui-icon"></i>
+                            <span class="user-name">{{ message.username }}</span>
+                        </a>
+
+                        <div class="msg">
+                               {{ message.title }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            {% if message.post_id and message.content!='' %}
+                            <a href="{{ url_for("front.post_detail",post_id=message.post_id) }}">{{ message.content|truncate(10) }}</a>
+                            {% endif %}
+                        </div>
+                    <div class="msg-time">
+                        {{ message.create_time }}
+                        <button class="layui-btn layui-btn-danger  layui-btn-xs drop-btn"
+                        data-post-id="{{ message.post_id }}"
+                        data-type="{{ message.type }}"
+                        data-sender="{{ message.sender }}"
+                        data-create_time="{{ message.create_time }}"
+                        data-content="{{ message.content }}"
+                        data-username="{{ message.username }}"
+                        data-title="{{ message.title }}"
+                        >删除</button>
+                    </div>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+{% endblock %}
+

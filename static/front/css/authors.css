@@ -1,0 +1,32 @@
+.authors-group{
+    margin-top: 20px;
+    float: left;
+    width: 100%;
+    background-color: hsla(0,0%,71%,.1);
+    min-height: 340px;
+    border-bottom: 1px solid #eeeeee;
+}
+.authors-group img{
+    padding: 10px;
+    float: left;
+    width:90px;
+    height:90px;
+    border-radius: 50%;
+}
+.name{font-size: 15px;font-weight: bold;padding-bottom: 20px}
+.fo{float: left;width: 100%}
+.fo button{padding-top: 10px}
+.authors-info{
+    float: left;
+    width: 60%;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+.jianjie{float: left;width: 100%;padding: 10px}
+.zuixin{float: left;padding: 10px;width: 100%}
+.zuixin ul li a{
+    font-size: 14px;
+    font-weight: lighter;
+}
+.zuixin ul li{margin-top: 10px}
+.zuixin ul li a:hover{color: #1ee124}

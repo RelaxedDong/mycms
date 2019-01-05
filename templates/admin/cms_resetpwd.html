@@ -1,0 +1,36 @@
+{% extends "admin/cms_base.html" %}
+{% from "common/_macro.html" import static %}
+{% block head %}
+    <script src="{{ static("admin/js/cms_resetpwd.js") }}"></script>
+{% endblock %}
+
+
+{% block content %}
+       <!--具体内容盒子               -->
+           <div class="form-container">
+            <div class="form-group">
+                <div class="input-group">
+                    <span class="input-group-addon">旧密码</span>
+                    <input type="password" class="form-control" name="oldpwd" placeholder="请输入旧密码" autocomplete="off">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="input-group">
+                    <span class="input-group-addon">新密码</span>
+                    <input type="password" class="form-control"  autocomplete="off" name="newpwd" placeholder="请输入新密码">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="input-group">
+                    <span class="input-group-addon">确认新密码</span>
+                    <input type="password" autocomplete="off" class="form-control" name="newpwd2" placeholder="请输入确认密码">
+                </div>
+            </div>
+            <div class="form-group">
+                <button class="btn btn-primary" id="submit">立即保存</button>
+            </div>
+        </div>
+                <!--具体内容盒子结束-->
+{% endblock %}
+
+

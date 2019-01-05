@@ -1,0 +1,56 @@
+{% extends "admin/cms_base.html" %}
+{% from "common/_macro.html" import static %}
+{% block head %}
+    <script src="{{ static("admin/js/cms_handle_error.js") }}"></script>
+{% endblock %}
+
+
+{% block content %}
+       <!--具体内容盒子               -->
+           <div class="form-container">
+            <div class="table-group-2">
+                    <div class="bar-title-2"><span><i class="calendar icon"></i>举报待处理</span></div>
+                    <table class="layui-table">
+                        <thead>
+                        <tr>
+                            <th>类型</th>
+                            <th>被举报人</th>
+                            <th>内容</th>
+                            <th>举报时间</th>
+                            <th>举报人</th>
+                            <th>细节</th>
+                            <th>状态</th>
+                            <th>操作</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for error in errors %}
+                            <tr>
+                            <td>{{ error.type }}</td>
+                            <td><a href="{{ url_for("front.u",user_id=error.bereporter) }}">{{ (error.bereporter|guser).nickname}}</a></td>
+                            <td>{{ error.content }}</td>
+                            <td>{{ error.create_time }}</td>
+                                <td><a href="{{ url_for("front.u",user_id=error.reporter) }}">{{ (error.reporter|guser).nickname }}</a></td>
+                            <td>
+                                <a href="{{ error.place }}">查看详情</a>
+                            </td>
+                            <td>
+                                {% if error.status ==0 %}
+                                   <a class="ui red label error-eit" data-type="waite_handle" data-error-id="{{ error.id }}">待处理</a>
+                                    {% else %}
+                                    <a class="ui green label error-eit" data-type="have_handle" data-error-id="{{ error.id }}">已处理</a>
+                                {% endif %}
+                            </td>
+                            <td>
+                                <a class="ui grey label del-error" data-error-id="{{ error.id }}">删除</a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+        </div>
+                <!--具体内容盒子结束-->
+{% endblock %}
+
+

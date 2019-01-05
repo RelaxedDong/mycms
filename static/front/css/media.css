@@ -1,0 +1,27 @@
+@media screen and (min-width: 801px){
+    .main_contener {
+        width: 60%;
+        margin: 0 auto;
+        min-height: 600px;
+    }
+}
+@media screen and (min-width: 400px) and (max-width: 800px) {
+     .main_contener {
+        width: 100%;
+        margin: 0 auto;
+        min-height: 600px;
+    }
+     .bord-set{
+        margin-top: 15px;
+    }
+}
+@media screen and (min-width: 280px) and (max-width: 400px) {
+      .main_contener {
+        width: 100%;
+        margin: 0 auto;
+        min-height: 600px;
+    }
+    .bord-set{
+        margin-top: 15px;
+    }
+}

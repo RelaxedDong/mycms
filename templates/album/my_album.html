@@ -1,0 +1,129 @@
+{% extends "front/base.html" %}
+{% from "common/_macro.html" import static %}
+
+{% block head %}
+    <link rel="stylesheet" href="{{ static("album/css/album.css") }}">
+    <script src="{{ static("album/js/album_create.js") }}"></script>
+        <script src="{{ static("front/js/follow.js") }}"></script>
+        <script>
+    window.onload=function(){
+    follow();
+}
+    </script>
+{% endblock %}
+
+{% block body %}
+    <div class="main_contener">
+        <div class="col-md-8">
+             <div class="album-header">
+                {% if g.front_user and g.front_user == user %}
+                <div class="create-album">
+                    <a  class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">创建相册</a>
+                </div>
+                {% endif %}
+            </div>
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">创建相册</h4>
+      </div>
+      <div class="modal-body">
+          <div class="form-horizontal">
+                <div class="form-group">
+                    <label for="title" class="col-sm-2 control-label">相册名称</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" id="title" name="album_name" placeholder="请输入相册名称">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="desc" class="col-sm-2 control-label">相册简介</label>
+                    <div class="col-sm-10">
+                      <textarea class="form-control" rows="3" id="desc"></textarea>
+                    </div>
+                </div>
+          </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+        <button type="button" class="btn btn-primary" id="create_now">立即创建</button>
+      </div>
+    </div>
+  </div>
+</div>
+    <div class="row">
+                {% for album in albums %}
+                     {% if album.power == 1 %}
+                         {% if g.front_user == album.author %}
+                             <div class="column">
+                            <a href="{{ url_for("album.img_list",album_id=album.id) }}">
+                                <img src="{{ album.id|fengmian}}">
+                            </a>
+                            <div class="album_name">{{ album.name }}</div>
+                            <div class="album_time">{{ album.create_time }}
+                                {% if album.power == 0 %}
+                                <span>公开</span>
+                                {% else %}
+                                    <span><i class="lock icon"></i>权限</span>
+                                {% endif %}
+                            </div>
+                            </div>
+                         {% endif %}
+
+                         {% else %}
+                                  <div class="column">
+                            <a href="{{ url_for("album.img_list",album_id=album.id) }}">
+                                <img src="{{ album.id|fengmian}}">
+                            </a>
+                            <div class="album_name">{{ album.name }}</div>
+                            <div class="album_time">{{ album.create_time }}
+                                <span>公开</span>
+                            </div>
+                            </div>
+                     {% endif %}
+                {% endfor %}
+    </div>
+        </div>
+        <div class="col-md-4">
+            <div class="m-info">
+                <img src="{{ user.avatar }}" alt="">
+                <div class="m-name">
+                    <a href="{{ url_for("front.u",user_id=user.id) }}">{{ user.nickname}}</a>
+                    <br><div class="addre">
+                    <i class="layui-icon layui-icon-location"></i>
+                    {{ user.address }}</div>
+                    <br>
+
+                     <div class="pic-btns">
+                            {% if g.front_user and g.front_user.id in wodefensi %}
+                            <button class="de-focus fow" data-user-id="{{ user.id }}">取消关注</button>
+                                {% else %}
+                              <button class="pic-btns-1 fow" data-user-id="{{ user.id }}">+关注他</button>
+                            {% endif %}
+                        </div>
+
+                </div>
+            </div>
+            <div class="m-title">签名~ ：</div>
+            <div class="m-discription">{{ user.signature }}</div>
+            <div class="m-title">相册集&nbsp;({{ albums|length }})</div>
+            <div class="m-discription">
+            <ul class="m-albums">
+                {% for album in albums %}
+                <li><a href="{{ url_for("album.album_detail",album_id=album.id) }}"><i class="image icon"></i>{{ album.name }}</a></li>
+                {% endfor %}
+            </ul>
+            </div>
+
+            <div class="m-title"><a href="{{ url_for("front.u",user_id=user.id) }}" style="color: #57c264">最新帖子</a></div>
+            <div class="m-discription">
+                <ul class="m-albums">
+                {% for post in posts %}
+                    <li><a href="{{ url_for("front.post_detail",post_id=post.id) }}"><i class="file text outline icon"></i>{{ post.title }}</a></li>
+                {% endfor %}
+            </ul>
+            </div>
+        </div>
+    </div>
+{% endblock %}

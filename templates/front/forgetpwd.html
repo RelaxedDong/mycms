@@ -1,0 +1,40 @@
+{% extends "front/base.html" %}
+{% from "common/_macro.html" import static %}
+
+{% block head %}
+    <link rel="stylesheet" href="{{ static("front/css/fowgetpwd.css") }}">
+    <script src="{{ static("front/js/forgetpwd.js") }}"></script>
+{% endblock %}
+
+{% block body %}
+    <div class="main_contener">
+        <div class="col-md-6">
+            <div class="getpwd">密码找回</div>
+            <div class="input-gg">
+                <div class="input-group">
+                    <input type="email" class="form-control" placeholder="请输入邮箱" name="email">
+                    <div class="input-group-addon send-now">发送邮箱验证码</div>
+                </div>
+
+                <div class="form-group" style="margin-top: 10px">
+                    <label for="exampleInpute">邮箱验证码</label>
+                    <input type="text" class="form-control" id="exampleInpute" placeholder="请输入邮箱验证码" name="pca">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">新密码</label>
+                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="请输入密码" name="pwd">
+                </div>
+
+                <div class="fot-catcha">
+                     <input type="text" class="form-control" id="exampleInccput" placeholder="请输入验证码" name="captcha">
+                <img src="{{ url_for("common.graph_captcha") }}" alt="" id="captcha_img">
+                </div>
+                <button class="btn btn-default getnow">立即找回</button>
+            </div>
+        </div>
+        <div class="col-md-6"></div>
+
+
+    </div>
+{% endblock %}
+

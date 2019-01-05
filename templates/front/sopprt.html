@@ -1,0 +1,59 @@
+﻿{% extends "front/base.html" %}
+{% from "common/_macro.html" import static %}
+
+{% block head %}
+    <script src="{{ static("front/js/sopport.js") }}"></script>
+    <style>
+    #myform{margin-top: 40px}
+    .text-center{text-align: center;font-size: 20px;font-weight: lighter}
+    .pay{margin-top: 30px}
+    </style>
+{% endblock %}
+
+{% block body %}
+    <span style="display: none;" id="return-to-span">{{ return_to }}</span>
+    <div class="main_contener">
+        <div class="col-md-8">
+            <div class="info">
+  <div style="padding-bottom: 30px;"><h2 class="text-center">支持我们</h2>
+      <span style="margin-top: 20px;display: block;font-weight: lighter;font-size: 15px;text-space: 5px">
+                DohooM是通过flask+mysql+redis+memcache和多种三方插件开发的开源系统, 免费使用, 你可以从
+                <a href="https://github.com/1417766861/mycms" target="_blank"><i class="fa-github"></i> GitHub
+                </a>下载源代码.
+                 如果对你有帮助, 你通过以下方式支持我, 将用于支付服务器等必要费用！.
+            </span></div>
+
+                <div style="font-weight: lighter;font-size: 15px;"><h3>联系方式</h3> <div><p>pepper.hot@qq.com</p></div></div>
+            </div>
+            <form action="https://pay.bbbapi.com/" method="POST" id="myform" class="form-inline">
+                <div class="form-group">
+                    <label class="sr-only" for="exampleInputAmount">Amount (in dollars)</label>
+                    <div class="input-group">
+                        <div class="input-group-addon">￥</div>
+                        <input type="text" class="form-control" id="exampleInputAmount" name="price" placeholder="请输入金额">
+                        <div class="input-group-addon">元</div>
+                    </div>
+                    <button type="submit" class="btn btn-primary" id="submit-btn">去支付</button>
+                </div>
+                <br>
+                <input type="hidden" name="uid" value="2bebf6aa88b05029032d3d93">
+                <input type="hidden" name="notify_url" value="{{ notify_url }}">
+                <input type="hidden" name="return_url" value="{{ return_url }}">
+                <input type="hidden" name="orderid" value="{{ orderid }}">
+                <input type="hidden" name="orderuid" value="{{ orderuid }}">
+                <input type="hidden" name="goodsname" value="{{ goodsname }}">
+                <input type="hidden" name="key" value="">
+                <div class="pay">
+                    <input type="radio" name="istype" value="1" checked>支付宝
+                <img style="width: 80px;height: 60px" src="{{ static("front/images/zfb.png") }}" alt="">
+                <span style="margin-left: 20px"></span><input type="radio" name="istype" value="2">微信支付
+                <img style="width: 60px;height: 40px" src="{{ static("front/images/wx.png") }}" alt="">
+                </div>
+            </form>
+        </div>
+
+        <div class="col-md-4">
+
+        </div>
+    </div>
+{% endblock %}

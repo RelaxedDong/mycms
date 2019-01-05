@@ -1,0 +1,228 @@
+﻿{% from "common/_macro.html" import static %}
+{% extends "front/base.html" %}
+
+{% block head %}
+    <script src="https://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
+    <script src="{{ static("common/layui/layui.js") }}"></script>
+    <link rel="stylesheet" href="{{ static("common/layui/css/layui.css") }}">
+    <link rel="stylesheet" href="{{ static("front/css/index.css") }}">
+    <link rel="stylesheet" href="{{ static("front/css/media.css") }}">
+    <link rel="stylesheet" href="{{ static("front/css/post_detail.css") }}">
+    <link rel="stylesheet" href="{{ static("album/css/album_detail.css") }}">
+    <script src="{{ static("front/js/post_detail.js") }}"></script>
+    <link rel="stylesheet" href="{{ static("album/viewer/css/viewer.css") }}">
+    <link rel="stylesheet" href="{{ static("album/viewer/css/main.css") }}">
+    <script src="{{ static("front/js/follow.js") }}"></script>
+    <script src="{{ static("common/js/report.js") }}"></script>
+    <script>
+        window.onload = function () {
+            follow();
+        }
+    </script>
+{% endblock %}
+
+{% block body %}
+    <div class="main_contener">
+        <!--轮播图结束-->
+        <div class="col-md-8">
+            <div class="header-info">
+                <div class="header-info-img">
+                    <a href="{{ url_for("front.u",user_id=post.author.id) }}"><img src="{{ post.author.avatar }}" alt=""></a>
+                </div>
+                <div class="header-info-user">
+                    <div class="album-author-name"><a>{{ title }}</a>
+                    </div>
+                    <div class="picks-attention">
+                        <span><i class="unhide icon"></i>{{ post.read_count }}</span>
+                        <span><i class="comment icon"></i>{{ post.comments|length }}</span>
+                        <span><i class="smile icon"></i>{{ post.create_time }}</span>
+                    </div>
+                    <div class="picset-author">
+                        <b style="vertical-align: -2px;;float: left;font-size: 15px">©</b>
+                        <a href="{{ url_for("front.u",user_id=post.author.id) }}" class="u-name">{{ post.author.nickname }}</a>
+                        <div class="pic-btns" data-post-id="{{ post.id }}">
+                            {% if g.front_user and g.front_user.id in is_focus_id %}
+                                <button class="de-focus fow" data-user-id="{{ post.author.id }}">取消关注</button>
+                            {% else %}
+                                <button class="pic-btns-1 fow" data-user-id="{{ post.author.id }}">+关注他</button>
+                            {% endif %}
+
+                            <button class="pic-btns-2 star-btn">赞他(<span id="stars-count">{{ post.stars|length }}</span>)
+                            </button>
+                        </div>
+                         
+                    </div>
+
+                </div>
+            </div>
+<span style="margin-top: 20px">分享到</span>
+<div class="bdsharebuttonbox" style="padding-bottom: 20px"><a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友">QQ好友</a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间">QQ空间</a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信">微信</a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博">新浪微博</a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博">腾讯微博</a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网">人人网</a><a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网">豆瓣网</a><a href="#" class="bds_kaixin001" data-cmd="kaixin001" title="分享到开心网">开心网</a><a href="#" class="bds_ty" data-cmd="ty" title="分享到天涯社区">天涯社区</a><a href="#" class="bds_more" data-cmd="more"></a></div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"来自Dohoom站点的分享","bdMini":"2","bdMiniList":false,"bdPic":"http://img.zcool.cn/community/0174b15980b65ea8012156032eda5b.jpg@2o.jpg","bdStyle":"0","bdSize":"16"},"share":{"bdSize":16},"image":{"viewList":["sqq","qzone","weixin","tsina","tqq","renren","douban","kaixin001","ty"],"viewText":"","viewSize":"24"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["sqq","qzone","weixin","tsina","tqq","renren","douban","kaixin001","ty"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+            <div class="post-content docs-pictures">
+                {{ content|safe }}
+            </div>
+
+            <div class="star-box">
+            <span class="star">
+            {% if post.tags|length>0 %}
+                {% for tag in post.tags %}
+                    <a href="{{ url_for("front.tags",tagname=tag.tagname) }}"
+                       class="mini ui button">{{ tag.tagname }} </a>
+                {% endfor %}
+            {% endif %}
+            <p class="jubao repo" data-toggle="modal" data-target=".bs-example-modal-lg">举报</p>
+
+            <div class="modal fade bs-example-modal-lg" id="mymodel" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+                  <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span></button>
+                                            <h4 class="modal-title" id="myModalLabel">&nbsp;&nbsp;举报&nbsp;&nbsp;
+                                                <&nbsp;{{ post.title }}&nbsp;></h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="header-b">
+                                                <span class='up-text'>举报理由：</span>
+                                                <textarea class="form-control" rows="3" id="port_desc"></textarea>
+                                            </div>
+
+                                        </div>
+                                        <div class="modal-footer" id="myfot">
+                                            <button type="button" class="btn btn-default clo"
+                                                    data-dismiss="modal" >Close</button>
+                                            <button type="button" class="btn btn-danger port_now"
+                                            data-user-id="{{ g.front_user.id }}" data-type="帖子"
+                                            data-bereport-id="{{ post.author.id }}">立即举报</button>
+                                        </div>
+                                    </div>
+                  </div>
+                </div>
+
+                <div class="banquan">
+                    <p>© 本文版权归 Dohoom 所有，任何形式转载请表示</p>
+                </div>
+                <div class="dsz-bar" data-post-id="{{ post.id }}">
+                    <button class="layui-btn layui-btn-sm" style="background-color: #4F946E" id="collect-btn">
+                          <i class="layui-icon layui-icon-star"></i>收藏<span
+                            id="collect-count">{{ post.collects|length }}</span>
+                    </button>
+                      <button class="layui-btn layui-btn-sm" style="background-color: #c9e5d7">
+                          <i class="layui-icon layui-icon-reply-fill"></i>评论{{ post.comments|length }}
+                    </button>
+                </div>
+                <div class="post-comment-box">
+                    <div class="layui-form-item layui-form-text">
+                        <div data-post-id="{{ post.id }}">
+                          <textarea name="desc" placeholder="请输入内容" id="comment-content"
+                                    class="layui-textarea"></textarea>
+                            <button class="layui-btn layui-btn-sm btn-right" id="comment-btn">提交评论</button>
+                        </div>
+                      </div>
+                </div>
+                <div class="tab">
+                    <span>回应</span>
+                </div>
+                <!--#评论盒子-->
+                {% for comment in comments %}
+                    <div class="comment-item">
+                    <div class="comment-avatar">
+                        <img src="{{ comment.author.avatar }}"
+                             alt="">
+                    </div>
+                    <div class="comment-group">
+                        {% if comment.origin_comment_id %}
+                            <div class="co-time">
+                                         <a href="{{ url_for("front.u",user_id=comment.author.id) }}">{{ comment.author.nickname }}</a><span
+                                    style="margin-left: 10px">{{ comment.create_time|handle_time }}</span>
+                             </div>
+                            <p class="comment-content">
+                                            {{ comment.content|safe }}
+                                </p>
+                            <div class="quote">
+                                引用：<a href="{{ url_for("front.u",user_id=comment.origin_comment.author.id) }}"
+                                      style="color: #54b0df;">@{{ comment.origin_comment.author.nickname }}</a>的评论<br>
+                                      {{ comment.origin_comment.content|safe }}
+                            </div>
+                        {% else %}
+                            <div class="co-time">
+                                         <a href="{{ url_for("front.u",user_id=comment.author.id) }}">{{ comment.author.nickname }}</a><span
+                                    style="margin-left: 10px">{{ comment.create_time|handle_time }}</span>
+                                    </div>
+                            <p class="comment-content">
+                                        {{ comment.content|safe }}
+                                    </p>
+                        {% endif %}
+
+                        <p class="duoji-comment">
+                            {% if comment.author.id == g.front_user.id %}
+                                <a class="delete-btn" data-comment-id="{{ comment.id }}"><i
+                                        class="layui-icon layui-icon-delete"></i><font color="red">删除</font></a>
+                            {% endif %}
+                            <a class="huifu"><i style="color: #eed06c"
+                                                class="layui-icon layui-icon-reply-fill"></i>回复</a>
+                        </p>
+                        <div class="aco" style="display: none;">
+                             <textarea placeholder="请输入内容" class="layui-textarea"></textarea>
+                             <button style="float: right" class="layui-btn layui-btn-sm acomment"
+                                     data-comment-id="{{ comment.id }}" data-post-id="{{ post.id }}">发布</button>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+
+            </span>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="author-box">
+                <div class="mode-card">
+                    <a href="{{ url_for("front.u",user_id=post.author.id) }}">
+                    <img src="{{ post.author.avatar }}"
+                         alt=""></a>
+                    <a href="{{ url_for("front.u",user_id=post.author.id) }}">{{ post.author.nickname|striptags|truncate(6) }}</a><br><br>
+                    <div class="adrr"><i class="layui-icon layui-icon-location"></i>&nbsp;{{ post.author.address|fl_address }}</div>
+                        {% if post.author.gender == '男' %}
+                        <div class="adrr">&nbsp;&nbsp;<i class="man icon" style="color: #5dc2bf"></i>男</div>
+                        {% elif post.author.gender == '女' %}
+                        <div class="adrr">&nbsp;&nbsp;<i class="woman icon" style="color: indianred"></i>女</div>
+                        {% else %}
+                        <div class="adrr">&nbsp;&nbsp;性别：秘密</div>
+                    {% endif %}
+                        <div class="signature">
+                            {% if post.author.signature %}
+                            {{ post.author.signature }}
+                        {% else %}
+                            这家伙很懒~
+                        {% endif %}
+                        </div>
+
+                </div>
+            </div>
+            <div class="m-title"><a href="{{ url_for("front.u",user_id=post.author.id) }}"
+                                    style="color: #57c264">最新帖子</a></div>
+            <div class="m-discription">
+                <ul class="m-albums">
+                    {% for post in hot_posts %}
+                        {% if loop.index<5 %}
+                            <li><a href="#"><i class="file text outline icon"></i>{{ post.title }}</a></li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+            </div>
+
+            {% for ad in ads %}
+                {% if ad.is_using==1 %}
+                    <div class="ad">
+                        <a target="_blank" href="{{ ad.link_url }}"> <img src="{{ ad.img_url }}" alt=""></a>
+                        <div class="ad-gg">广告</div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+    <script src="https://fengyuanchen.github.io/js/common.js"></script>
+    <script src="{{ static("album/viewer/js/viewer.js") }}"></script>
+    <script src="{{ static("album/viewer/js/main.js") }}"></script>
+{% endblock %}
+

@@ -1,0 +1,61 @@
+﻿{% from "common/_macro.html" import static %}
+
+<html>
+<head>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
+    <link rel="stylesheet" type="text/css" href="{{ static("front/login/css/index.css") }}">
+    <script src="http://cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+    <link href="http://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <script src="http://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="{{ static("common/sweetalert/sweetalert.css") }}">
+    <script src="{{ static("common/sweetalert/sweetalert.min.js") }}"></script>
+    <script src="{{ static("common/sweetalert/zlalert.js") }}"></script>
+    <script src="{{ static("common/js/zlajax.js") }}"></script>
+    <script type="text/javascript" src="{{ static("front/login/js/common.js") }}"></script>
+	<script type="text/javascript" src="{{ static("front/login/js/login.js") }}"></script>
+</head>
+<body style="background: snow">
+<div class="main_contener">
+    <div class="col-md-4">
+    </div>
+     <div class="col-md-4">
+         <span style="display: none;" id="return_to_span">{{ return_to }}</span>
+         <div class="sign_in_title">
+             <a href="{{ url_for("front.index") }}"><img src="{{ static("front/images/blogin.png") }}" alt=""></a>
+         </div>
+        <div class="modal-content" style="border: none;">
+            <div class="col-left"></div>
+            <div class="col-right">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="loginModalLabel" style="font-size: 18px;">登录</h4>
+                </div>
+                <div class="modal-body">
+                    <section class="box-login v5-input-txt" id="box-login">
+                        <ul>
+                            <li class="form-group"><input class="form-control" id="id_account_l" name="email"
+                                                          placeholder="请输入邮箱" type="text"></li>
+                            <li class="form-group"><input class="form-control" id="id_password_l" name="password"
+                                                          placeholder="请输入密码" type="password"></li>
+                        </ul>
+                        <p class="good-tips marginB10"><a href="{{ url_for("front.forgetpwd") }}"  id="btnForgetpsw" class="fr">忘记密码？</a>还没有账号？<a
+                                href="{{ url_for("front.signup") }}" target="_blank" id="btnRegister">立即注册</a></p>
+                        <div class="login-box marginB10">
+                            <button id="login_btn-1" type="button" class="btn btn-micv5 btn-block globalLogin">登录</button>
+                        </div>
+                        <div style="padding-bottom: 10px">三方登录：</div>
+                        <a class="ui circular red big weibo icon button" href="{{ url_for("front.weibo_login") }}">
+                          <i class="weibo icon"></i>
+                        </a>
+                  
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+    </div>
+</div>
+</body>
+</html>
+

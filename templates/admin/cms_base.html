@@ -1,0 +1,86 @@
+﻿{% from "common/_macro.html" import static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <title>Title</title>
+    {% include "common/_heads.html" %}
+    {% block head %}{% endblock %}
+</head>
+<body>
+<nav class="navbar navbar-inverse navbar-fixed-top nav" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="{{ url_for("front.index") }}">
+                <img src="{{ static("common/images/zx.png") }}" alt="">
+            </a>
+        </div>
+        <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                   aria-expanded="false">
+                    <img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1152143373,3712781954&fm=26&gp=0.jpg"
+                         alt=""
+                         class="profile_img">
+                    <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="{{ url_for("cms.profile")}}">个人信息</a></li>
+                    <li><a href="{{ url_for("cms.resetpwd") }}">修改密码</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="{{ url_for("cms.logout") }}">退出</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-3 col-md-2 sidebar">
+            <ul class="nav-sidebar">
+                <li class="unfold"><a href="{{ url_for("cms.index") }}">
+                    <i class="dashboard icon"></i>&nbsp;&nbsp;主页
+                </a></li>
+                <li class="profile-li">
+                    <a href="#">
+                        <i class="user icon"></i>&nbsp;&nbsp;个人中心
+                        <span></span></a>
+                    <ul class="subnav">
+                        <li><a href="{{ url_for("cms.profile")}}">个人信息</a></li>
+                        <li><a href="{{ url_for("cms.resetpwd") }}">修改密码</a></li>
+                    </ul>
+                </li>
+
+                <li class="nav-group post-manage"><a href="{{ url_for("cms.posts") }}">
+                    <i class="layui-icon layui-icon-list"></i>&nbsp;&nbsp;帖子管理</a></li>
+                <li class="comments-manage"><a href="{{ url_for("cms.comments") }}">
+                    <i class="talk  Outline icon"></i>&nbsp;&nbsp;评论管理</a></li>
+                <li class="ad-manage"><a href="{{ url_for("cms.advertisement") }}">
+                    <i class="layui-icon layui-icon-templeate-1"></i>&nbsp;&nbsp;广告管理</a></li>
+
+                <li class="images-manage"><a href="{{ url_for("cms.images") }}">
+                    <i class="layui-icon layui-icon-picture"></i>&nbsp;&nbsp;相册管理</a></li>
+
+                <li class="check-manage"><a href="{{ url_for("cms.handle") }}">
+                        <i class="layui-icon layui-icon-find-fill"></i>&nbsp;&nbsp;待处理管理</a></li>
+
+                <li class="banner-manage"><a href="{{ url_for("cms.banners") }}">
+                        <i class="layui-icon layui-icon-template"></i>&nbsp;&nbsp;轮播图管理</a></li>
+
+                <li class="nav-group user-manage"><a href="{{ url_for("cms.users") }}">
+                    <i class="layui-icon layui-icon-username"></i>&nbsp;&nbsp;用户管理</a></li>
+            
+            </ul>
+        </div>
+
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+                {% block page_title %}{% endblock %}
+
+            <div class="main_content">
+                {% block content %}{% endblock %}
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

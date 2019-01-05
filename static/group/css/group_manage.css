@@ -1,0 +1,12 @@
+.mod-title{font-weight: bold;font-size: 16px;margin-top: 20px;float: left;width: 100%}
+.mod{margin-top: 20px;float: left;width: 100%}
+.mod h2{color: #072;font-size: 14px;font-weight: lighter}
+.mod ul{
+    float: left;
+    margin-top: 10px;
+    overflow: hidden;
+}
+.mod span{float: right;color: #70e157;font-weight: lighter;font-size: 14px}
+.mod span:hover{cursor: pointer}
+.mod ul li{float: left;margin-top: 10px;margin-left: 20px;width: 50px}
+.mod ul li img{float: left;width: 50px;height: 50px;border-radius: 50%}

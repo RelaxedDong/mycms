@@ -1,0 +1,47 @@
+{% extends "front/base.html" %}
+{% from "common/_macro.html" import static %}
+
+{% block head %}
+    <link rel="stylesheet" href="{{ static("front/css/bind_email.css") }}">
+    <link rel="stylesheet" href="{{ static("album/css/album_detail.css") }}">
+    <script src="{{ static("front/js/bindemail.js/") }}"></script>
+{% endblock %}
+
+{% block body %}
+    <div class="main_contener">
+        <div class="col-md-8">
+            <div class="getpwd">绑定邮箱</div>
+            {% if info %}
+                <div class="weibo_user_info">
+                <img id="avatar" src="{{ info['profile_image_url'] }}" data-uid="{{ uid }}" alt="">
+                <div class="header-info-user">
+                    <div class="album-author-name"><span id="nickname">{{ info['name'] }}</span></div>
+                    <div class="picks-attention">
+                        <span id="gender">{% if info['gender']=='m' %}男{% elif info['gender']=='f' %}女{% else %}秘密{% endif %}</span>、
+                         <span id="place">{{ info['location'] }}</span>
+                    </div>
+                    <div class="weibo_desc">{{ info['description'] }}</div>
+                </div>
+            </div>
+            {% endif %}
+            <div class="weibo_bind_form">
+                <div class="form-group" style="margin-top: 10px">
+                    <label for="exampleInpute">输入邮箱：</label>
+                    <input class="form-control" id="exampleInpute" placeholder="请输入邮箱地址：" type="text" name="email">
+                </div>
+                <button class="btn btn-default" id="bind_now" style="float: right">立即绑定</button>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            {% for ad in ads %}
+                {% if ad.is_using==1 %}
+                    <div class="ad">
+                        <a target="_blank" href="{{ ad.link_url }}"> <img src="{{ ad.img_url }}" alt=""></a>
+                        <div class="ad-gg">广告</div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

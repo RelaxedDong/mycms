@@ -1,0 +1,119 @@
+{% extends "front/base.html" %}
+{% from "common/_macro.html" import static %}
+
+{% block head %}
+    <link rel="stylesheet" href="{{ static("group/css/index.css") }}">
+    <link rel="stylesheet" href="{{ static("group/css/group_detail.css") }}">
+    <script src="{{ static("group/js/add_group.js") }}"></script>
+
+{% endblock %}
+
+{% block body %}
+    <div class="main_contener">
+        <div class="col-md-8">
+
+
+        <div class="return-to-group">
+                      <a href="{{ url_for("group.index") }}"><i
+                            class="reply icon"></i>返回小组首页
+        </a>
+         </div>
+            <div class="group-box">
+                <div class="group-f-box">
+                    <img src="{{ group.avatar }}" alt="">
+                    <div class="group-name-box">
+                        <div class="name">
+                            <a href="">{{ group.name }}</a>
+                            {% if g.front_user and g.front_user in group.users %}
+                                <button class="layui-btn-sm layui-btn">已加入</button>
+                            {% else %}
+                                <button class="layui-btn layui-btn-warm layui-btn-sm join_now"
+                                        data-group-id="{{ group.id }}">加入
+                                </button>
+                            {% endif %}
+                        </div>
+
+                        <div class="group-msg">
+                            <span>创建时间&nbsp;&nbsp;{{ group.create_time|create_time }}</span><br>
+                            {% if group.create_user == g.front_user.id %}
+                            <span style="float: right" id="dge-desc"><a style="color: #70e157">编辑简介</a></span>
+                            {% endif %}
+                            <span>创建人&nbsp;&nbsp; <a  style="color: #70e157"
+                                    href="{{ url_for("front.u",user_id=create_user.id) }}">{{ create_user.nickname }}</a></span><br>
+                            <span>人数&nbsp;&nbsp; {{ group.users|length }}</span>
+                        </div>
+                    </div>
+                    <div class="group-jies">
+                        {{ group.desc }}
+                    </div>
+                    <div class="cge-desc" style="display: none;">
+                        <textarea class="layui-textarea" placeholder="请输入个人简介" id="up-desc"></textarea>
+                        <button class="layui-btn layui-btn-sm layui-btn-warm" data-group-id="{{ group.id }}" id="update-now">立即修改</button>
+                    </div>
+                </div>
+            </div>
+            <div class="group-posts">
+                <div class="group-posts-zuixin">
+                    <span>最新讨论</span>
+                    <a href="{{ url_for("group.group_atopic",group=group.id) }}">+&nbsp;发布</a>
+                </div>
+                {% for topic in topics %}
+                    <div class="item-content">
+                        <ul>
+                            <li>
+                                <div class="content">
+                                         <span class="title">
+                                             <a href="{{ url_for("group.topic_detail",topic_id=topic.id) }}">{{ topic.title }}</a>
+                                         </span>
+                                        <span style="float: right"><a style="color: #70e157;font-weight: lighter;font-size: 15px" href="{{ url_for("group.topic_detail",topic_id=topic.id) }}">
+                                            <i class="mail forward icon"></i>&nbsp;{{ topic.topcomments|length }}&nbsp;回应</a></span>
+                                    <div class="author-group">
+                                        <img src="{{ topic.author.avatar }}" alt="">
+                                        <a href="{{ url_for("front.u",user_id=topic.author.id) }}">{{ topic.author.nickname }}</a>
+                                        <i class="clock icon"></i>{{ topic.create_time }}
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div id="author">
+                <div class="change-author">
+                    <span>成员信息</span>
+                    {% if g.front_user and g.front_user.id!=group.create_user and g.front_user in group.users%}
+                        <span style="float: right" id="out-group" data-group-id="{{ group.id }}"><a style="color: #e17f5a;">退出小组</a></span>
+                    {% endif %}
+                    {% if g.front_user and g.front_user.id==group.create_user %}
+                            <span style="float: right"><a style="color: #e16b60" href="{{ url_for("group.manage_group",gep=group.id) }}">管理小组</a></span>
+                    {% endif %}
+                </div>
+                <ul class="focus-ul">
+                    {% for user in users %}
+                        <li>
+                            <a href="{{ url_for("front.u",user_id=user.id) }}">
+                                <img src="{{ user.avatar }}" alt="">
+                                <div class="focus-user-info">
+                                    <span class="focus-user-name">{{ user.nickname }}
+                                    </span>
+                                    <p class="detail">写了&nbsp;&nbsp;{{ user.charactors|caractors }}字</p>
+                                </div>
+                            </a>
+                             {% if user.id == group.create_user  %}
+                                 <div class="follow-add"><a style="float: left" class="ui yellow mini label">组长</a></div>
+                                 {% elif user.id in managers_id %}
+                                  <div class="follow-add"><a style="float: left" class="ui grey mini label">管理员</a></div>
+                                 {% else %}
+                                <div class="follow-add"><i class="layui-icon layui-icon-rate"></i>&nbsp;&nbsp;积分&nbsp;{{ user.points }}</div>
+                             {% endif %}
+                        </li>
+                    {% endfor %}
+                </ul>
+            <a href="{{ url_for("group.distribution",gd=group.id) }}" class="ui grey basic mini button see_all"
+               style="margin-top: 20px">查看成员分布</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

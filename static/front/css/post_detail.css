@@ -1,0 +1,136 @@
+
+.name{
+    float: left;
+    font-size: 20px;
+    font-weight: lighter;
+    margin-left: 10px;
+    color: #333333;}
+.post-content{float: left;width: 100%;margin-top: 50px;
+    padding-bottom: 50px;border-bottom: 1px solid black;}
+
+.author-box{width: 100%;min-height:150px;color: #969696;background:#fff6ed}
+.mode-card{float: left;width:100%;padding: 5%}
+.mode-card img{width: 80px;height: 80px;padding: 10px;float:left}
+.mode-card a{color:#37a;font-weight: lighter;float:left;margin-top: 10px;}
+.mode-card p{padding-left: 5%}
+.adrr{float: left;margin-top: 5px}
+
+.signature{float: left}
+/*点赞*/
+.star-box{margin-top: 30px;width: 100%;float: left}
+.star{display: block;}
+/*举报*/
+.jubao{padding-top: 30px;float: right;color:#bbb;}
+.jubao:hover{cursor: pointer;color: #27c24c;}
+/*版权*/
+.banquan{color: #bbb;display: block;padding-top: 40px;font-size: 13px}
+/*点赞，收藏，转发*/
+.dsz-bar{margin-top: 100px;float: right}
+/*评论*/
+.post-comment-box{float: left;width: 100%;margin-top: 40px}
+.layui-input-block{margin-left: 0}
+.btn-right{margin-top: 10px;float: right}
+
+.tab{margin-top: 40px;float: left;padding-bottom:8px;
+    border-bottom: 1px solid #e6e6e6;width: 100%}
+.tab span{color: #70e157}
+.tab span:hover{cursor: pointer}
+.tab a{color: #afc0f1;padding-left: 20px;text-decoration:none}
+
+
+/*评论盒子*/
+.comment-item{margin-bottom: 1em;width: 100%;float: left}
+.comment-avatar img{float: left;width: 40px;height:40px;margin-top: 10px;border-radius: 50%;
+    float: left;}
+
+.co-time{color: #bbb;font-size: 15px;height: 25px;line-height: 25px;margin-left: 10px}
+.co-time a{color: #4558b6}
+.comment-content{padding-top: 10px;font-size: 14px;margin-left: 10px}
+
+.comment-group{float: left;width: 90%;margin-top: 10px}
+.author-box{float: left}
+
+
+
+
+
+
+
+@media screen and (min-width: 701px){
+ .icon-group{float: left;padding-left: 30px;font-size: 15px;color: #969696;margin-top: 10px}
+    .time{
+    float: left;
+    padding-left: 10px;
+    font-size: 15px;
+margin-top: 10px;
+    color: #969696;
+}
+}
+@media screen and (min-width: 400px) and (max-width: 700px) {
+    .icon-group{float: left;padding-left: 10px;font-size: 12px;color: #969696;margin-top: 10px}
+    .time{
+    float: left;
+    padding-left: 10px;
+    font-size: 12px;
+    color: #969696;
+        margin-top: 10px
+}
+}
+
+@media screen and (min-width: 280px) and (max-width: 400px) {
+    .icon-group{float: left;padding-left: 30px;font-size: 12px;color: #969696}
+    .time{
+    float: left;
+    padding-top: 5px;
+    padding-left: 10px;
+    font-size: 12px;
+    color: #969696;
+}
+}
+.duoji-comment{
+    float: right;
+    margin-top: 10px;
+}
+.duoji-comment a{margin-left: 5px}
+.quote{
+    width: 100%;
+margin-top: 10px;
+padding: 10px 15px;
+background-color: #f6f6f6;
+border-radius: 4px;
+color: #666;
+font-size: 14px;
+}
+
+/*#最新帖子*/
+.m-title{
+float: left;
+font-size: 14px;
+color: #969696;
+width: 100%;
+margin-top: 10px;
+}
+
+.m-discription{
+float: left;
+margin-bottom: 10px;
+line-height: 20px;
+font-size: 14px;
+margin-top: 10px;
+}
+.m-albums{
+    width: 100%;
+    float: left;
+}
+.m-albums li{
+    margin-top: 10px;
+}
+.m-albums a i{color: #8b82c2}
+
+.ad{
+    margin-top: 20px;
+    float: left;
+    position: relative;
+}
+.ad img{margin-top: 50px}
+.ad-gg{position: absolute;right: 0px;color: white;bottom: 0;background-color: black;opacity: 0.5}

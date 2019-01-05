@@ -1,0 +1,88 @@
+{% extends "front/base.html" %}
+{% from "common/_macro.html" import static %}
+
+{% block head %}
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="{{ static("front/js/search.js") }}"></script>
+{% endblock %}
+
+{% block body %}
+    <div class="main_contener" id="body-post">
+        <div class="col-md-8">
+            <div id="search">
+                <input type="text" placeholder="请输入标题" class="layui-input" v-model="SearchInfo">
+                <span v-if="showSearching">正在搜索。。。。</span>
+                <div class="item-content" v-for="post in posts">
+                    <ul>
+                        <li>
+                            <div class="img-group">
+                                <img v-bind:src="post.cover" v-if="post.cover.length">
+                            </div>
+                            <div class="content">
+                                <span class="title"><a :href="'/post_detail/' + post.post_id "><span v-html="post.title"></span></a>
+                                    <button class="layui-btn layui-btn-xs layui-btn-warm"
+                                            v-if="post.hight_light">精</button>
+                                </span>
+                                <div class="author-group">
+                                        <img v-bind:src="post.avatar" alt="">
+                                    <a :href="'/u/' + post.user_id ">
+                                        [[post.username]]
+                                    </a>
+                                    <i class="clock icon"></i>
+                                    [[post.create_time]]
+                                </div>
+                                <div class="text" v-html="post.content">
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div id="default">
+                {% for post in posts %}
+                    <div class="item-content">
+                        <ul>
+                            <li>
+                                {% if post.content|avatar_img!='' %}
+                                    <div class="img-group">
+                                        <img src="{{ post.content|avatar_img }}">
+                                    </div>
+                                {% endif %}
+                                <div class="content">
+                                    <span class="title"><a
+                                            href="{{ url_for("front.post_detail",post_id=post.id) }}" >{{ post.title }}</a></span>
+                                    <div class="author-group">
+                                        <img src="{{ post.author.avatar }}"
+                                             alt="">
+                                        <a href="">
+                                            {{ post.author.username }}
+                                        </a>
+                                        <i class="clock icon"></i>
+                                        {{ post.create_time }}
+                                        收藏数量：{{ post.collects|length }}
+                                    </div>
+                                    <div class="text">
+                                        {#                                        {{ post.content|striptags|truncate(160) }}#}
+                                        {{ post.content|striptags|truncate(160) }}
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                {% endfor %}
+                {{ pagination.links }}
+            </div>
+
+        </div>
+        <div class="col-md-4">
+        </div>
+        <div class="col-md-8">
+
+
+        </div>
+
+        <div class="col-md-4">
+
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,19 @@
+.getpwd{
+    font-weight: lighter;
+    color: #57c264;
+    font-size: 20px;
+    padding-bottom: 20px;
+}
+.fot-catcha{
+    margin-top: 10px;
+    height: 35px;
+}
+.fot-catcha input{width: 70%;float: left;height: 100%}
+.fot-catcha img{width: 30%;float: left;height: 100%}
+.getnow{
+    float: left;
+    margin-top: 20px;
+    width: 100%;
+}
+.send-now:hover{cursor: pointer}
+#captcha_img:hover{cursor: pointer}

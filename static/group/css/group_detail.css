@@ -1,0 +1,38 @@
+.group-posts{
+    width: 100%;
+    margin-top: 20px;
+}
+.group-posts-zuixin{float: left;font-size: 15px;font-weight: bold;border-bottom: 1px solid #eeeeee;width: 100%;
+    margin-top: 20px;padding-bottom: 20px}
+.group-posts-zuixin a{float: right;color: #70e157}
+
+
+
+/*#topic_detail*/
+
+.topic-author-box{
+    width: 100%;
+    float: left;
+    margin-top: 20px;
+}
+
+
+
+@media screen and (min-width: 701px){
+   .topic-author-box img{float: left;width: 50px;height: 50px;}
+}
+@media screen and (min-width: 400px) and (max-width: 700px) {
+    .topic-author-box img{float: left;width: 50px;height: 50px;}
+}
+@media screen and (min-width: 280px) and (max-width: 400px) {
+   .topic-author-box img{float: left;width: 50px;height: 50px;}
+}
+
+.topic-title{font-weight: bold;font-size: 20px;float: left}
+.topic-author-name{float: left;margin-left: 20px;margin-top: 30px;font-weight: lighter;font-size: 16px}
+.topic-author-time{float: left;margin-left: 20px;color: #7bd2ae;margin-top: 35px}
+.topic-text{float: left;margin-top:30px;font-size: 16px;width: 100%}
+.return-to-group{float: right;}
+.return-to-group a{color: #70e157}
+.topic-comment-group{margin-top: 30px;float: left;width: 100%}
+.topic-comment-group button{float: right}

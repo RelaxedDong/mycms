@@ -1,0 +1,55 @@
+﻿{% extends "front/base.html" %}
+{% from "common/_macro.html" import static %}
+
+{% block head %}
+    <link rel="stylesheet" href="{{ static("front/css/index.css") }}">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script type="text/javascript" src="{{ static("common/wang/config/release/wangEditor.min.js") }}"></script>
+    <script type="text/javascript" src="{{ static("common/wang/myconfig.js") }}"></script>
+    <script src="{{ static("front/js/apost.js") }}"></script>
+    <link rel="stylesheet" href="{{ static("front/css/apost.css") }}">
+{% endblock %}
+
+{% block body %}
+    <div class="main_contener">
+        <!--轮播图结束-->
+        <div class="col-md-12">
+            <div class="layui-form-item">
+                <input type="text" name="title" required lay-verify="required" placeholder="请输入标题" autocomplete="off"
+                       class="layui-input">
+            </div>
+            <div id="editor"></div>
+            <div id="app">
+
+                <div class="sub-group">
+                    <div class="tag-group">
+                                            <div class="hd">选择标签(最多可选3个)</div>
+                        <div v-for="tag in tags" class="mycheck">
+                            <input type="checkbox" v-bind:value="tag" :id='tag'>
+                            <label :for="tag">[[tag]]</label>
+                        </div>
+                    </div>
+
+                    <div class="btn-group">
+                        <div class="layui-form-item" style="margin-top:20px;">
+                            <input type="text" name="tagname" placeholder="没有喜欢的？输入一个" class="layui-input">
+                        </div>
+                        <button class="layui-btn" style="float: left" v-on:click="Addtag">
+                            <i class="layui-icon layui-icon-note"></i>
+                            添加标签
+                        </button>
+                        <button class="layui-btn layui-bg-blue" id="submit-btn" style="float: left"> 发布</button>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <div class="col-md-4">
+
+    </div>
+    </div>
+{% endblock %}
+

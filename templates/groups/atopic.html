@@ -1,0 +1,34 @@
+{% extends "front/base.html" %}
+{% from "common/_macro.html" import static %}
+
+{% block head %}
+    <link rel="stylesheet" href="{{ static("front/css/index.css") }}">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script type="text/javascript" src="{{ static("common/wang/config/release/wangEditor.min.js") }}"></script>
+    <script type="text/javascript" src="{{ static("common/wang/myconfig.js") }}"></script>
+    <script src="{{ static("group/js/atopic.js") }}"></script>
+    <style>
+    .return_group{padding-bottom: 20px}
+    .return_group a{color: #70e157}
+    </style>
+{% endblock %}
+
+{% block body %}
+    <div class="main_contener">
+        <div class="col-md-12">
+            <div class="return_group"><a href="{{ url_for("group.group_detail",group_id=group_id) }}"><i class="reply icon"></i>返回小组</a></div>
+            <div class="layui-form-item">
+                <input type="text"  required lay-verify="required" placeholder="请输入标题" name="title-topic" autocomplete="off"
+                       class="layui-input">
+            </div>
+            <div id="editor"></div>
+            {% if g.front_user and g.front_user in group.users %}
+                         <button style="float: right;margin-top: 10px" data-group-id="{{ group_id }}" class="layui-btn layui-bg-blue" id="sub-topic"> 发布</button>
+            {% else %}
+              <button style="float: right;margin-top: 10px"  class="layui-btn layui-bg-blue">不是小组成员，无法发布讨论</button>
+            {% endif %}
+        </div>
+    </div>
+
+{% endblock %}
+

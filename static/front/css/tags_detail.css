@@ -1,0 +1,28 @@
+.tag-title{
+    font-size: 25px;
+    font-family: "Adobe 黑体 Std R";
+    color: #eeaf3e;
+}
+
+@media screen and (min-width: 400px) and (max-width: 700px) {
+     .main_contener {
+        width: 100%;
+        margin: 0 auto;
+        min-height: 600px;
+    }
+    .col-md-4{display: none}
+}
+@media screen and (min-width: 280px) and (max-width: 400px) {
+      .main_contener {
+        width: 100%;
+        margin: 0 auto;
+        min-height: 600px;
+    }
+    .index-banner {
+        border-radius: 10px;
+        overflow: hidden;
+        height: 240px;
+        width: 100%;
+    }
+    .author-box{display: none}
+}

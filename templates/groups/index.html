@@ -1,0 +1,95 @@
+﻿{% extends "front/base.html" %}
+{% from "common/_macro.html" import static %}
+
+{% block head %}
+    <link rel="stylesheet" href="{{ static("group/css/index.css") }}">
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="{{ static("group/js/add_group.js") }}"></script>
+    <script src="{{ static("group/js/index.js") }}"></script>
+{% endblock %}
+
+{% block body %}
+    <div class="main_contener">
+        <div class="col-md-8" id="demo" >
+            <div class="poster">
+                <div class="p-title">
+                    <img src="{{ static("group/images/groups.png") }}" alt="" style="width: 50px;height: 50px">
+                    <img src="{{ static("group/images/xc.png") }}" alt="">
+                </div>
+            </div>
+            <div class="search">
+                        <input type="text" placeholder="搜索你感兴趣的小组" class="layui-input" name="group_name">
+                        <button v-on:click="Search" class="layui-btn layui-btn-primary"><i class="search icon" style="float: left"></i></button>
+                        <button class="layui-btn layui-btn-primary" id="refresh"><i class="refresh icon" style="float: left"></i></button>
+            </div>
+
+            <div class="tuijian jsn">
+                推荐小组
+            </div>
+                {% for group in groups %}
+                    <div class="group-box jsn">
+                        <div class="group-f-box">
+                            <img src="{{ group.avatar }}" alt="">
+                            <div class="group-name-box">
+                                <div class="name">
+                                    <a href="{{ url_for("group.group_detail",group_id=group.id) }}">{{ group.name }}</a>
+                                   
+                                </div>
+
+                                <div class="group-msg">
+                                    <span>创建时间 {{ group.create_time|create_time }}</span><br>
+                                    <span>人数 {{ group.users|length }}</span>
+                                </div>
+                            </div>
+                            <div class="group-jies">
+                                {{ group.desc }}
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+
+                        <div class="group-box md"  v-for="group in groups">
+                        <div class="group-f-box">
+                            <img v-bind:src="group.avatar" alt="">
+                            <div class="group-name-box">
+                                <div class="name">
+                                    <a :href="'/g/group_detail/'+group.id">[[group.name]]</a>
+                                </div>
+
+                                <div class="group-msg">
+                                    <span>创建时间 [[group.create_time]]</span><br>
+                                    <span>人数 [[group.users]]</span>
+                                </div>
+                            </div>
+                            <div class="group-jies">
+                                [[group.desc]]
+                            </div>
+                        </div>
+                    </div>
+        </div>
+        <div class="col-md-4">
+            <div class="welll">
+                <a class="cg" href="{{ url_for("group.crgroup") }}">创建小组</a>
+                <div class="paih">
+                    <div class="paih-title">
+                        <span>排名</span>
+                        <span class="pa-left">小组</span>
+                        <span class="pa-left-2">成长值</span>
+                    </div>
+                    <ul>
+                        {% for group in groups %}
+                        <li>
+                            <div class="paim">{{  loop.index }}</div>
+                            <a href="{{ url_for("group.group_detail",group_id=group.id) }}"><img src="{{ group.avatar}}" alt=""></a>
+                            <div class="group-name">
+                                <span><a href="{{ url_for("group.group_detail",group_id=group.id) }}">{{ group.name }}</a></span>
+                            </div>
+                            <div class="users">{{ group.point }}</div>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
