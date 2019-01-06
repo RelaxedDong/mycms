@@ -1,7 +1,7 @@
 # mycms
 大型FLask CMS管理系统
 
-项目走的Flask2路线，需要的直接fork一下。
+项目走的Flask2路线，需要的直接fork一下。以及对flask2的延伸。
 
 flask大型cms系统
 
