@@ -1,3 +1,7 @@
+
+[![](https://travis-ci.org/Alamofire/Alamofire.svg?branch=master)](https://travis-ci.org/Alamofire/Alamofire)
+
+
 `大型FLask CMS管理系统`
 
 项目走的Flask2路线，需要的直接fork一下。以及对flask2的延伸。
