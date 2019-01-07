@@ -1,5 +1,4 @@
-# mycms
-大型FLask CMS管理系统
+`大型FLask CMS管理系统`
 
 项目走的Flask2路线，需要的直接fork一下。以及对flask2的延伸。
 
@@ -21,6 +20,6 @@ flask大型cms系统
 
 分页：flask_paginate以及 首页Vue加载更多
 
-项目演示地址：http://www.donghao.club/ (可能网站已经下线：比如穷等...)
+[项目演示地址](http://www.donghao.club/ "点击进入")
 
 demo:账号（邮箱:  user10@qq.com   密码：111111   ）
