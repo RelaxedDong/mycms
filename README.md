@@ -1,6 +1,12 @@
 `大型FLask CMS管理系统`
 
 项目走的Flask2路线，需要的直接fork一下。以及对flask2的延伸。
+[![](http://www.donghao.club/static/front/images/x.png)](http://www.donghao.club/)
+
+
+[项目演示地址](http://www.donghao.club/ "点击进入")
+
+demo:账号（邮箱:  `user10@qq.com`   密码：`111111`   ）
 
 flask大型cms系统
 
@@ -20,6 +26,3 @@ flask大型cms系统
 
 分页：flask_paginate以及 首页Vue加载更多
 
-[项目演示地址](http://www.donghao.club/ "点击进入")
-
-demo:账号（邮箱:  `user10@qq.com`   密码：`111111`   ）
