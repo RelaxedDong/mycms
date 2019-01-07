@@ -1,7 +1,7 @@
 `大型FLask CMS管理系统`
 
 项目走的Flask2路线，需要的直接fork一下。以及对flask2的延伸。
-[![](https://dh1417766861weather.oss-cn-beijing.aliyuncs.com/MB%60GPTTO3%28%5BL%7E%7B%29S4%24%5D%60QN3.png)](http://www.donghao.club/)
+[![](http://www.donghao.club/static/front/images/x.png)](http://www.donghao.club/)
 
 
 
