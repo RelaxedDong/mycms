@@ -22,4 +22,4 @@ flask大型cms系统
 
 [项目演示地址](http://www.donghao.club/ "点击进入")
 
-demo:账号（邮箱:  user10@qq.com   密码：111111   ）
+demo:账号（邮箱:  `user10@qq.com`   密码：`111111`   ）
