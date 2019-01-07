@@ -9,11 +9,11 @@
 
 demo:账号（邮箱:  `user10@qq.com`   密码：`111111`   ）
 
-***flask大型cms系统
+---flask大型cms系统
 
-***三方登陆：微博登陆
+---三方登陆：微博登陆
 
-***支付：PaysApi
+---支付：PaysApi
 
 基于Pyhon3.6的大型CMS管理系统
 
