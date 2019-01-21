@@ -30,6 +30,6 @@ flask大型cms系统
 >邮箱验证码：redis
 
 >分页：flask_paginate以及 首页Vue加载更多  
-`Vue首页加载流程(https://blog.csdn.net/qq_42239520/article/details/82561071)`
-`flask_paginate分页流程(https://blog.csdn.net/qq_42239520/article/details/80378095)`
+Vue首页加载流程(https://blog.csdn.net/qq_42239520/article/details/82561071)
+flask_paginate分页流程(https://blog.csdn.net/qq_42239520/article/details/80378095)
 
