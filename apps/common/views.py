@@ -62,7 +62,7 @@ def upload():
     url = base_posts_url+file_name
     return restful.success(data=url)
 
-
+from tasks import send_mail
 
 @bp.route('/send_captcha/')
 def send_email():
@@ -73,9 +73,8 @@ def send_email():
         E = list(string.ascii_letters)
         E.extend(map(lambda x: str(x), range(0, 10)))
         cap = ''.join(random.sample(E,4))
-        message = Message('Dohoom验证码', recipients=[email], body='您的验证码是：%s,打死不要告诉别人哦~' %cap)
         try:
-            mail.send(message)
+            send_mail.delay('Dohoom验证码', recipients=[email], body='您的验证码是：%s,打死不要告诉别人哦~' % cap)
         except:
             return restful.server_error()
         cache.set(email, cap, ex=240)

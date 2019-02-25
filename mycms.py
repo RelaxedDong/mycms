@@ -36,4 +36,4 @@ def page_not_find(e):
     return render_template('common/404.html'),404
 
 if __name__ == '__main__':
-    app.run(threaded=True)
+    app.run(threaded=True,debug=True)

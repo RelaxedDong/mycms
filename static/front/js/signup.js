@@ -1,7 +1,27 @@
+function settime(countdown,val) {
+    console.log(val)
+    if (countdown == 0) {
+        val.removeAttribute("disabled");
+        val.innerText = "发送验证码";
+        countdown = 60;
+    } else {
+        val.setAttribute("disabled", true);
+        console.log(countdown)
+        val.innerText = "重新发送(" + countdown + ")";
+        countdown--;
+        setTimeout(function () {
+            settime(countdown,val)
+        }, 1000)
+    }
+}
+
 $(function () {
     $("#send-capcha").click(function (event) {
         event.preventDefault();
-        swal('发送邮箱验证码中。。。');
+        var countdown = 3;
+        settime(countdown,this);
+
+        swal('邮箱短信发送完成');
         var email = $("input[name='email']").val();
         if(!email){
             swal('请输入邮箱','','error');
@@ -14,7 +34,7 @@ $(function () {
             },
             'success':function (data) {
                 if(data['code']==200){
-                    swal('邮箱短信发送完成，请注意接收！','','success')
+                    swal('请注意接收！','','success')
                 }else{
                     swal(data['message'])
                 }

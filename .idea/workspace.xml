@@ -2,75 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0508668f-5947-409a-955e-27436749937a" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/static/admin/js/cms_handle_error.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/static/common/js/report.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/static/front/css/fowgetpwd.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/static/front/js/forgetpwd.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/templates/admin/cms_handle_error.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/templates/front/forgetpwd.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/tasks.py" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/mycms.iml" afterPath="$PROJECT_DIR$/.idea/mycms.iml" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/app/admin/decorators.py" afterPath="$PROJECT_DIR$/app/admin/decorators.py" />
-      <change beforePath="$PROJECT_DIR$/app/admin/views.py" afterPath="$PROJECT_DIR$/app/admin/views.py" />
-      <change beforePath="$PROJECT_DIR$/app/album/views.py" afterPath="$PROJECT_DIR$/app/album/views.py" />
-      <change beforePath="$PROJECT_DIR$/app/common/models.py" afterPath="$PROJECT_DIR$/app/common/models.py" />
-      <change beforePath="$PROJECT_DIR$/app/common/views.py" afterPath="$PROJECT_DIR$/app/common/views.py" />
-      <change beforePath="$PROJECT_DIR$/app/front/decorators.py" afterPath="$PROJECT_DIR$/app/front/decorators.py" />
-      <change beforePath="$PROJECT_DIR$/app/front/forms.py" afterPath="$PROJECT_DIR$/app/front/forms.py" />
-      <change beforePath="$PROJECT_DIR$/app/front/hooks.py" afterPath="$PROJECT_DIR$/app/front/hooks.py" />
-      <change beforePath="$PROJECT_DIR$/app/front/tools.py" afterPath="$PROJECT_DIR$/app/front/tools.py" />
-      <change beforePath="$PROJECT_DIR$/app/front/views.py" afterPath="$PROJECT_DIR$/app/front/views.py" />
-      <change beforePath="$PROJECT_DIR$/app/groups/views.py" afterPath="$PROJECT_DIR$/app/groups/views.py" />
+      <change beforePath="$PROJECT_DIR$/apps/common/views.py" afterPath="$PROJECT_DIR$/apps/common/views.py" />
+      <change beforePath="$PROJECT_DIR$/config.py" afterPath="$PROJECT_DIR$/config.py" />
       <change beforePath="$PROJECT_DIR$/mycms.py" afterPath="$PROJECT_DIR$/mycms.py" />
-      <change beforePath="$PROJECT_DIR$/static/admin/css/cms_base.css" afterPath="$PROJECT_DIR$/static/admin/css/cms_base.css" />
-      <change beforePath="$PROJECT_DIR$/static/admin/css/cms_imgs.css" afterPath="$PROJECT_DIR$/static/admin/css/cms_imgs.css" />
-      <change beforePath="$PROJECT_DIR$/static/admin/js/cms_ad.js" afterPath="$PROJECT_DIR$/static/admin/js/cms_ad.js" />
-      <change beforePath="$PROJECT_DIR$/static/admin/js/cms_banner.js" afterPath="$PROJECT_DIR$/static/admin/js/cms_banner.js" />
-      <change beforePath="$PROJECT_DIR$/static/admin/js/cms_base.js" afterPath="$PROJECT_DIR$/static/admin/js/cms_base.js" />
-      <change beforePath="$PROJECT_DIR$/static/admin/js/cms_images.js" afterPath="$PROJECT_DIR$/static/admin/js/cms_images.js" />
-      <change beforePath="$PROJECT_DIR$/static/admin/js/cms_index.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/admin/js/cms_posts.js" afterPath="$PROJECT_DIR$/static/admin/js/cms_posts.js" />
-      <change beforePath="$PROJECT_DIR$/static/album/css/album.css" afterPath="$PROJECT_DIR$/static/album/css/album.css" />
-      <change beforePath="$PROJECT_DIR$/static/album/css/album_detail.css" afterPath="$PROJECT_DIR$/static/album/css/album_detail.css" />
-      <change beforePath="$PROJECT_DIR$/static/album/js/star_comment.js" afterPath="$PROJECT_DIR$/static/album/js/star_comment.js" />
-      <change beforePath="$PROJECT_DIR$/static/album/js/up_img.js" afterPath="$PROJECT_DIR$/static/album/js/up_img.js" />
-      <change beforePath="$PROJECT_DIR$/static/common/images/banner.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/common/images/loginui.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/common/js/jquery.cxcolor.js" afterPath="$PROJECT_DIR$/static/common/js/jquery.cxcolor.js" />
-      <change beforePath="$PROJECT_DIR$/static/front/css/index.css" afterPath="$PROJECT_DIR$/static/front/css/index.css" />
-      <change beforePath="$PROJECT_DIR$/static/front/css/post_detail.css" afterPath="$PROJECT_DIR$/static/front/css/post_detail.css" />
-      <change beforePath="$PROJECT_DIR$/static/front/js/chat.js" afterPath="$PROJECT_DIR$/static/front/js/chat.js" />
-      <change beforePath="$PROJECT_DIR$/static/front/js/follow.js" afterPath="$PROJECT_DIR$/static/front/js/follow.js" />
-      <change beforePath="$PROJECT_DIR$/static/front/js/hot_users.js" afterPath="$PROJECT_DIR$/static/front/js/hot_users.js" />
-      <change beforePath="$PROJECT_DIR$/static/front/js/index.js" afterPath="$PROJECT_DIR$/static/front/js/index.js" />
-      <change beforePath="$PROJECT_DIR$/static/front/js/post_detail.js" afterPath="$PROJECT_DIR$/static/front/js/post_detail.js" />
-      <change beforePath="$PROJECT_DIR$/static/front/js/search.js" afterPath="$PROJECT_DIR$/static/front/js/search.js" />
-      <change beforePath="$PROJECT_DIR$/static/front/js/send-msg.js" afterPath="$PROJECT_DIR$/static/front/js/send-msg.js" />
-      <change beforePath="$PROJECT_DIR$/static/front/js/setting.js" afterPath="$PROJECT_DIR$/static/front/js/setting.js" />
-      <change beforePath="$PROJECT_DIR$/static/front/js/u.js" afterPath="$PROJECT_DIR$/static/front/js/u.js" />
-      <change beforePath="$PROJECT_DIR$/static/group/js/group_manage.js" afterPath="$PROJECT_DIR$/static/group/js/group_manage.js" />
-      <change beforePath="$PROJECT_DIR$/static/group/js/topic_comment.js" afterPath="$PROJECT_DIR$/static/group/js/topic_comment.js" />
-      <change beforePath="$PROJECT_DIR$/templates/admin/cms_advertisement.html" afterPath="$PROJECT_DIR$/templates/admin/cms_advertisement.html" />
-      <change beforePath="$PROJECT_DIR$/templates/admin/cms_base.html" afterPath="$PROJECT_DIR$/templates/admin/cms_base.html" />
-      <change beforePath="$PROJECT_DIR$/templates/admin/cms_comments.html" afterPath="$PROJECT_DIR$/templates/admin/cms_comments.html" />
-      <change beforePath="$PROJECT_DIR$/templates/admin/cms_front_users.html" afterPath="$PROJECT_DIR$/templates/admin/cms_front_users.html" />
-      <change beforePath="$PROJECT_DIR$/templates/admin/cms_imgs.html" afterPath="$PROJECT_DIR$/templates/admin/cms_imgs.html" />
-      <change beforePath="$PROJECT_DIR$/templates/admin/cms_index.html" afterPath="$PROJECT_DIR$/templates/admin/cms_index.html" />
-      <change beforePath="$PROJECT_DIR$/templates/admin/cms_posts.html" afterPath="$PROJECT_DIR$/templates/admin/cms_posts.html" />
-      <change beforePath="$PROJECT_DIR$/templates/admin/cms_profile.html" afterPath="$PROJECT_DIR$/templates/admin/cms_profile.html" />
-      <change beforePath="$PROJECT_DIR$/templates/admin/cms_resetpwd.html" afterPath="$PROJECT_DIR$/templates/admin/cms_resetpwd.html" />
-      <change beforePath="$PROJECT_DIR$/templates/album/album_detail.html" afterPath="$PROJECT_DIR$/templates/album/album_detail.html" />
-      <change beforePath="$PROJECT_DIR$/templates/album/image_list.html" afterPath="$PROJECT_DIR$/templates/album/image_list.html" />
-      <change beforePath="$PROJECT_DIR$/templates/album/index.html" afterPath="$PROJECT_DIR$/templates/album/index.html" />
-      <change beforePath="$PROJECT_DIR$/templates/common/_heads.html" afterPath="$PROJECT_DIR$/templates/common/_heads.html" />
-      <change beforePath="$PROJECT_DIR$/templates/front/index.html" afterPath="$PROJECT_DIR$/templates/front/index.html" />
-      <change beforePath="$PROJECT_DIR$/templates/front/login.html" afterPath="$PROJECT_DIR$/templates/front/login.html" />
-      <change beforePath="$PROJECT_DIR$/templates/front/post_detail.html" afterPath="$PROJECT_DIR$/templates/front/post_detail.html" />
-      <change beforePath="$PROJECT_DIR$/templates/front/setting_base.html" afterPath="$PROJECT_DIR$/templates/front/setting_base.html" />
-      <change beforePath="$PROJECT_DIR$/templates/front/signup.html" afterPath="$PROJECT_DIR$/templates/front/signup.html" />
-      <change beforePath="$PROJECT_DIR$/templates/front/u.html" afterPath="$PROJECT_DIR$/templates/front/u.html" />
-      <change beforePath="$PROJECT_DIR$/templates/groups/manage.html" afterPath="$PROJECT_DIR$/templates/groups/manage.html" />
-      <change beforePath="$PROJECT_DIR$/test.py" afterPath="$PROJECT_DIR$/test.py" />
-      <change beforePath="$PROJECT_DIR$/utils/upload.py" afterPath="$PROJECT_DIR$/utils/upload.py" />
+      <change beforePath="$PROJECT_DIR$/static/front/js/signup.js" afterPath="$PROJECT_DIR$/static/front/js/signup.js" />
+      <change beforePath="$PROJECT_DIR$/utils/mychache.py" afterPath="$PROJECT_DIR$/utils/mychache.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -80,13 +22,13 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/mycms$views.coverage" NAME="views Coverage Results" MODIFIED="1539265398305" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app/album" />
+    <SUITE FILE_PATH="coverage/mycms$test.coverage" NAME="test Coverage Results" MODIFIED="1539506600157" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/mycms$translate.coverage" NAME="translate Coverage Results" MODIFIED="1538128450511" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/utils" />
     <SUITE FILE_PATH="coverage/mycms$__init__.coverage" NAME="__init__ Coverage Results" MODIFIED="1536985456748" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/utils/captcha" />
     <SUITE FILE_PATH="coverage/mycms$mychache.coverage" NAME="mychache Coverage Results" MODIFIED="1537516994065" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/utils" />
-    <SUITE FILE_PATH="coverage/mycms$mycms.coverage" NAME="mycms Coverage Results" MODIFIED="1539504918335" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/mycms$mycms.coverage" NAME="mycms Coverage Results" MODIFIED="1551092084116" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/mycms$upload.coverage" NAME="upload Coverage Results" MODIFIED="1535376005858" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/utils" />
-    <SUITE FILE_PATH="coverage/mycms$views.coverage" NAME="views Coverage Results" MODIFIED="1539265398305" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app/album" />
-    <SUITE FILE_PATH="coverage/mycms$test.coverage" NAME="test Coverage Results" MODIFIED="1539506600157" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="DatabaseView">
     <option name="SHOW_INTERMEDIATE" value="true" />
@@ -102,11 +44,95 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="cms_front_users.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="cms_front_users.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/admin/cms_front_users.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-10">
-              <caret line="14" column="30" lean-forward="true" selection-start-line="14" selection-start-column="30" selection-end-line="14" selection-end-column="30" />
+            <state relative-caret-position="144">
+              <caret line="16" column="31" lean-forward="false" selection-start-line="16" selection-start-column="31" selection-end-line="16" selection-end-column="31" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="mycms.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mycms.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="342">
+              <caret line="35" column="46" lean-forward="true" selection-start-line="35" selection-start-column="46" selection-end-line="35" selection-end-column="46" />
+              <folding>
+                <element signature="e#17#52#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="config.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="469">
+              <caret line="41" column="15" lean-forward="false" selection-start-line="41" selection-start-column="15" selection-end-line="41" selection-end-column="15" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="mychache.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/utils/mychache.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="192">
+              <caret line="8" column="1" lean-forward="false" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="tasks.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tasks.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="516">
+              <caret line="31" column="22" lean-forward="true" selection-start-line="31" selection-start-column="22" selection-end-line="31" selection-end-column="22" />
+              <folding>
+                <element signature="e#71#96#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/apps/common/views.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1215">
+              <caret line="76" column="11" lean-forward="false" selection-start-line="76" selection-start-column="11" selection-end-line="76" selection-end-column="11" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="signup.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/static/front/js/signup.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="312">
+              <caret line="37" column="22" lean-forward="true" selection-start-line="37" selection-start-column="22" selection-end-line="37" selection-end-column="22" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="send-msg.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/static/front/js/send-msg.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="360">
+              <caret line="15" column="42" lean-forward="false" selection-start-line="15" selection-start-column="34" selection-end-line="15" selection-end-column="42" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="requirements.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/requirements.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1128">
+              <caret line="47" column="16" lean-forward="false" selection-start-line="47" selection-start-column="16" selection-end-line="47" selection-end-column="16" />
               <folding />
             </state>
           </provider>
@@ -119,16 +145,15 @@
       <list>
         <option value="Flask Main" />
         <option value="Jupyter Notebook" />
-        <option value="Python Script" />
         <option value="HTML File" />
         <option value="CSS File" />
         <option value="JavaScript File" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>posts</find>
       <find>group</find>
       <find>post_lar</find>
       <find>print</find>
@@ -158,6 +183,7 @@
       <find>sonco</find>
       <find>conso</find>
       <find>users</find>
+      <find>send_email</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -166,11 +192,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/templates/front/index.html" />
-        <option value="$PROJECT_DIR$/static/admin/js/cms_images.js" />
-        <option value="$PROJECT_DIR$/static/admin/css/cms_imgs.css" />
-        <option value="$PROJECT_DIR$/static/front/css/index.css" />
-        <option value="$PROJECT_DIR$/templates/admin/cms_profile.html" />
         <option value="$PROJECT_DIR$/templates/admin/cms_resetpwd.html" />
         <option value="$PROJECT_DIR$/templates/admin/cms_index.html" />
         <option value="$PROJECT_DIR$/static/front/js/post_detail.js" />
@@ -187,7 +208,6 @@
         <option value="$PROJECT_DIR$/templates/front/signup.html" />
         <option value="$PROJECT_DIR$/templates/front/setting_count.html" />
         <option value="$PROJECT_DIR$/static/front/css/fowgetpwd.css" />
-        <option value="$PROJECT_DIR$/static/front/js/signup.js" />
         <option value="$PROJECT_DIR$/app/front/forms.py" />
         <option value="$PROJECT_DIR$/templates/front/login.html" />
         <option value="$PROJECT_DIR$/app/common/views.py" />
@@ -217,6 +237,12 @@
         <option value="$PROJECT_DIR$/templates/admin/cms_imgs.html" />
         <option value="$PROJECT_DIR$/templates/admin/cms_front_users.html" />
         <option value="$PROJECT_DIR$/test.py" />
+        <option value="$PROJECT_DIR$/utils/mychache.py" />
+        <option value="$PROJECT_DIR$/tasks.py" />
+        <option value="$PROJECT_DIR$/apps/common/views.py" />
+        <option value="$PROJECT_DIR$/config.py" />
+        <option value="$PROJECT_DIR$/mycms.py" />
+        <option value="$PROJECT_DIR$/static/front/js/signup.js" />
       </list>
     </option>
   </component>
@@ -227,8 +253,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="391" />
-    <option name="y" value="350" />
+    <option name="x" value="280" />
+    <option name="y" value="82" />
     <option name="width" value="1488" />
     <option name="height" value="1018" />
   </component>
@@ -257,21 +283,73 @@
               <item name="mycms" type="b2602c69:ProjectViewProjectNode" />
               <item name="mycms" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="mycms" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mycms" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mycms" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mycms" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="common" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mycms" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mycms" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="front" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mycms" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mycms" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="front" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mycms" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mycms" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="front" type="462c0819:PsiDirectoryNode" />
+              <item name="login" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mycms" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mycms" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="front" type="462c0819:PsiDirectoryNode" />
+              <item name="login" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mycms" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mycms" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="group" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mycms" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mycms" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="group" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
       <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/jinja-2.0" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL&#10;SQL Server (Microsoft)" />
   </component>
@@ -302,7 +380,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.test">
+  <component name="RunManager" selected="Python.mycms">
     <configuration name="__init__" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -545,20 +623,21 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3250283" sideWeight="0.5171674" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2779661" sideWeight="0.4828326" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3250283" sideWeight="0.4828326" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2729332" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2054721" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28187135" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17650215" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3299356" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="SciView" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3299356" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23229614" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.398641" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -575,11 +654,11 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3250283" sideWeight="0.5171674" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2877193" sideWeight="0.4828326" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3250283" sideWeight="0.4828326" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2729332" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2027897" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28187135" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26732674" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3299356" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -588,8 +667,8 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23229614" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Concurrent Activities Diagram" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32842582" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.398641" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
     </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -653,55 +732,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/static/front/js/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="166">
-          <caret line="64" column="44" lean-forward="false" selection-start-line="64" selection-start-column="41" selection-end-line="64" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/front/js/follow.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="166">
-          <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/front/js/all_users.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/front/js/apost.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-39">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/front/js/chat.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="142">
-          <caret line="24" column="55" lean-forward="false" selection-start-line="24" selection-start-column="55" selection-end-line="24" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/front/js/forgetpwd.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="166">
-          <caret line="68" column="0" lean-forward="false" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/front/js/hot_users.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="166">
-          <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/static/front/js/information.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="144">
@@ -723,13 +753,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/front/js/send-msg.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-240">
-          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/static/front/js/setting.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="24">
@@ -741,13 +764,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-39">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/front/js/signup.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="38" column="0" lean-forward="false" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -867,7 +883,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-288">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -878,13 +893,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/admin/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-303">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/app/admin/models.py" />
     <entry file="file://$PROJECT_DIR$/static/admin/js/cms_posts.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="192">
@@ -896,7 +905,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="384">
           <caret line="40" column="54" lean-forward="false" selection-start-line="40" selection-start-column="49" selection-end-line="40" selection-end-column="54" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -907,60 +915,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/front/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="236">
-          <caret line="227" column="16" lean-forward="false" selection-start-line="227" selection-start-column="12" selection-end-line="227" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/common/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="358">
-          <caret line="80" column="37" lean-forward="true" selection-start-line="80" selection-start-column="8" selection-end-line="80" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/front/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="18" column="13" lean-forward="false" selection-start-line="18" selection-start-column="4" selection-end-line="18" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/app/front/views.py" />
+    <entry file="file://$PROJECT_DIR$/app/common/views.py" />
+    <entry file="file://$PROJECT_DIR$/app/front/models.py" />
     <entry file="file://$PROJECT_DIR$/templates/admin/cms_comments.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="192">
           <caret line="11" column="53" lean-forward="false" selection-start-line="11" selection-start-column="50" selection-end-line="11" selection-end-column="53" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/common/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1128">
-          <caret line="115" column="43" lean-forward="false" selection-start-line="115" selection-start-column="43" selection-end-line="115" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/album/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="38" column="56" lean-forward="false" selection-start-line="38" selection-start-column="50" selection-end-line="38" selection-end-column="56" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/admin/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="594">
-          <caret line="432" column="15" lean-forward="false" selection-start-line="432" selection-start-column="15" selection-end-line="432" selection-end-column="15" />
-          <folding>
-            <element signature="e#16#100#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/app/common/models.py" />
+    <entry file="file://$PROJECT_DIR$/app/album/models.py" />
+    <entry file="file://$PROJECT_DIR$/app/admin/views.py" />
     <entry file="file://$PROJECT_DIR$/static/admin/css/cms_base.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-100">
@@ -987,7 +954,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-445">
           <caret line="34" column="28" lean-forward="true" selection-start-line="34" selection-start-column="28" selection-end-line="34" selection-end-column="28" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -999,18 +965,87 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test.py">
+    <entry file="file://$PROJECT_DIR$/test.py" />
+    <entry file="file://$PROJECT_DIR$/requirements.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="156" column="26" lean-forward="true" selection-start-line="156" selection-start-column="26" selection-end-line="156" selection-end-column="26" />
+        <state relative-caret-position="1128">
+          <caret line="47" column="16" lean-forward="false" selection-start-line="47" selection-start-column="16" selection-end-line="47" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/front/tools.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="614">
+          <caret line="79" column="0" lean-forward="false" selection-start-line="79" selection-start-column="0" selection-end-line="79" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/admin/cms_front_users.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-10">
-          <caret line="14" column="30" lean-forward="true" selection-start-line="14" selection-start-column="30" selection-end-line="14" selection-end-column="30" />
+        <state relative-caret-position="144">
+          <caret line="16" column="31" lean-forward="false" selection-start-line="16" selection-start-column="31" selection-end-line="16" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="469">
+          <caret line="41" column="15" lean-forward="false" selection-start-line="41" selection-start-column="15" selection-end-line="41" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utils/mychache.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="8" column="1" lean-forward="false" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tasks.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="516">
+          <caret line="31" column="22" lean-forward="true" selection-start-line="31" selection-start-column="22" selection-end-line="31" selection-end-column="22" />
+          <folding>
+            <element signature="e#71#96#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/common/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1215">
+          <caret line="76" column="11" lean-forward="false" selection-start-line="76" selection-start-column="11" selection-end-line="76" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mycms.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="35" column="46" lean-forward="true" selection-start-line="35" selection-start-column="46" selection-end-line="35" selection-end-column="46" />
+          <folding>
+            <element signature="e#17#52#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/front/js/send-msg.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="15" column="42" lean-forward="false" selection-start-line="15" selection-start-column="34" selection-end-line="15" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/front/js/signup.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="312">
+          <caret line="37" column="22" lean-forward="true" selection-start-line="37" selection-start-column="22" selection-end-line="37" selection-end-column="22" />
           <folding />
         </state>
       </provider>
