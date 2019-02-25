@@ -33,3 +33,4 @@ flask大型cms系统
 Vue首页加载流程(https://blog.csdn.net/qq_42239520/article/details/82561071)
 flask_paginate分页流程(https://blog.csdn.net/qq_42239520/article/details/80378095)
 
+>celery email task
