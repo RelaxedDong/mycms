@@ -2,7 +2,7 @@
 import oss2
 import os, sys
 from datetime import datetime
-auth = oss2.Auth('LTAIkjj8twuSyGfv','EI8KJb6iCpPAytr4mqd4u3Zm9fNsh9')
+auth = oss2.Auth('xxx','xxx')
 
 bucket = oss2.Bucket(auth,'oss-cn-beijing.aliyuncs.com','donghaocms')
 
