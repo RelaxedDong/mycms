@@ -23,7 +23,7 @@ MAIL_SERVER = "smtp.qq.com"
 MAIL_PORT = "587"
 MAIL_USE_TLS = True
 MAIL_USERNAME = "pepper.hot@qq.com"
-MAIL_PASSWORD = "saermqhvzvavgfda"
+MAIL_PASSWORD = "your_password"
 MAIL_DEFAULT_SENDER = "pepper.hot@qq.com"
 
 
@@ -38,5 +38,5 @@ PERPAGE = 10
 
 Album_PERPAGE = 10
 
-CELERY_BROKER_URL = 'redis://127.0.0.1:6379/0'
+
 CELERY_BROKER_URL = 'redis://127.0.0.1:6379/0'
