@@ -31,7 +31,7 @@ flask_paginate分页流程(https://blog.csdn.net/qq_42239520/article/details/803
 >celery email task
 
 `前台部分展示：`
-![在这里插入图片描述](https://flask-callback.oss-cn-hangzhou.aliyuncs.com/99.gif)
+GIF: https://flask-callback.oss-cn-hangzhou.aliyuncs.com/99.gif
 
 `后台部分截图：`
 
