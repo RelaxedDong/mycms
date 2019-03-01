@@ -4,11 +4,6 @@
 
 `大型FLask CMS管理系统`
 
-项目走的Flask2路线，需要的直接fork一下。以及对flask2的延伸。
-[![](http://www.donghao.club/static/front/images/x.png)](http://www.donghao.club/)
-
-
-
 [项目演示地址](http://www.donghao.club/ "点击进入")
 
 demo:账号（邮箱:  `user10@qq.com`   密码：`111111`   ）
@@ -34,3 +29,10 @@ Vue首页加载流程(https://blog.csdn.net/qq_42239520/article/details/82561071
 flask_paginate分页流程(https://blog.csdn.net/qq_42239520/article/details/80378095)
 
 >celery email task
+
+前台部分展示：
+![在这里插入图片描述](https://flask-callback.oss-cn-hangzhou.aliyuncs.com/99.gif)
+后台部分截图：
+![在这里插入图片描述](https://img-blog.csdnimg.cn/2019030121564570.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyMjM5NTIw,size_16,color_FFFFFF,t_70)
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20190301215701465.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyMjM5NTIw,size_16,color_FFFFFF,t_70)
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20190301215731214.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyMjM5NTIw,size_16,color_FFFFFF,t_70)
