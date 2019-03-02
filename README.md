@@ -24,9 +24,12 @@ flask大型cms系统
 邮箱注册: flask_email  邮件支持流程(https://blog.csdn.net/qq_42239520/article/details/80368733)
 
 邮箱验证码：redis
+
+celery email task
 ...... 
+
 ```
->celery email task
+
 
 ** How to use **
 ```bash
