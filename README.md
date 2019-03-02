@@ -1,7 +1,3 @@
-
-[![Open Source Love](https://badges.frapsoft.com/os/v2/open-source.png?v=103)](http://www.donghao.club/)
-
-
 `大型FLask CMS管理系统`
 
 flask大型cms系统
