@@ -26,10 +26,29 @@ flask大型cms系统
 邮箱验证码：redis
 ...... 
 ```
-
-分页
-
 >celery email task
+
+** How to use **
+```bash
+# 克隆到本地
+git clone https://github.com/1417766861/mycms
+
+# 安装依赖
+pip install -r requiremets.text
+
+# 数据库迁移
+python manage.py db migrate
+
+# 映射数据库
+python manage.py db upgrade
+
+#管理员创建：
+python manage.py add_cms_user -u your_username -p your_passowrd -e your_email
+
+#快捷创建前端用户
+python manage.py add_front_user -u your_username -p your_passowrd -e your_email
+
+```
 
 `前台部分展示：`
 GIF: https://flask-callback.oss-cn-hangzhou.aliyuncs.com/99.gif
