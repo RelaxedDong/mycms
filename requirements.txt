@@ -53,5 +53,5 @@ urllib3==1.22
 virtualenv==15.1.0
 virtualenvwrapper-win==1.2.5
 webencodings==0.5.1
-Werkzeug==0.14.1
+Werkzeug==0.15.3
 WTForms==2.1
