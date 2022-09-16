@@ -30,7 +30,7 @@ jupyter-echarts-pypkg==0.1.2
 lml==0.0.2
 lxml==4.2.1
 macropy3==1.1.0b2
-Mako==1.0.7
+Mako==1.2.2
 MarkupSafe==1.0
 oss2==2.4.0
 Pillow==5.1.0
